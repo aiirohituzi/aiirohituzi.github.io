@@ -71,3 +71,5 @@ deploy:
   type: git
   repo: https://github.com/aiirohituzi/aiirohituzi.github.io.git
 
+#Disqus
+disqus_shortname: aiirohituzi
