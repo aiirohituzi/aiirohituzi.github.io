@@ -50,7 +50,7 @@
         
           <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Søk"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://aiirohituzi.github.io"></form>
@@ -60,6 +60,74 @@
 </header>
       <div class="outer">
         <section id="main">
+  
+    <article id="post-django-install" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/04/22/django-install/" class="article-date">
+  <time datetime="2017-04-22T13:35:30.000Z" itemprop="datePublished">2017-04-22</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/04/22/django-install/">django 설치방법</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>먼저 <strong><em>virtualenv</em></strong> 를 설치 후 가상환경으로 들어간다.<br>(<a href="https://aiirohituzi.github.io/2017/04/10/python-virtualenv/">가상환경 설치방법</a>)</p>
+<p>pip 를 따로 설치하지 않았어도 python 가상환경 내에 구성되어있기 때문에 pip를 이용하여 손쉽게 django를 설치할 수 있다.</p>
+<ul>
+<li><p>설치 명령어</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ pip install django</div><div class="line">    최신버젼으로 알아서 설치한다.</div><div class="line">$ pip install django==x.x</div><div class="line">    따로 원하는 버젼을 지정하여 설치할 수 도 있다.</div></pre></td></tr></table></figure>
+</li>
+<li><p>프로젝트 생성</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">$ django-admin startproject 프로젝트명</div><div class="line"></div><div class="line">프로젝트명/</div><div class="line">├── manage.py</div><div class="line">└── pystagram</div><div class="line">    ├── __init__.py</div><div class="line">    ├── settings.py</div><div class="line">    ├── urls.py</div><div class="line">    └── wsgi.py</div><div class="line"></div><div class="line">위와 같은 구조로 파일이 생성된다.</div></pre></td></tr></table></figure>
+</li>
+<li><p>앱 생성<br>django에서는 프로젝트 내부의 각각의 기능들을 앱별로 나누어서 관리한다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ python manage.py startapp 앱명칭</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="그-외-기본적인-django-관련-명령어"><a href="#그-외-기본적인-django-관련-명령어" class="headerlink" title="그 외 기본적인 django 관련 명령어"></a>그 외 기본적인 django 관련 명령어</h3><ul>
+<li>개발용 웹서버 실행<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ python manage.py runserver</div><div class="line">    전달인자가 없을 경우 호스트는 127.0.0.1, 포트는 8000을 사용</div><div class="line">$ python manage.py runserver 127.0.0.1:8080</div><div class="line">    바꾸고 싶다면 따로 지정하여 명령할 수 있다.</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>서버가 성공적으로 실행됐다면 브라우저의 url에 127.0.0.1:8000 혹은<br>localhost:8000 을 입력하여 접근할 수 있다.</p>
+<ul>
+<li><p>데이터베이스 동기화<br>django framework 에서 제공하는 도구가 사용하는 데이터베이스 관련작업을 자동으로 진행</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ python manage.py migrate</div></pre></td></tr></table></figure>
+</li>
+<li><p>최고 권한 이용자 생성</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">$ python manage.py createsuperuser</div><div class="line">Username (leave blank to use &apos;*****&apos;): admin</div><div class="line">Email address: </div><div class="line">Password:</div><div class="line">Password (again):</div><div class="line">Superuser created successfully.</div></pre></td></tr></table></figure>
+</li>
+<li><p>사용자의 비밀번호 변경</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ python manage.py changepassword admin</div></pre></td></tr></table></figure></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://aiirohituzi.github.io/2017/04/22/django-install/" data-id="cj1tbsmnj0003pcw5u35shctk" class="article-share-link">Share</a>
+      
+        <a href="http://aiirohituzi.github.io/2017/04/22/django-install/#disqus_thread" class="article-comment-link">Kommentarer</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python-django/">python, django</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
   
     <article id="post-MAC-hotkey" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
@@ -95,9 +163,9 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://aiirohituzi.github.io/2017/04/21/MAC-hotkey/" data-id="cj1rspk360000d4w5j200hkoh" class="article-share-link">Share</a>
+      <a data-url="http://aiirohituzi.github.io/2017/04/21/MAC-hotkey/" data-id="cj1tbsmne0001pcw5ke6cpxzi" class="article-share-link">Share</a>
       
-        <a href="http://aiirohituzi.github.io/2017/04/21/MAC-hotkey/#disqus_thread" class="article-comment-link">Comments</a>
+        <a href="http://aiirohituzi.github.io/2017/04/21/MAC-hotkey/#disqus_thread" class="article-comment-link">Kommentarer</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/macOS/">macOS</a></li></ul>
@@ -152,9 +220,9 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://aiirohituzi.github.io/2017/04/13/HTML5-localStorage/" data-id="cj1rspk410008d4w5t0gvn1t3" class="article-share-link">Share</a>
+      <a data-url="http://aiirohituzi.github.io/2017/04/13/HTML5-localStorage/" data-id="cj1tbsmna0000pcw5k7klxjr3" class="article-share-link">Share</a>
       
-        <a href="http://aiirohituzi.github.io/2017/04/13/HTML5-localStorage/#disqus_thread" class="article-comment-link">Comments</a>
+        <a href="http://aiirohituzi.github.io/2017/04/13/HTML5-localStorage/#disqus_thread" class="article-comment-link">Kommentarer</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HTML5-localStorage/">HTML5, localStorage</a></li></ul>
@@ -210,9 +278,9 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://aiirohituzi.github.io/2017/04/13/React-js-Component-Lifecycle-API/" data-id="cj1rspk3q0003d4w5sm956yim" class="article-share-link">Share</a>
+      <a data-url="http://aiirohituzi.github.io/2017/04/13/React-js-Component-Lifecycle-API/" data-id="cj1tbsmnu000bpcw5ilu9s18n" class="article-share-link">Share</a>
       
-        <a href="http://aiirohituzi.github.io/2017/04/13/React-js-Component-Lifecycle-API/#disqus_thread" class="article-comment-link">Comments</a>
+        <a href="http://aiirohituzi.github.io/2017/04/13/React-js-Component-Lifecycle-API/#disqus_thread" class="article-comment-link">Kommentarer</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React-js-Lifecycle/">React.js, Lifecycle</a></li></ul>
@@ -272,9 +340,9 @@ deactivate
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://aiirohituzi.github.io/2017/04/10/python-virtualenv/" data-id="cj1rspk43000bd4w5tn8g7lyz" class="article-share-link">Share</a>
+      <a data-url="http://aiirohituzi.github.io/2017/04/10/python-virtualenv/" data-id="cj1tbsmnq0009pcw5at1z9eou" class="article-share-link">Share</a>
       
-        <a href="http://aiirohituzi.github.io/2017/04/10/python-virtualenv/#disqus_thread" class="article-comment-link">Comments</a>
+        <a href="http://aiirohituzi.github.io/2017/04/10/python-virtualenv/#disqus_thread" class="article-comment-link">Kommentarer</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python-virtualenv/">python, virtualenv</a></li></ul>
@@ -338,9 +406,9 @@ deactivate
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://aiirohituzi.github.io/2017/03/19/markdown/" data-id="cj1rspk3t0004d4w5cm8939ey" class="article-share-link">Share</a>
+      <a data-url="http://aiirohituzi.github.io/2017/03/19/markdown/" data-id="cj1tbsmnm0004pcw51s73muor" class="article-share-link">Share</a>
       
-        <a href="http://aiirohituzi.github.io/2017/03/19/markdown/#disqus_thread" class="article-comment-link">Comments</a>
+        <a href="http://aiirohituzi.github.io/2017/03/19/markdown/#disqus_thread" class="article-comment-link">Kommentarer</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/markdown/">markdown</a></li></ul>
@@ -378,9 +446,9 @@ deactivate
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://aiirohituzi.github.io/2017/03/18/posting-test/" data-id="cj1rspk3y0007d4w5vc3h6sy1" class="article-share-link">Share</a>
+      <a data-url="http://aiirohituzi.github.io/2017/03/18/posting-test/" data-id="cj1tbsmnp0008pcw5lf6xfm3h" class="article-share-link">Share</a>
       
-        <a href="http://aiirohituzi.github.io/2017/03/18/posting-test/#disqus_thread" class="article-comment-link">Comments</a>
+        <a href="http://aiirohituzi.github.io/2017/03/18/posting-test/#disqus_thread" class="article-comment-link">Kommentarer</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/test-git-hexo/">test, git, hexo</a></li></ul>
@@ -427,9 +495,9 @@ deactivate
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://aiirohituzi.github.io/2017/03/17/hello-world/" data-id="cj1rspk3v0006d4w5xf6nft3w" class="article-share-link">Share</a>
+      <a data-url="http://aiirohituzi.github.io/2017/03/17/hello-world/" data-id="cj1tbsmnn0005pcw574i61vtb" class="article-share-link">Share</a>
       
-        <a href="http://aiirohituzi.github.io/2017/03/17/hello-world/#disqus_thread" class="article-comment-link">Comments</a>
+        <a href="http://aiirohituzi.github.io/2017/03/17/hello-world/#disqus_thread" class="article-comment-link">Kommentarer</a>
       
       
     </footer>
@@ -451,7 +519,7 @@ deactivate
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML5-localStorage/">HTML5, localStorage</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React-js-Lifecycle/">React.js, Lifecycle</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/macOS/">macOS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/markdown/">markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python-virtualenv/">python, virtualenv</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/test-git-hexo/">test, git, hexo</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML5-localStorage/">HTML5, localStorage</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React-js-Lifecycle/">React.js, Lifecycle</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/macOS/">macOS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/markdown/">markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python-django/">python, django</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python-virtualenv/">python, virtualenv</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/test-git-hexo/">test, git, hexo</a></li></ul>
     </div>
   </div>
 
@@ -461,14 +529,14 @@ deactivate
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/HTML5-localStorage/" style="font-size: 10px;">HTML5, localStorage</a> <a href="/tags/React-js-Lifecycle/" style="font-size: 10px;">React.js, Lifecycle</a> <a href="/tags/macOS/" style="font-size: 10px;">macOS</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/python-virtualenv/" style="font-size: 10px;">python, virtualenv</a> <a href="/tags/test-git-hexo/" style="font-size: 10px;">test, git, hexo</a>
+      <a href="/tags/HTML5-localStorage/" style="font-size: 10px;">HTML5, localStorage</a> <a href="/tags/React-js-Lifecycle/" style="font-size: 10px;">React.js, Lifecycle</a> <a href="/tags/macOS/" style="font-size: 10px;">macOS</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/python-django/" style="font-size: 10px;">python, django</a> <a href="/tags/python-virtualenv/" style="font-size: 10px;">python, virtualenv</a> <a href="/tags/test-git-hexo/" style="font-size: 10px;">test, git, hexo</a>
     </div>
   </div>
 
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
+    <h3 class="widget-title">Arkiv</h3>
     <div class="widget">
       <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a></li></ul>
     </div>
@@ -478,9 +546,13 @@ deactivate
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
+    <h3 class="widget-title">Siste innlegg</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2017/04/22/django-install/">django 설치방법</a>
+          </li>
         
           <li>
             <a href="/2017/04/21/MAC-hotkey/">macOS 헷갈리는 특수키들</a>
@@ -496,10 +568,6 @@ deactivate
         
           <li>
             <a href="/2017/04/10/python-virtualenv/">Python 가상 환경 설치 (virtualenv)</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/19/markdown/">마크다운 기본 사용법</a>
           </li>
         
       </ul>

@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>django 설치방법 | aiirohituzi</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="먼저 virtualenv 를 설치 후 가상환경으로 들어간다.(가상환경 설치방법)
+pip 를 따로 설치하지 않았어도 python 가상환경 내에 구성되어있기 때문에 pip를 이용하여 손쉽게 django를 설치할 수 있다.
+
+설치 명령어
+1234$ pip install django    최신버젼으로 알아서 설치한다.$ pip install django==x.x">
+<meta property="og:type" content="article">
+<meta property="og:title" content="django 설치방법">
+<meta property="og:url" content="http://aiirohituzi.github.io/2017/04/22/django-install/index.html">
+<meta property="og:site_name" content="aiirohituzi">
+<meta property="og:description" content="먼저 virtualenv 를 설치 후 가상환경으로 들어간다.(가상환경 설치방법)
+pip 를 따로 설치하지 않았어도 python 가상환경 내에 구성되어있기 때문에 pip를 이용하여 손쉽게 django를 설치할 수 있다.
+
+설치 명령어
+1234$ pip install django    최신버젼으로 알아서 설치한다.$ pip install django==x.x">
+<meta property="og:updated_time" content="2017-04-22T13:53:43.561Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="django 설치방법">
+<meta name="twitter:description" content="먼저 virtualenv 를 설치 후 가상환경으로 들어간다.(가상환경 설치방법)
+pip 를 따로 설치하지 않았어도 python 가상환경 내에 구성되어있기 때문에 pip를 이용하여 손쉽게 django를 설치할 수 있다.
+
+설치 명령어
+1234$ pip install django    최신버젼으로 알아서 설치한다.$ pip install django==x.x">
+  
+    <link rel="alternate" href="/atom.xml" title="aiirohituzi" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">aiirohituzi</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Søk"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://aiirohituzi.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-django-install" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/04/22/django-install/" class="article-date">
+  <time datetime="2017-04-22T13:35:30.000Z" itemprop="datePublished">2017-04-22</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      django 설치방법
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>먼저 <strong><em>virtualenv</em></strong> 를 설치 후 가상환경으로 들어간다.<br>(<a href="https://aiirohituzi.github.io/2017/04/10/python-virtualenv/">가상환경 설치방법</a>)</p>
+<p>pip 를 따로 설치하지 않았어도 python 가상환경 내에 구성되어있기 때문에 pip를 이용하여 손쉽게 django를 설치할 수 있다.</p>
+<ul>
+<li><p>설치 명령어</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ pip install django</div><div class="line">    최신버젼으로 알아서 설치한다.</div><div class="line">$ pip install django==x.x</div><div class="line">    따로 원하는 버젼을 지정하여 설치할 수 도 있다.</div></pre></td></tr></table></figure>
+</li>
+<li><p>프로젝트 생성</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">$ django-admin startproject 프로젝트명</div><div class="line"></div><div class="line">프로젝트명/</div><div class="line">├── manage.py</div><div class="line">└── pystagram</div><div class="line">    ├── __init__.py</div><div class="line">    ├── settings.py</div><div class="line">    ├── urls.py</div><div class="line">    └── wsgi.py</div><div class="line"></div><div class="line">위와 같은 구조로 파일이 생성된다.</div></pre></td></tr></table></figure>
+</li>
+<li><p>앱 생성<br>django에서는 프로젝트 내부의 각각의 기능들을 앱별로 나누어서 관리한다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ python manage.py startapp 앱명칭</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="그-외-기본적인-django-관련-명령어"><a href="#그-외-기본적인-django-관련-명령어" class="headerlink" title="그 외 기본적인 django 관련 명령어"></a>그 외 기본적인 django 관련 명령어</h3><ul>
+<li>개발용 웹서버 실행<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ python manage.py runserver</div><div class="line">    전달인자가 없을 경우 호스트는 127.0.0.1, 포트는 8000을 사용</div><div class="line">$ python manage.py runserver 127.0.0.1:8080</div><div class="line">    바꾸고 싶다면 따로 지정하여 명령할 수 있다.</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>서버가 성공적으로 실행됐다면 브라우저의 url에 127.0.0.1:8000 혹은<br>localhost:8000 을 입력하여 접근할 수 있다.</p>
+<ul>
+<li><p>데이터베이스 동기화<br>django framework 에서 제공하는 도구가 사용하는 데이터베이스 관련작업을 자동으로 진행</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ python manage.py migrate</div></pre></td></tr></table></figure>
+</li>
+<li><p>최고 권한 이용자 생성</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">$ python manage.py createsuperuser</div><div class="line">Username (leave blank to use &apos;*****&apos;): admin</div><div class="line">Email address: </div><div class="line">Password:</div><div class="line">Password (again):</div><div class="line">Superuser created successfully.</div></pre></td></tr></table></figure>
+</li>
+<li><p>사용자의 비밀번호 변경</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ python manage.py changepassword admin</div></pre></td></tr></table></figure></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://aiirohituzi.github.io/2017/04/22/django-install/" data-id="cj1tbsmnj0003pcw5u35shctk" class="article-share-link">Share</a>
+      
+        <a href="http://aiirohituzi.github.io/2017/04/22/django-install/#disqus_thread" class="article-comment-link">Kommentarer</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python-django/">python, django</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2017/04/21/MAC-hotkey/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">macOS 헷갈리는 특수키들</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML5-localStorage/">HTML5, localStorage</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React-js-Lifecycle/">React.js, Lifecycle</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/macOS/">macOS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/markdown/">markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python-django/">python, django</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python-virtualenv/">python, virtualenv</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/test-git-hexo/">test, git, hexo</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/HTML5-localStorage/" style="font-size: 10px;">HTML5, localStorage</a> <a href="/tags/React-js-Lifecycle/" style="font-size: 10px;">React.js, Lifecycle</a> <a href="/tags/macOS/" style="font-size: 10px;">macOS</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/python-django/" style="font-size: 10px;">python, django</a> <a href="/tags/python-virtualenv/" style="font-size: 10px;">python, virtualenv</a> <a href="/tags/test-git-hexo/" style="font-size: 10px;">test, git, hexo</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Arkiv</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Siste innlegg</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/04/22/django-install/">django 설치방법</a>
+          </li>
+        
+          <li>
+            <a href="/2017/04/21/MAC-hotkey/">macOS 헷갈리는 특수키들</a>
+          </li>
+        
+          <li>
+            <a href="/2017/04/13/HTML5-localStorage/">HTML5 - localStorage</a>
+          </li>
+        
+          <li>
+            <a href="/2017/04/13/React-js-Component-Lifecycle-API/">React.js Component Lifecycle API</a>
+          </li>
+        
+          <li>
+            <a href="/2017/04/10/python-virtualenv/">Python 가상 환경 설치 (virtualenv)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 aiirohituzi<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+<script>
+  var disqus_shortname = 'aiirohituzi';
+  
+  var disqus_url = 'http://aiirohituzi.github.io/2017/04/22/django-install/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
