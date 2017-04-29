@@ -59,7 +59,7 @@ shouldComponentUpdate(nextProps, nextStage) {
     return true;
 }
 ```
-props/state 병경 시 리렌더링 여부를 결정
+props/state 변경 시 리렌더링 여부를 결정
 실제 사용 시 필요한 비교를 하고 값을 반환해야 한다
 (ex: return nextProps.id !== this.props.id)
 JSON.stringify 를 사용하여 여러 field를 편하게 비교
