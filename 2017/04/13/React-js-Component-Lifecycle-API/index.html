@@ -20,7 +20,7 @@ constructor1234constructor(props) &amp;#123;    super(props);    console.log(&qu
 컴포넌트 첫 생성 시 실행기본 state 를 설정 할 수 있다
 componentWillMount123componentW">
 <meta property="og:image" content="https://www.inflearn.com/wp-content/uploads/Screenshot-from-2016-12-10-00-21-26-1.png">
-<meta property="og:updated_time" content="2017-04-13T11:25:03.804Z">
+<meta property="og:updated_time" content="2017-04-29T17:23:50.822Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="React.js Component Lifecycle API">
 <meta name="twitter:description" content="출처 : inflearn - VELOPERT의 React.js 강좌
@@ -110,7 +110,7 @@ componentWillMount123componentW">
 <h2 id="componentWillReceiveProps"><a href="#componentWillReceiveProps" class="headerlink" title="componentWillReceiveProps"></a>componentWillReceiveProps</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">componentWillReceiveProps(nextProps) &#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">"componentWillReceiveProps: "</span> + <span class="built_in">JSON</span>.stringify(nextProps));</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>props를 받을 때 실행<br>props에 따라 state를 업데이트 할 때 사용하면 유용<br>내부에서 setState 사용 가능<br>아직 props를 받지 않은 상태이므로 미리 받을 props를 nextProps를 통해 접근</p>
 <h2 id="shouldComponentUpdate"><a href="#shouldComponentUpdate" class="headerlink" title="shouldComponentUpdate"></a>shouldComponentUpdate</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">shouldComponentUpdate(nextProps, nextStage) &#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">"shouldComponentUpdate: "</span> + <span class="built_in">JSON</span>.stringify(nextProps)) + <span class="string">" "</span> + <span class="built_in">JSON</span>. stringify(nextState);</div><div class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>props/state 병경 시 리렌더링 여부를 결정<br>실제 사용 시 필요한 비교를 하고 값을 반환해야 한다<br>(ex: return nextProps.id !== this.props.id)<br>JSON.stringify 를 사용하여 여러 field를 편하게 비교</p>
+<p>props/state 변경 시 리렌더링 여부를 결정<br>실제 사용 시 필요한 비교를 하고 값을 반환해야 한다<br>(ex: return nextProps.id !== this.props.id)<br>JSON.stringify 를 사용하여 여러 field를 편하게 비교</p>
 <h2 id="componentWillUpdate"><a href="#componentWillUpdate" class="headerlink" title="componentWillUpdate"></a>componentWillUpdate</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">componentWillUpdate(nextProps, nextState) &#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">"componentWillUpdate: "</span> + <span class="built_in">JSON</span>.stringify(nextProps) + <span class="string">" "</span> + <span class="built_in">JSON</span>.stringify(nextState));</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>컴포넌트 업데이트 전 실행<br>여기서 절대로 setState를 사용하지 말 것</p>
 <h2 id="componentDidUpdate"><a href="#componentDidUpdate" class="headerlink" title="componentDidUpdate"></a>componentDidUpdate</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">componentDidUpdate(prevProps, prevState) &#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">"componentDidUpdate: "</span> + <span class="built_in">JSON</span>.stringify(prevProps) + <span class="string">" "</span> + <span class="built_in">JSON</span>.stringify(prevState));</div><div class="line">&#125;</div></pre></td></tr></table></figure>
@@ -121,7 +121,7 @@ componentWillMount123componentW">
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://aiirohituzi.github.io/2017/04/13/React-js-Component-Lifecycle-API/" data-id="cj23bnk1z0009x4w50wlclskc" class="article-share-link">Share</a>
+      <a data-url="http://aiirohituzi.github.io/2017/04/13/React-js-Component-Lifecycle-API/" data-id="cj23jwkk60004c8w5f5lbgzoq" class="article-share-link">Share</a>
       
         <a href="http://aiirohituzi.github.io/2017/04/13/React-js-Component-Lifecycle-API/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -171,7 +171,7 @@ componentWillMount123componentW">
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CORS-Cross-Origin-Resource-Sharing/">CORS, Cross Origin Resource Sharing</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML5-localStorage/">HTML5, localStorage</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React-js-Lifecycle/">React.js, Lifecycle</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/macOS/">macOS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/markdown/">markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python-django/">python, django</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python-virtualenv/">python, virtualenv</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/test-git-hexo/">test, git, hexo</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CORS-Cross-Origin-Resource-Sharing/">CORS, Cross Origin Resource Sharing</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML5-localStorage/">HTML5, localStorage</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React-js-Lifecycle/">React.js, Lifecycle</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/macOS/">macOS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/markdown/">markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python-django/">python, django</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python-virtualenv/">python, virtualenv</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/test-git-hexo/">test, git, hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webpack-babel-async-await/">webpack, babel, async, await</a></li></ul>
     </div>
   </div>
 
@@ -181,7 +181,7 @@ componentWillMount123componentW">
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/CORS-Cross-Origin-Resource-Sharing/" style="font-size: 10px;">CORS, Cross Origin Resource Sharing</a> <a href="/tags/HTML5-localStorage/" style="font-size: 10px;">HTML5, localStorage</a> <a href="/tags/React-js-Lifecycle/" style="font-size: 10px;">React.js, Lifecycle</a> <a href="/tags/macOS/" style="font-size: 10px;">macOS</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/python-django/" style="font-size: 10px;">python, django</a> <a href="/tags/python-virtualenv/" style="font-size: 10px;">python, virtualenv</a> <a href="/tags/test-git-hexo/" style="font-size: 10px;">test, git, hexo</a>
+      <a href="/tags/CORS-Cross-Origin-Resource-Sharing/" style="font-size: 10px;">CORS, Cross Origin Resource Sharing</a> <a href="/tags/HTML5-localStorage/" style="font-size: 10px;">HTML5, localStorage</a> <a href="/tags/React-js-Lifecycle/" style="font-size: 10px;">React.js, Lifecycle</a> <a href="/tags/macOS/" style="font-size: 10px;">macOS</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/python-django/" style="font-size: 10px;">python, django</a> <a href="/tags/python-virtualenv/" style="font-size: 10px;">python, virtualenv</a> <a href="/tags/test-git-hexo/" style="font-size: 10px;">test, git, hexo</a> <a href="/tags/webpack-babel-async-await/" style="font-size: 10px;">webpack, babel, async, await</a>
     </div>
   </div>
 
@@ -203,6 +203,10 @@ componentWillMount123componentW">
       <ul>
         
           <li>
+            <a href="/2017/04/30/async-await-webpack/">Webpack 개발서버에서 async/await 사용하기</a>
+          </li>
+        
+          <li>
             <a href="/2017/04/29/CORS/">CORS 관련 메모</a>
           </li>
         
@@ -216,10 +220,6 @@ componentWillMount123componentW">
         
           <li>
             <a href="/2017/04/13/HTML5-localStorage/">HTML5 - localStorage</a>
-          </li>
-        
-          <li>
-            <a href="/2017/04/13/React-js-Component-Lifecycle-API/">React.js Component Lifecycle API</a>
           </li>
         
       </ul>
