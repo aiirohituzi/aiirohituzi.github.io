@@ -3,57 +3,24 @@
 <head>
   <meta charset="utf-8">
   
-  <title>마크다운 기본 사용법 | aiirohituzi</title>
+  <title>Django request.body 관련 메모 | aiirohituzi</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="헤더
-큰 제목
-12큰 제목=========
-
-중간 제목
-12중간 제목-----------
-
-H1~H6
-123456# H1## H2### H3#### H4##### H5###### H6
-
-
-블럭 인용123&amp;gt; 문단&amp;gt;&amp;gt; 문단&amp;gt;&amp;gt;&amp;gt; 문단
-코드4개의 공백 또는 하나의 탭으로 들여쓰기를 만난 후 부터 들여쓰지 않은 행을 만날때까지
-(본">
+  <meta name="description" content="Django로 POST request 관련으로 간단한 api를 짜던 도중 문제가 발생Postman이라는 프로그램으로 POST 요청을 하면 정상적으로 데이터가 받아지는데 반해
+직접 만든 클라이언트측에서 axios를 통해 POST를 요청하면 QueryDict에 아무런 데이터도 받아지지 않는 현상이 일어났다.
+한참을 헤맨 결과 request.POST가 아닌 re">
 <meta property="og:type" content="article">
-<meta property="og:title" content="마크다운 기본 사용법">
-<meta property="og:url" content="http://aiirohituzi.github.io/2017/03/19/markdown/index.html">
+<meta property="og:title" content="Django request.body 관련 메모">
+<meta property="og:url" content="http://aiirohituzi.github.io/2017/05/17/django-request-body/index.html">
 <meta property="og:site_name" content="aiirohituzi">
-<meta property="og:description" content="헤더
-큰 제목
-12큰 제목=========
-
-중간 제목
-12중간 제목-----------
-
-H1~H6
-123456# H1## H2### H3#### H4##### H5###### H6
-
-
-블럭 인용123&amp;gt; 문단&amp;gt;&amp;gt; 문단&amp;gt;&amp;gt;&amp;gt; 문단
-코드4개의 공백 또는 하나의 탭으로 들여쓰기를 만난 후 부터 들여쓰지 않은 행을 만날때까지
-(본">
-<meta property="og:updated_time" content="2017-03-19T14:17:04.009Z">
+<meta property="og:description" content="Django로 POST request 관련으로 간단한 api를 짜던 도중 문제가 발생Postman이라는 프로그램으로 POST 요청을 하면 정상적으로 데이터가 받아지는데 반해
+직접 만든 클라이언트측에서 axios를 통해 POST를 요청하면 QueryDict에 아무런 데이터도 받아지지 않는 현상이 일어났다.
+한참을 헤맨 결과 request.POST가 아닌 re">
+<meta property="og:updated_time" content="2017-05-17T14:41:50.728Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="마크다운 기본 사용법">
-<meta name="twitter:description" content="헤더
-큰 제목
-12큰 제목=========
-
-중간 제목
-12중간 제목-----------
-
-H1~H6
-123456# H1## H2### H3#### H4##### H5###### H6
-
-
-블럭 인용123&amp;gt; 문단&amp;gt;&amp;gt; 문단&amp;gt;&amp;gt;&amp;gt; 문단
-코드4개의 공백 또는 하나의 탭으로 들여쓰기를 만난 후 부터 들여쓰지 않은 행을 만날때까지
-(본">
+<meta name="twitter:title" content="Django request.body 관련 메모">
+<meta name="twitter:description" content="Django로 POST request 관련으로 간단한 api를 짜던 도중 문제가 발생Postman이라는 프로그램으로 POST 요청을 하면 정상적으로 데이터가 받아지는데 반해
+직접 만든 클라이언트측에서 axios를 통해 POST를 요청하면 QueryDict에 아무런 데이터도 받아지지 않는 현상이 일어났다.
+한참을 헤맨 결과 request.POST가 아닌 re">
   
     <link rel="alternate" href="/atom.xml" title="aiirohituzi" type="application/atom+xml">
   
@@ -102,10 +69,10 @@ H1~H6
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-markdown" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-django-request-body" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2017/03/19/markdown/" class="article-date">
-  <time datetime="2017-03-19T13:41:41.000Z" itemprop="datePublished">2017-03-19</time>
+    <a href="/2017/05/17/django-request-body/" class="article-date">
+  <time datetime="2017-05-17T14:24:03.000Z" itemprop="datePublished">2017-05-17</time>
 </a>
     
   </div>
@@ -116,7 +83,7 @@ H1~H6
         
   
     <h1 class="article-title" itemprop="name">
-      마크다운 기본 사용법
+      Django request.body 관련 메모
     </h1>
   
 
@@ -124,42 +91,25 @@ H1~H6
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="헤더"><a href="#헤더" class="headerlink" title="헤더"></a>헤더</h2><ul>
-<li><p>큰 제목</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">큰 제목</div><div class="line">=========</div></pre></td></tr></table></figure>
-</li>
-<li><p>중간 제목</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">중간 제목</div><div class="line">-----------</div></pre></td></tr></table></figure>
-</li>
-<li><p>H1~H6</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"># H1</div><div class="line">## H2</div><div class="line">### H3</div><div class="line">#### H4</div><div class="line">##### H5</div><div class="line">###### H6</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<h2 id="블럭-인용"><a href="#블럭-인용" class="headerlink" title="블럭 인용"></a>블럭 인용</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&gt; 문단</div><div class="line">&gt;&gt; 문단</div><div class="line">&gt;&gt;&gt; 문단</div></pre></td></tr></table></figure>
-<h2 id="코드"><a href="#코드" class="headerlink" title="코드"></a>코드</h2><pre><code>4개의 공백 또는 하나의 탭으로 들여쓰기를 만난 후 부터 들여쓰지 않은 행을 만날때까지
-(본문과 같이 표현됨)
-</code></pre><h2 id="목록"><a href="#목록" class="headerlink" title="목록"></a>목록</h2><ul>
-<li><p>순서있는 목록</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">1. first</div><div class="line">2. second</div><div class="line">3. third</div></pre></td></tr></table></figure>
-</li>
-<li><p>순서없는 목록</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">*, +, -</div><div class="line">* 목록1</div><div class="line">* 목록2</div><div class="line">+ 목록1</div><div class="line">+ 목록2</div><div class="line">- 목록1</div><div class="line">- 목록2</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<h2 id="수평선"><a href="#수평선" class="headerlink" title="수평선"></a>수평선</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">* * *</div><div class="line">***</div><div class="line">*****</div><div class="line">- - -</div><div class="line">----------------------------</div></pre></td></tr></table></figure>
-<h2 id="강조"><a href="#강조" class="headerlink" title="강조"></a>강조</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">*이택릭체*, _이탤릭체_</div><div class="line">**볼드체**, __볼드체__</div><div class="line">~~취소선~~</div></pre></td></tr></table></figure>
-<h2 id="하이퍼링크"><a href="#하이퍼링크" class="headerlink" title="하이퍼링크"></a>하이퍼링크</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[링크명](URL), [링크명](URL &quot;설명&quot;)</div></pre></td></tr></table></figure>
-<p><a href="https://www.google.co.kr/" title="구글 링크" target="_blank" rel="external">링크 예시</a></p>
+        <h3 id="Django로-POST-request-관련으로-간단한-api를-짜던-도중-문제가-발생"><a href="#Django로-POST-request-관련으로-간단한-api를-짜던-도중-문제가-발생" class="headerlink" title="Django로 POST request 관련으로 간단한 api를 짜던 도중 문제가 발생"></a>Django로 POST request 관련으로 간단한 api를 짜던 도중 문제가 발생</h3><p>Postman이라는 프로그램으로 POST 요청을 하면 정상적으로 데이터가 받아지는데 반해</p>
+<p>직접 만든 클라이언트측에서 axios를 통해 POST를 요청하면 QueryDict에 아무런 데이터도 받아지지 않는 현상이 일어났다.</p>
+<p>한참을 헤맨 결과 request.POST가 아닌 request.body에 얻어지는 데이터를 직접 출력하여 원인을 발견했다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">Postman : </div><div class="line">b&apos;----------------------------418318425319320142162885\r\nContent-Disposition: form-data;name=&quot;user&quot;\r\n\r\n○○○○○\r\n----------------------------418318425319320142162885\r\nContent-Disposition: form-data; name=&quot;password&quot;\r\n\r\n○○○○○○○○\r\n----------------------------418318425319320142162885--\r\n&apos;</div><div class="line"></div><div class="line">axios : </div><div class="line">b&apos;&#123;&quot;user&quot;:&quot;○○○○○&quot;,&quot;password&quot;:&quot;○○○○○○○○&quot;&#125;&apos;</div></pre></td></tr></table></figure>
+<p>Postman의 경우 기본적으로 여러가지 설정이 되어있어 바로 django에서 이를 해석하고</p>
+<p>request.POST를 통해 얻어올 수 있지만 axios를 통해 보낸 경우 아무런 설정을 집어넣지 않은 채로</p>
+<p>요청하였기 때문에 문제가 발생했다.</p>
+<p>문제의 원인을 찾기가 힘들었을뿐이지 찾고나니 다행히 stackoverflow에서 손쉽게 해답을 얻을 수 있었다.</p>
+<p>Django는 JSON 페이로드를 실제로 비 직렬화하지 않으니 직접 body 데이터를 비 직렬화해서 얻어야 한다.<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> json</div><div class="line">...</div><div class="line"></div><div class="line">json.loads(request.body)</div></pre></td></tr></table></figure></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://aiirohituzi.github.io/2017/03/19/markdown/" data-id="cj2t35f3x000d7sw54tj7ujn8" class="article-share-link">Share</a>
+      <a data-url="http://aiirohituzi.github.io/2017/05/17/django-request-body/" data-id="cj2t35f3m00037sw5qb4u1idc" class="article-share-link">Share</a>
       
-        <a href="http://aiirohituzi.github.io/2017/03/19/markdown/#disqus_thread" class="article-comment-link">Comments</a>
+        <a href="http://aiirohituzi.github.io/2017/05/17/django-request-body/#disqus_thread" class="article-comment-link">Comments</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/markdown/">markdown</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/django-request-serialize/">django, request, serialize</a></li></ul>
 
     </footer>
   </div>
@@ -167,19 +117,10 @@ H1~H6
     
 <nav id="article-nav">
   
-    <a href="/2017/04/10/python-virtualenv/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          Python 가상 환경 설치 (virtualenv)
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/03/18/posting-test/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2017/04/30/async-await-webpack/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">포스팅 테스트</div>
+      <div class="article-nav-title">Webpack 개발서버에서 async/await 사용하기</div>
     </a>
   
 </nav>
@@ -284,7 +225,7 @@ H1~H6
 <script>
   var disqus_shortname = 'aiirohituzi';
   
-  var disqus_url = 'http://aiirohituzi.github.io/2017/03/19/markdown/';
+  var disqus_url = 'http://aiirohituzi.github.io/2017/05/17/django-request-body/';
   
   (function(){
     var dsq = document.createElement('script');
