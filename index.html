@@ -61,6 +61,60 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-django-db-insert" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/06/20/django-db-insert/" class="article-date">
+  <time datetime="2017-06-20T13:38:08.000Z" itemprop="datePublished">2017-06-20</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/06/20/django-db-insert/">django에서 데이터베이스에 Insert하기</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>클라이언트로부터 파라메터를 입력받아 request 가 날아오면</p>
+<p>그 데이터들을 이용하여 따로 query 를 짤 필요 없이 django 내장 함수들을 통해 처리할 수 있는</p>
+<p>방법이 있다. (이 방법이 더 쉬운지에 대해서는 개인차에 따라 다르니 본인이 좋다고 생각하는 방법을 사용하면 될듯)<br><br></p>
+<p>간단한 예시를 들어 설명하자면</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">postForm = PostForm(request.POST)</div></pre></td></tr></table></figure>
+<p>request 를 받을 함수 내에서 request 데이터를 받아 해당 model 의 Form 객체를 생성한다.</p>
+<p>이 때 request 로 넘어오는 파라메터 값의 명칭이 Form에 정의해놓은 명칭과 일치해야 자동으로 값을 입력한다.<br><br></p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> postForm.is_valid():</div><div class="line">    post_obj = postForm.save(commit=<span class="keyword">False</span>)      <span class="comment"># true일 경우 바로 데이터베이스에 적용, 현재 유저정보가 담기지 않았기에 not null 제약조건에 걸려 작업이 실패하므로 false</span></div><div class="line">    post_obj.owner_id = user_row.id</div><div class="line">    post_obj.save()                             <span class="comment"># obj.save(commit=True) 와 동일</span></div></pre></td></tr></table></figure>
+<p>그 후 Form.save() 라는 함수를 이용하여 DB에 바로 Insert 를 해줄 수 있다.</p>
+<p>인자로 commit 이란 것을 설정해줄 수 있는데, True 로 설정해놓았다면 그 즉시 Insert 작업을 시행하고</p>
+<p>False 라면 DB 에 넣을 준비가 되어있는 객체를 생성하여 받아올 수 있게된다.<br><br></p>
+<p>위의 예시의 경우 request 로 받지 않은 별도의 column 값을 입력하지 않아 Insert 에러가 발생하기 때문에</p>
+<p>따로 입력작업을 한번 더 거친 후,</p>
+<p>obj.save(commit=True) 함수를 통해 Insert 작업을 처리하는 모습이다.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://aiirohituzi.github.io/2017/06/20/django-db-insert/" data-id="cj45mqufh0009i8w5lxptu1tv" class="article-share-link">Share</a>
+      
+        <a href="http://aiirohituzi.github.io/2017/06/20/django-db-insert/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/django/">django</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-axios-useful" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2017/06/14/axios-useful/" class="article-date">
@@ -101,7 +155,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://aiirohituzi.github.io/2017/06/14/axios-useful/" data-id="cj3wt6txp0008asw59f5odrf9" class="article-share-link">Share</a>
+      <a data-url="http://aiirohituzi.github.io/2017/06/14/axios-useful/" data-id="cj45mqufe0005i8w5ov46x1uw" class="article-share-link">Share</a>
       
         <a href="http://aiirohituzi.github.io/2017/06/14/axios-useful/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -150,7 +204,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://aiirohituzi.github.io/2017/05/17/django-request-body/" data-id="cj3wt6ty4000basw5vu8h0w4c" class="article-share-link">Share</a>
+      <a data-url="http://aiirohituzi.github.io/2017/05/17/django-request-body/" data-id="cj45mqufl000bi8w5m9i7k0fb" class="article-share-link">Share</a>
       
         <a href="http://aiirohituzi.github.io/2017/05/17/django-request-body/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -203,7 +257,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://aiirohituzi.github.io/2017/04/30/async-await-webpack/" data-id="cj3wt6txp0005asw5mqssibpb" class="article-share-link">Share</a>
+      <a data-url="http://aiirohituzi.github.io/2017/04/30/async-await-webpack/" data-id="cj45mqufb0004i8w5ji9kbarr" class="article-share-link">Share</a>
       
         <a href="http://aiirohituzi.github.io/2017/04/30/async-await-webpack/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -252,7 +306,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://aiirohituzi.github.io/2017/04/29/CORS/" data-id="cj3wt6txl0000asw5szsvrsnb" class="article-share-link">Share</a>
+      <a data-url="http://aiirohituzi.github.io/2017/04/29/CORS/" data-id="cj45mquf20000i8w5561qhsj7" class="article-share-link">Share</a>
       
         <a href="http://aiirohituzi.github.io/2017/04/29/CORS/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -320,7 +374,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://aiirohituzi.github.io/2017/04/22/django-install/" data-id="cj3wt6txp0009asw5hyz9dcpe" class="article-share-link">Share</a>
+      <a data-url="http://aiirohituzi.github.io/2017/04/22/django-install/" data-id="cj45mqufm000di8w5f9c9rwd9" class="article-share-link">Share</a>
       
         <a href="http://aiirohituzi.github.io/2017/04/22/django-install/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -368,7 +422,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://aiirohituzi.github.io/2017/04/21/MAC-hotkey/" data-id="cj3wt6txp0003asw53iovqhdu" class="article-share-link">Share</a>
+      <a data-url="http://aiirohituzi.github.io/2017/04/21/MAC-hotkey/" data-id="cj45mqufa0003i8w5wo942ovm" class="article-share-link">Share</a>
       
         <a href="http://aiirohituzi.github.io/2017/04/21/MAC-hotkey/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -425,7 +479,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://aiirohituzi.github.io/2017/04/13/HTML5-localStorage/" data-id="cj3wt6txp0001asw5jq01c05u" class="article-share-link">Share</a>
+      <a data-url="http://aiirohituzi.github.io/2017/04/13/HTML5-localStorage/" data-id="cj45mquf60001i8w5a4hjfxsi" class="article-share-link">Share</a>
       
         <a href="http://aiirohituzi.github.io/2017/04/13/HTML5-localStorage/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -483,7 +537,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://aiirohituzi.github.io/2017/04/13/React-js-Component-Lifecycle-API/" data-id="cj3wt6txp0004asw5jpqh572z" class="article-share-link">Share</a>
+      <a data-url="http://aiirohituzi.github.io/2017/04/13/React-js-Component-Lifecycle-API/" data-id="cj45mqufg0008i8w518fm9wih" class="article-share-link">Share</a>
       
         <a href="http://aiirohituzi.github.io/2017/04/13/React-js-Component-Lifecycle-API/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -545,78 +599,12 @@ deactivate
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://aiirohituzi.github.io/2017/04/10/python-virtualenv/" data-id="cj3wt6ty4000jasw5weobgk2r" class="article-share-link">Share</a>
+      <a data-url="http://aiirohituzi.github.io/2017/04/10/python-virtualenv/" data-id="cj45mqufy000li8w54llwf0bd" class="article-share-link">Share</a>
       
         <a href="http://aiirohituzi.github.io/2017/04/10/python-virtualenv/#disqus_thread" class="article-comment-link">Comments</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python-virtualenv/">python, virtualenv</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-markdown" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/03/19/markdown/" class="article-date">
-  <time datetime="2017-03-19T13:41:41.000Z" itemprop="datePublished">2017-03-19</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/19/markdown/">마크다운 기본 사용법</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="헤더"><a href="#헤더" class="headerlink" title="헤더"></a>헤더</h2><ul>
-<li><p>큰 제목</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">큰 제목</div><div class="line">=========</div></pre></td></tr></table></figure>
-</li>
-<li><p>중간 제목</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">중간 제목</div><div class="line">-----------</div></pre></td></tr></table></figure>
-</li>
-<li><p>H1~H6</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"># H1</div><div class="line">## H2</div><div class="line">### H3</div><div class="line">#### H4</div><div class="line">##### H5</div><div class="line">###### H6</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<h2 id="블럭-인용"><a href="#블럭-인용" class="headerlink" title="블럭 인용"></a>블럭 인용</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&gt; 문단</div><div class="line">&gt;&gt; 문단</div><div class="line">&gt;&gt;&gt; 문단</div></pre></td></tr></table></figure>
-<h2 id="코드"><a href="#코드" class="headerlink" title="코드"></a>코드</h2><pre><code>4개의 공백 또는 하나의 탭으로 들여쓰기를 만난 후 부터 들여쓰지 않은 행을 만날때까지
-(본문과 같이 표현됨)
-</code></pre><h2 id="목록"><a href="#목록" class="headerlink" title="목록"></a>목록</h2><ul>
-<li><p>순서있는 목록</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">1. first</div><div class="line">2. second</div><div class="line">3. third</div></pre></td></tr></table></figure>
-</li>
-<li><p>순서없는 목록</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">*, +, -</div><div class="line">* 목록1</div><div class="line">* 목록2</div><div class="line">+ 목록1</div><div class="line">+ 목록2</div><div class="line">- 목록1</div><div class="line">- 목록2</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<h2 id="수평선"><a href="#수평선" class="headerlink" title="수평선"></a>수평선</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">* * *</div><div class="line">***</div><div class="line">*****</div><div class="line">- - -</div><div class="line">----------------------------</div></pre></td></tr></table></figure>
-<h2 id="강조"><a href="#강조" class="headerlink" title="강조"></a>강조</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">*이택릭체*, _이탤릭체_</div><div class="line">**볼드체**, __볼드체__</div><div class="line">~~취소선~~</div></pre></td></tr></table></figure>
-<h2 id="하이퍼링크"><a href="#하이퍼링크" class="headerlink" title="하이퍼링크"></a>하이퍼링크</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[링크명](URL), [링크명](URL &quot;설명&quot;)</div></pre></td></tr></table></figure>
-<p><a href="https://www.google.co.kr/" title="구글 링크" target="_blank" rel="external">링크 예시</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://aiirohituzi.github.io/2017/03/19/markdown/" data-id="cj3wt6ty4000dasw5a5nw9uhe" class="article-share-link">Share</a>
-      
-        <a href="http://aiirohituzi.github.io/2017/03/19/markdown/#disqus_thread" class="article-comment-link">Comments</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/markdown/">markdown</a></li></ul>
 
     </footer>
   </div>
@@ -641,7 +629,7 @@ deactivate
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CORS-Cross-Origin-Resource-Sharing/">CORS, Cross Origin Resource Sharing</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML5-localStorage/">HTML5, localStorage</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React-js-Lifecycle/">React.js, Lifecycle</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/axios/">axios</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/django-request-serialize/">django, request, serialize</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/macOS/">macOS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/markdown/">markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python-django/">python, django</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python-virtualenv/">python, virtualenv</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/test-git-hexo/">test, git, hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webpack-babel-async-await/">webpack, babel, async, await</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CORS-Cross-Origin-Resource-Sharing/">CORS, Cross Origin Resource Sharing</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML5-localStorage/">HTML5, localStorage</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React-js-Lifecycle/">React.js, Lifecycle</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/axios/">axios</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/django/">django</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/django-request-serialize/">django, request, serialize</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/macOS/">macOS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/markdown/">markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python-django/">python, django</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python-virtualenv/">python, virtualenv</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/test-git-hexo/">test, git, hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webpack-babel-async-await/">webpack, babel, async, await</a></li></ul>
     </div>
   </div>
 
@@ -651,7 +639,7 @@ deactivate
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/CORS-Cross-Origin-Resource-Sharing/" style="font-size: 10px;">CORS, Cross Origin Resource Sharing</a> <a href="/tags/HTML5-localStorage/" style="font-size: 10px;">HTML5, localStorage</a> <a href="/tags/React-js-Lifecycle/" style="font-size: 10px;">React.js, Lifecycle</a> <a href="/tags/axios/" style="font-size: 10px;">axios</a> <a href="/tags/django-request-serialize/" style="font-size: 10px;">django, request, serialize</a> <a href="/tags/macOS/" style="font-size: 10px;">macOS</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/python-django/" style="font-size: 10px;">python, django</a> <a href="/tags/python-virtualenv/" style="font-size: 10px;">python, virtualenv</a> <a href="/tags/test-git-hexo/" style="font-size: 10px;">test, git, hexo</a> <a href="/tags/webpack-babel-async-await/" style="font-size: 10px;">webpack, babel, async, await</a>
+      <a href="/tags/CORS-Cross-Origin-Resource-Sharing/" style="font-size: 10px;">CORS, Cross Origin Resource Sharing</a> <a href="/tags/HTML5-localStorage/" style="font-size: 10px;">HTML5, localStorage</a> <a href="/tags/React-js-Lifecycle/" style="font-size: 10px;">React.js, Lifecycle</a> <a href="/tags/axios/" style="font-size: 10px;">axios</a> <a href="/tags/django/" style="font-size: 10px;">django</a> <a href="/tags/django-request-serialize/" style="font-size: 10px;">django, request, serialize</a> <a href="/tags/macOS/" style="font-size: 10px;">macOS</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/python-django/" style="font-size: 10px;">python, django</a> <a href="/tags/python-virtualenv/" style="font-size: 10px;">python, virtualenv</a> <a href="/tags/test-git-hexo/" style="font-size: 10px;">test, git, hexo</a> <a href="/tags/webpack-babel-async-await/" style="font-size: 10px;">webpack, babel, async, await</a>
     </div>
   </div>
 
@@ -673,6 +661,10 @@ deactivate
       <ul>
         
           <li>
+            <a href="/2017/06/20/django-db-insert/">django에서 데이터베이스에 Insert하기</a>
+          </li>
+        
+          <li>
             <a href="/2017/06/14/axios-useful/">axios 사용 관련 메모</a>
           </li>
         
@@ -686,10 +678,6 @@ deactivate
         
           <li>
             <a href="/2017/04/29/CORS/">CORS 관련 메모</a>
-          </li>
-        
-          <li>
-            <a href="/2017/04/22/django-install/">django 설치방법</a>
           </li>
         
       </ul>

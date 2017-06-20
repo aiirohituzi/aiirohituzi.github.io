@@ -3,14 +3,30 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Archives | aiirohituzi</title>
+  <title>django에서 데이터베이스에 Insert하기 | aiirohituzi</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="aiirohituzi">
-<meta property="og:url" content="http://aiirohituzi.github.io/archives/index.html">
+  <meta name="description" content="클라이언트로부터 파라메터를 입력받아 request 가 날아오면
+그 데이터들을 이용하여 따로 query 를 짤 필요 없이 django 내장 함수들을 통해 처리할 수 있는
+방법이 있다. (이 방법이 더 쉬운지에 대해서는 개인차에 따라 다르니 본인이 좋다고 생각하는 방법을 사용하면 될듯)
+간단한 예시를 들어 설명하자면
+1postForm = PostForm(req">
+<meta property="og:type" content="article">
+<meta property="og:title" content="django에서 데이터베이스에 Insert하기">
+<meta property="og:url" content="http://aiirohituzi.github.io/2017/06/20/django-db-insert/index.html">
 <meta property="og:site_name" content="aiirohituzi">
+<meta property="og:description" content="클라이언트로부터 파라메터를 입력받아 request 가 날아오면
+그 데이터들을 이용하여 따로 query 를 짤 필요 없이 django 내장 함수들을 통해 처리할 수 있는
+방법이 있다. (이 방법이 더 쉬운지에 대해서는 개인차에 따라 다르니 본인이 좋다고 생각하는 방법을 사용하면 될듯)
+간단한 예시를 들어 설명하자면
+1postForm = PostForm(req">
+<meta property="og:updated_time" content="2017-06-20T13:54:10.098Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="aiirohituzi">
+<meta name="twitter:title" content="django에서 데이터베이스에 Insert하기">
+<meta name="twitter:description" content="클라이언트로부터 파라메터를 입력받아 request 가 날아오면
+그 데이터들을 이용하여 따로 query 를 짤 필요 없이 django 내장 함수들을 통해 처리할 수 있는
+방법이 있다. (이 방법이 더 쉬운지에 대해서는 개인차에 따라 다르니 본인이 좋다고 생각하는 방법을 사용하면 될듯)
+간단한 예시를 들어 설명하자면
+1postForm = PostForm(req">
   
     <link rel="alternate" href="/atom.xml" title="aiirohituzi" type="application/atom+xml">
   
@@ -59,215 +75,76 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2017/06/20/django-db-insert/" class="archive-article-date">
-  <time datetime="2017-06-20T13:38:08.000Z" itemprop="datePublished">Jun 20</time>
+        <section id="main"><article id="post-django-db-insert" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/06/20/django-db-insert/" class="article-date">
+  <time datetime="2017-06-20T13:38:08.000Z" itemprop="datePublished">2017-06-20</time>
 </a>
-      
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/06/20/django-db-insert/">django에서 데이터베이스에 Insert하기</a>
+    <h1 class="article-title" itemprop="name">
+      django에서 데이터베이스에 Insert하기
     </h1>
   
 
-    </header>
-  </div>
-</article>
-  
+      </header>
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2017/06/14/axios-useful/" class="archive-article-date">
-  <time datetime="2017-06-14T09:26:49.000Z" itemprop="datePublished">Jun 14</time>
-</a>
+    <div class="article-entry" itemprop="articleBody">
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/06/14/axios-useful/">axios 사용 관련 메모</a>
-    </h1>
-  
+        <p>클라이언트로부터 파라메터를 입력받아 request 가 날아오면</p>
+<p>그 데이터들을 이용하여 따로 query 를 짤 필요 없이 django 내장 함수들을 통해 처리할 수 있는</p>
+<p>방법이 있다. (이 방법이 더 쉬운지에 대해서는 개인차에 따라 다르니 본인이 좋다고 생각하는 방법을 사용하면 될듯)<br><br></p>
+<p>간단한 예시를 들어 설명하자면</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">postForm = PostForm(request.POST)</div></pre></td></tr></table></figure>
+<p>request 를 받을 함수 내에서 request 데이터를 받아 해당 model 의 Form 객체를 생성한다.</p>
+<p>이 때 request 로 넘어오는 파라메터 값의 명칭이 Form에 정의해놓은 명칭과 일치해야 자동으로 값을 입력한다.<br><br></p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> postForm.is_valid():</div><div class="line">    post_obj = postForm.save(commit=<span class="keyword">False</span>)      <span class="comment"># true일 경우 바로 데이터베이스에 적용, 현재 유저정보가 담기지 않았기에 not null 제약조건에 걸려 작업이 실패하므로 false</span></div><div class="line">    post_obj.owner_id = user_row.id</div><div class="line">    post_obj.save()                             <span class="comment"># obj.save(commit=True) 와 동일</span></div></pre></td></tr></table></figure>
+<p>그 후 Form.save() 라는 함수를 이용하여 DB에 바로 Insert 를 해줄 수 있다.</p>
+<p>인자로 commit 이란 것을 설정해줄 수 있는데, True 로 설정해놓았다면 그 즉시 Insert 작업을 시행하고</p>
+<p>False 라면 DB 에 넣을 준비가 되어있는 객체를 생성하여 받아올 수 있게된다.<br><br></p>
+<p>위의 예시의 경우 request 로 받지 않은 별도의 column 값을 입력하지 않아 Insert 에러가 발생하기 때문에</p>
+<p>따로 입력작업을 한번 더 거친 후,</p>
+<p>obj.save(commit=True) 함수를 통해 Insert 작업을 처리하는 모습이다.</p>
 
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2017/05/17/django-request-body/" class="archive-article-date">
-  <time datetime="2017-05-17T14:24:03.000Z" itemprop="datePublished">May 17</time>
-</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/05/17/django-request-body/">Django request.body 관련 메모</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2017/04/30/async-await-webpack/" class="archive-article-date">
-  <time datetime="2017-04-29T17:25:12.000Z" itemprop="datePublished">Apr 30</time>
-</a>
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://aiirohituzi.github.io/2017/06/20/django-db-insert/" data-id="cj45mqufh0009i8w5lxptu1tv" class="article-share-link">Share</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/04/30/async-await-webpack/">Webpack 개발서버에서 async/await 사용하기</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2017/04/29/CORS/" class="archive-article-date">
-  <time datetime="2017-04-29T13:30:43.000Z" itemprop="datePublished">Apr 29</time>
-</a>
+        <a href="http://aiirohituzi.github.io/2017/06/20/django-db-insert/#disqus_thread" class="article-comment-link">Comments</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/04/29/CORS/">CORS 관련 메모</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2017/04/22/django-install/" class="archive-article-date">
-  <time datetime="2017-04-22T13:35:30.000Z" itemprop="datePublished">Apr 22</time>
-</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/04/22/django-install/">django 설치방법</a>
-    </h1>
-  
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/django/">django</a></li></ul>
 
-    </header>
+    </footer>
   </div>
-</article>
   
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2017/04/21/MAC-hotkey/" class="archive-article-date">
-  <time datetime="2017-04-21T12:07:27.000Z" itemprop="datePublished">Apr 21</time>
-</a>
-      
+<nav id="article-nav">
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/04/21/MAC-hotkey/">macOS 헷갈리는 특수키들</a>
-    </h1>
   
+    <a href="/2017/06/14/axios-useful/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">axios 사용 관련 메모</div>
+    </a>
+  
+</nav>
 
-    </header>
+  
+</article>
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
   </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2017/04/13/HTML5-localStorage/" class="archive-article-date">
-  <time datetime="2017-04-13T11:53:45.000Z" itemprop="datePublished">Apr 13</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/04/13/HTML5-localStorage/">HTML5 - localStorage</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2017/04/13/React-js-Component-Lifecycle-API/" class="archive-article-date">
-  <time datetime="2017-04-13T10:57:51.000Z" itemprop="datePublished">Apr 13</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/04/13/React-js-Component-Lifecycle-API/">React.js Component Lifecycle API</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2017/04/10/python-virtualenv/" class="archive-article-date">
-  <time datetime="2017-04-10T14:08:23.000Z" itemprop="datePublished">Apr 10</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/04/10/python-virtualenv/">Python 가상 환경 설치 (virtualenv)</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-
-  <nav id="page-nav">
-    <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="extend next" rel="next" href="/archives/page/2/">__('next') &raquo;</a>
-  </nav>
+</section>
 </section>
         
           <aside id="sidebar">
@@ -359,11 +236,13 @@
 <script>
   var disqus_shortname = 'aiirohituzi';
   
+  var disqus_url = 'http://aiirohituzi.github.io/2017/06/20/django-db-insert/';
+  
   (function(){
     var dsq = document.createElement('script');
     dsq.type = 'text/javascript';
     dsq.async = true;
-    dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
   })();
 </script>
