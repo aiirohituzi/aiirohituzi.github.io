@@ -61,6 +61,53 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-smartfields" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/07/09/smartfields/" class="article-date">
+  <time datetime="2017-07-09T13:22:15.000Z" itemprop="datePublished">2017-07-09</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/07/09/smartfields/">smartfields</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>django 서버에서 이미지 등 파일을 관리할 때 유용</p>
+<p>내장모듈인 django.db의 models의 field대신</p>
+<p>smartfields를 이용하면 데이터베이스에서 해당 레코드가 지워졌을 때</p>
+<p>연결된 파일을 일일히 추적해서 삭제할 필요없이 알아서 삭제해준다.<br><br></p>
+<h3 id="이미지-필드-사용-예시"><a href="#이미지-필드-사용-예시" class="headerlink" title="이미지 필드 사용 예시"></a>이미지 필드 사용 예시</h3><figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># models</span></div><div class="line">image = models.ImageField(upload_to=<span class="string">'%Y/%m/%d/orig'</span>)</div><div class="line"></div><div class="line"><span class="comment"># smartfields</span></div><div class="line">image = fields.ImageField(upload_to=<span class="string">'%Y/%m/%d/orig'</span>)</div></pre></td></tr></table></figure>
+<p>지원되는 필드 타입도 기존에 존재하는 것이 대부분 지원되는 편이고</p>
+<p>사용방법도 거의 동일한 느낌</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://aiirohituzi.github.io/2017/07/09/smartfields/" data-id="cj4wri8jm000ltcw5e7tw5pzt" class="article-share-link">Share</a>
+      
+        <a href="http://aiirohituzi.github.io/2017/07/09/smartfields/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/django/">django</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-django-db-insert" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2017/06/20/django-db-insert/" class="article-date">
@@ -101,7 +148,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://aiirohituzi.github.io/2017/06/20/django-db-insert/" data-id="cj45mqufh0009i8w5lxptu1tv" class="article-share-link">Share</a>
+      <a data-url="http://aiirohituzi.github.io/2017/06/20/django-db-insert/" data-id="cj4wri8j80009tcw58asr0oti" class="article-share-link">Share</a>
       
         <a href="http://aiirohituzi.github.io/2017/06/20/django-db-insert/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -155,7 +202,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://aiirohituzi.github.io/2017/06/14/axios-useful/" data-id="cj45mqufe0005i8w5ov46x1uw" class="article-share-link">Share</a>
+      <a data-url="http://aiirohituzi.github.io/2017/06/14/axios-useful/" data-id="cj4wri8j40008tcw5r220c822" class="article-share-link">Share</a>
       
         <a href="http://aiirohituzi.github.io/2017/06/14/axios-useful/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -204,7 +251,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://aiirohituzi.github.io/2017/05/17/django-request-body/" data-id="cj45mqufl000bi8w5m9i7k0fb" class="article-share-link">Share</a>
+      <a data-url="http://aiirohituzi.github.io/2017/05/17/django-request-body/" data-id="cj4wri8je000dtcw5u6xg8by1" class="article-share-link">Share</a>
       
         <a href="http://aiirohituzi.github.io/2017/05/17/django-request-body/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -257,7 +304,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://aiirohituzi.github.io/2017/04/30/async-await-webpack/" data-id="cj45mqufb0004i8w5ji9kbarr" class="article-share-link">Share</a>
+      <a data-url="http://aiirohituzi.github.io/2017/04/30/async-await-webpack/" data-id="cj4wri8iz0005tcw5a6zw7hlg" class="article-share-link">Share</a>
       
         <a href="http://aiirohituzi.github.io/2017/04/30/async-await-webpack/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -306,7 +353,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://aiirohituzi.github.io/2017/04/29/CORS/" data-id="cj45mquf20000i8w5561qhsj7" class="article-share-link">Share</a>
+      <a data-url="http://aiirohituzi.github.io/2017/04/29/CORS/" data-id="cj4wri8iq0001tcw5qcmjg0ah" class="article-share-link">Share</a>
       
         <a href="http://aiirohituzi.github.io/2017/04/29/CORS/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -374,7 +421,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://aiirohituzi.github.io/2017/04/22/django-install/" data-id="cj45mqufm000di8w5f9c9rwd9" class="article-share-link">Share</a>
+      <a data-url="http://aiirohituzi.github.io/2017/04/22/django-install/" data-id="cj4wri8jd000btcw5s3ky7xag" class="article-share-link">Share</a>
       
         <a href="http://aiirohituzi.github.io/2017/04/22/django-install/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -422,7 +469,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://aiirohituzi.github.io/2017/04/21/MAC-hotkey/" data-id="cj45mqufa0003i8w5wo942ovm" class="article-share-link">Share</a>
+      <a data-url="http://aiirohituzi.github.io/2017/04/21/MAC-hotkey/" data-id="cj4wri8if0000tcw5v0ijvjq2" class="article-share-link">Share</a>
       
         <a href="http://aiirohituzi.github.io/2017/04/21/MAC-hotkey/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -479,7 +526,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://aiirohituzi.github.io/2017/04/13/HTML5-localStorage/" data-id="cj45mquf60001i8w5a4hjfxsi" class="article-share-link">Share</a>
+      <a data-url="http://aiirohituzi.github.io/2017/04/13/HTML5-localStorage/" data-id="cj4wri8iu0003tcw55fanskfw" class="article-share-link">Share</a>
       
         <a href="http://aiirohituzi.github.io/2017/04/13/HTML5-localStorage/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -537,74 +584,12 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://aiirohituzi.github.io/2017/04/13/React-js-Component-Lifecycle-API/" data-id="cj45mqufg0008i8w518fm9wih" class="article-share-link">Share</a>
+      <a data-url="http://aiirohituzi.github.io/2017/04/13/React-js-Component-Lifecycle-API/" data-id="cj4wri8iw0004tcw5um682u0c" class="article-share-link">Share</a>
       
         <a href="http://aiirohituzi.github.io/2017/04/13/React-js-Component-Lifecycle-API/#disqus_thread" class="article-comment-link">Comments</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React-js-Lifecycle/">React.js, Lifecycle</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-python-virtualenv" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/04/10/python-virtualenv/" class="article-date">
-  <time datetime="2017-04-10T14:08:23.000Z" itemprop="datePublished">2017-04-10</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/10/python-virtualenv/">Python 가상 환경 설치 (virtualenv)</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="virtualenv"><a href="#virtualenv" class="headerlink" title="virtualenv"></a>virtualenv</h1><p><strong><em>Virtual Environment</em></strong>의 준말, 가상으로 Python 환경을 만드는 도구<br>한 시스템 내에서 각 각의 다른버젼으로 이루어진 환경을 분리하여 편하게 관리할 수 있다.</p>
-<p>Python 패키지 뿐만 아니라 사용할 Python 버전도 가상 환경으로 분리 가능</p>
-<p>Python 설치 후 자체 내장 된 기능으로 손쉽게 생성 가능하다.</p>
-<ul>
-<li><p>설치 확인</p>
-<pre><code>$ python3 -m venv
-(windows의 경우 그냥 python -m venv 로 입력)
-</code></pre></li>
-<li><p>virtualenv 생성 명령어</p>
-<pre><code>$ python3 -m venv 가상환경이름
-</code></pre></li>
-<li><p>활성화 및 비활성화 명령어</p>
-<pre><code>Mac OS, Linux 계열
-$ source env_pystagram/bin/activate
-
-Windows
-$ env_pystagram\Scripts\activate.bat
-
-비활성화
-deactivate
-</code></pre></li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://aiirohituzi.github.io/2017/04/10/python-virtualenv/" data-id="cj45mqufy000li8w54llwf0bd" class="article-share-link">Share</a>
-      
-        <a href="http://aiirohituzi.github.io/2017/04/10/python-virtualenv/#disqus_thread" class="article-comment-link">Comments</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python-virtualenv/">python, virtualenv</a></li></ul>
 
     </footer>
   </div>
@@ -639,7 +624,7 @@ deactivate
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/CORS-Cross-Origin-Resource-Sharing/" style="font-size: 10px;">CORS, Cross Origin Resource Sharing</a> <a href="/tags/HTML5-localStorage/" style="font-size: 10px;">HTML5, localStorage</a> <a href="/tags/React-js-Lifecycle/" style="font-size: 10px;">React.js, Lifecycle</a> <a href="/tags/axios/" style="font-size: 10px;">axios</a> <a href="/tags/django/" style="font-size: 10px;">django</a> <a href="/tags/django-request-serialize/" style="font-size: 10px;">django, request, serialize</a> <a href="/tags/macOS/" style="font-size: 10px;">macOS</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/python-django/" style="font-size: 10px;">python, django</a> <a href="/tags/python-virtualenv/" style="font-size: 10px;">python, virtualenv</a> <a href="/tags/test-git-hexo/" style="font-size: 10px;">test, git, hexo</a> <a href="/tags/webpack-babel-async-await/" style="font-size: 10px;">webpack, babel, async, await</a>
+      <a href="/tags/CORS-Cross-Origin-Resource-Sharing/" style="font-size: 10px;">CORS, Cross Origin Resource Sharing</a> <a href="/tags/HTML5-localStorage/" style="font-size: 10px;">HTML5, localStorage</a> <a href="/tags/React-js-Lifecycle/" style="font-size: 10px;">React.js, Lifecycle</a> <a href="/tags/axios/" style="font-size: 10px;">axios</a> <a href="/tags/django/" style="font-size: 20px;">django</a> <a href="/tags/django-request-serialize/" style="font-size: 10px;">django, request, serialize</a> <a href="/tags/macOS/" style="font-size: 10px;">macOS</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/python-django/" style="font-size: 10px;">python, django</a> <a href="/tags/python-virtualenv/" style="font-size: 10px;">python, virtualenv</a> <a href="/tags/test-git-hexo/" style="font-size: 10px;">test, git, hexo</a> <a href="/tags/webpack-babel-async-await/" style="font-size: 10px;">webpack, babel, async, await</a>
     </div>
   </div>
 
@@ -648,7 +633,7 @@ deactivate
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a></li></ul>
     </div>
   </div>
 
@@ -659,6 +644,10 @@ deactivate
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2017/07/09/smartfields/">smartfields</a>
+          </li>
         
           <li>
             <a href="/2017/06/20/django-db-insert/">django에서 데이터베이스에 Insert하기</a>
@@ -674,10 +663,6 @@ deactivate
         
           <li>
             <a href="/2017/04/30/async-await-webpack/">Webpack 개발서버에서 async/await 사용하기</a>
-          </li>
-        
-          <li>
-            <a href="/2017/04/29/CORS/">CORS 관련 메모</a>
           </li>
         
       </ul>

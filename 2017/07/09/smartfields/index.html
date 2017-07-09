@@ -3,33 +3,30 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Python 가상 환경 설치 (virtualenv) | aiirohituzi</title>
+  <title>smartfields | aiirohituzi</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="virtualenvVirtual Environment의 준말, 가상으로 Python 환경을 만드는 도구한 시스템 내에서 각 각의 다른버젼으로 이루어진 환경을 분리하여 편하게 관리할 수 있다.
-Python 패키지 뿐만 아니라 사용할 Python 버전도 가상 환경으로 분리 가능
-Python 설치 후 자체 내장 된 기능으로 손쉽게 생성 가능하다.
-
-설치 확인
-$">
+  <meta name="description" content="django 서버에서 이미지 등 파일을 관리할 때 유용
+내장모듈인 django.db의 models의 field대신
+smartfields를 이용하면 데이터베이스에서 해당 레코드가 지워졌을 때
+연결된 파일을 일일히 추적해서 삭제할 필요없이 알아서 삭제해준다.
+이미지 필드 사용 예시12345# modelsimage = models.ImageField(upload">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Python 가상 환경 설치 (virtualenv)">
-<meta property="og:url" content="http://aiirohituzi.github.io/2017/04/10/python-virtualenv/index.html">
+<meta property="og:title" content="smartfields">
+<meta property="og:url" content="http://aiirohituzi.github.io/2017/07/09/smartfields/index.html">
 <meta property="og:site_name" content="aiirohituzi">
-<meta property="og:description" content="virtualenvVirtual Environment의 준말, 가상으로 Python 환경을 만드는 도구한 시스템 내에서 각 각의 다른버젼으로 이루어진 환경을 분리하여 편하게 관리할 수 있다.
-Python 패키지 뿐만 아니라 사용할 Python 버전도 가상 환경으로 분리 가능
-Python 설치 후 자체 내장 된 기능으로 손쉽게 생성 가능하다.
-
-설치 확인
-$">
-<meta property="og:updated_time" content="2017-04-10T14:23:37.999Z">
+<meta property="og:description" content="django 서버에서 이미지 등 파일을 관리할 때 유용
+내장모듈인 django.db의 models의 field대신
+smartfields를 이용하면 데이터베이스에서 해당 레코드가 지워졌을 때
+연결된 파일을 일일히 추적해서 삭제할 필요없이 알아서 삭제해준다.
+이미지 필드 사용 예시12345# modelsimage = models.ImageField(upload">
+<meta property="og:updated_time" content="2017-07-09T13:37:01.063Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Python 가상 환경 설치 (virtualenv)">
-<meta name="twitter:description" content="virtualenvVirtual Environment의 준말, 가상으로 Python 환경을 만드는 도구한 시스템 내에서 각 각의 다른버젼으로 이루어진 환경을 분리하여 편하게 관리할 수 있다.
-Python 패키지 뿐만 아니라 사용할 Python 버전도 가상 환경으로 분리 가능
-Python 설치 후 자체 내장 된 기능으로 손쉽게 생성 가능하다.
-
-설치 확인
-$">
+<meta name="twitter:title" content="smartfields">
+<meta name="twitter:description" content="django 서버에서 이미지 등 파일을 관리할 때 유용
+내장모듈인 django.db의 models의 field대신
+smartfields를 이용하면 데이터베이스에서 해당 레코드가 지워졌을 때
+연결된 파일을 일일히 추적해서 삭제할 필요없이 알아서 삭제해준다.
+이미지 필드 사용 예시12345# modelsimage = models.ImageField(upload">
   
     <link rel="alternate" href="/atom.xml" title="aiirohituzi" type="application/atom+xml">
   
@@ -78,10 +75,10 @@ $">
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-python-virtualenv" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-smartfields" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2017/04/10/python-virtualenv/" class="article-date">
-  <time datetime="2017-04-10T14:08:23.000Z" itemprop="datePublished">2017-04-10</time>
+    <a href="/2017/07/09/smartfields/" class="article-date">
+  <time datetime="2017-07-09T13:22:15.000Z" itemprop="datePublished">2017-07-09</time>
 </a>
     
   </div>
@@ -92,7 +89,7 @@ $">
         
   
     <h1 class="article-title" itemprop="name">
-      Python 가상 환경 설치 (virtualenv)
+      smartfields
     </h1>
   
 
@@ -100,38 +97,23 @@ $">
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="virtualenv"><a href="#virtualenv" class="headerlink" title="virtualenv"></a>virtualenv</h1><p><strong><em>Virtual Environment</em></strong>의 준말, 가상으로 Python 환경을 만드는 도구<br>한 시스템 내에서 각 각의 다른버젼으로 이루어진 환경을 분리하여 편하게 관리할 수 있다.</p>
-<p>Python 패키지 뿐만 아니라 사용할 Python 버전도 가상 환경으로 분리 가능</p>
-<p>Python 설치 후 자체 내장 된 기능으로 손쉽게 생성 가능하다.</p>
-<ul>
-<li><p>설치 확인</p>
-<pre><code>$ python3 -m venv
-(windows의 경우 그냥 python -m venv 로 입력)
-</code></pre></li>
-<li><p>virtualenv 생성 명령어</p>
-<pre><code>$ python3 -m venv 가상환경이름
-</code></pre></li>
-<li><p>활성화 및 비활성화 명령어</p>
-<pre><code>Mac OS, Linux 계열
-$ source env_pystagram/bin/activate
-
-Windows
-$ env_pystagram\Scripts\activate.bat
-
-비활성화
-deactivate
-</code></pre></li>
-</ul>
+        <p>django 서버에서 이미지 등 파일을 관리할 때 유용</p>
+<p>내장모듈인 django.db의 models의 field대신</p>
+<p>smartfields를 이용하면 데이터베이스에서 해당 레코드가 지워졌을 때</p>
+<p>연결된 파일을 일일히 추적해서 삭제할 필요없이 알아서 삭제해준다.<br><br></p>
+<h3 id="이미지-필드-사용-예시"><a href="#이미지-필드-사용-예시" class="headerlink" title="이미지 필드 사용 예시"></a>이미지 필드 사용 예시</h3><figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># models</span></div><div class="line">image = models.ImageField(upload_to=<span class="string">'%Y/%m/%d/orig'</span>)</div><div class="line"></div><div class="line"><span class="comment"># smartfields</span></div><div class="line">image = fields.ImageField(upload_to=<span class="string">'%Y/%m/%d/orig'</span>)</div></pre></td></tr></table></figure>
+<p>지원되는 필드 타입도 기존에 존재하는 것이 대부분 지원되는 편이고</p>
+<p>사용방법도 거의 동일한 느낌</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://aiirohituzi.github.io/2017/04/10/python-virtualenv/" data-id="cj4wri8ji000htcw5wyibdt24" class="article-share-link">Share</a>
+      <a data-url="http://aiirohituzi.github.io/2017/07/09/smartfields/" data-id="cj4wri8jm000ltcw5e7tw5pzt" class="article-share-link">Share</a>
       
-        <a href="http://aiirohituzi.github.io/2017/04/10/python-virtualenv/#disqus_thread" class="article-comment-link">Comments</a>
+        <a href="http://aiirohituzi.github.io/2017/07/09/smartfields/#disqus_thread" class="article-comment-link">Comments</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python-virtualenv/">python, virtualenv</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/django/">django</a></li></ul>
 
     </footer>
   </div>
@@ -139,19 +121,10 @@ deactivate
     
 <nav id="article-nav">
   
-    <a href="/2017/04/13/React-js-Component-Lifecycle-API/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          React.js Component Lifecycle API
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/03/19/markdown/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2017/06/20/django-db-insert/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">마크다운 기본 사용법</div>
+      <div class="article-nav-title">django에서 데이터베이스에 Insert하기</div>
     </a>
   
 </nav>
@@ -256,7 +229,7 @@ deactivate
 <script>
   var disqus_shortname = 'aiirohituzi';
   
-  var disqus_url = 'http://aiirohituzi.github.io/2017/04/10/python-virtualenv/';
+  var disqus_url = 'http://aiirohituzi.github.io/2017/07/09/smartfields/';
   
   (function(){
     var dsq = document.createElement('script');
