@@ -3,30 +3,24 @@
 <head>
   <meta charset="utf-8">
   
-  <title>django에서 데이터베이스에 Insert하기 | aiirohituzi</title>
+  <title>django 프로젝트 외부 디렉토리 접근방법 | aiirohituzi</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="클라이언트로부터 파라메터를 입력받아 request 가 날아오면
-그 데이터들을 이용하여 따로 query 를 짤 필요 없이 django 내장 함수들을 통해 처리할 수 있는
-방법이 있다. (이 방법이 더 쉬운지에 대해서는 개인차에 따라 다르니 본인이 좋다고 생각하는 방법을 사용하면 될듯)
-간단한 예시를 들어 설명하자면
-1postForm = PostForm(req">
+  <meta name="description" content="Server와 Client 모두 django로 제작한다면 이 방식을 사용할 일이 없다시피 하겠지만
+Client측에서 Server쪽의 파일을 직접 접근해야할 필요가 생겨 해결법을 찾을 수 밖에 없었다.
+settings.py123456...# Build paths inside the project like this: os.path.join(BASE_DIR, .">
 <meta property="og:type" content="article">
-<meta property="og:title" content="django에서 데이터베이스에 Insert하기">
-<meta property="og:url" content="http://aiirohituzi.github.io/2017/06/20/django-db-insert/index.html">
+<meta property="og:title" content="django 프로젝트 외부 디렉토리 접근방법">
+<meta property="og:url" content="http://aiirohituzi.github.io/2017/07/12/django-outside-access/index.html">
 <meta property="og:site_name" content="aiirohituzi">
-<meta property="og:description" content="클라이언트로부터 파라메터를 입력받아 request 가 날아오면
-그 데이터들을 이용하여 따로 query 를 짤 필요 없이 django 내장 함수들을 통해 처리할 수 있는
-방법이 있다. (이 방법이 더 쉬운지에 대해서는 개인차에 따라 다르니 본인이 좋다고 생각하는 방법을 사용하면 될듯)
-간단한 예시를 들어 설명하자면
-1postForm = PostForm(req">
-<meta property="og:updated_time" content="2017-06-20T13:54:10.098Z">
+<meta property="og:description" content="Server와 Client 모두 django로 제작한다면 이 방식을 사용할 일이 없다시피 하겠지만
+Client측에서 Server쪽의 파일을 직접 접근해야할 필요가 생겨 해결법을 찾을 수 밖에 없었다.
+settings.py123456...# Build paths inside the project like this: os.path.join(BASE_DIR, .">
+<meta property="og:updated_time" content="2017-07-12T15:07:01.725Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="django에서 데이터베이스에 Insert하기">
-<meta name="twitter:description" content="클라이언트로부터 파라메터를 입력받아 request 가 날아오면
-그 데이터들을 이용하여 따로 query 를 짤 필요 없이 django 내장 함수들을 통해 처리할 수 있는
-방법이 있다. (이 방법이 더 쉬운지에 대해서는 개인차에 따라 다르니 본인이 좋다고 생각하는 방법을 사용하면 될듯)
-간단한 예시를 들어 설명하자면
-1postForm = PostForm(req">
+<meta name="twitter:title" content="django 프로젝트 외부 디렉토리 접근방법">
+<meta name="twitter:description" content="Server와 Client 모두 django로 제작한다면 이 방식을 사용할 일이 없다시피 하겠지만
+Client측에서 Server쪽의 파일을 직접 접근해야할 필요가 생겨 해결법을 찾을 수 밖에 없었다.
+settings.py123456...# Build paths inside the project like this: os.path.join(BASE_DIR, .">
   
     <link rel="alternate" href="/atom.xml" title="aiirohituzi" type="application/atom+xml">
   
@@ -75,10 +69,10 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-django-db-insert" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-django-outside-access" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2017/06/20/django-db-insert/" class="article-date">
-  <time datetime="2017-06-20T13:38:08.000Z" itemprop="datePublished">2017-06-20</time>
+    <a href="/2017/07/12/django-outside-access/" class="article-date">
+  <time datetime="2017-07-12T14:46:05.000Z" itemprop="datePublished">2017-07-12</time>
 </a>
     
   </div>
@@ -89,7 +83,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      django에서 데이터베이스에 Insert하기
+      django 프로젝트 외부 디렉토리 접근방법
     </h1>
   
 
@@ -97,27 +91,32 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>클라이언트로부터 파라메터를 입력받아 request 가 날아오면</p>
-<p>그 데이터들을 이용하여 따로 query 를 짤 필요 없이 django 내장 함수들을 통해 처리할 수 있는</p>
-<p>방법이 있다. (이 방법이 더 쉬운지에 대해서는 개인차에 따라 다르니 본인이 좋다고 생각하는 방법을 사용하면 될듯)<br><br></p>
-<p>간단한 예시를 들어 설명하자면</p>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">postForm = PostForm(request.POST)</div></pre></td></tr></table></figure>
-<p>request 를 받을 함수 내에서 request 데이터를 받아 해당 model 의 Form 객체를 생성한다.</p>
-<p>이 때 request 로 넘어오는 파라메터 값의 명칭이 Form에 정의해놓은 명칭과 일치해야 자동으로 값을 입력한다.<br><br></p>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> postForm.is_valid():</div><div class="line">    post_obj = postForm.save(commit=<span class="keyword">False</span>)      <span class="comment"># true일 경우 바로 데이터베이스에 적용, 현재 유저정보가 담기지 않았기에 not null 제약조건에 걸려 작업이 실패하므로 false</span></div><div class="line">    post_obj.owner_id = user_row.id</div><div class="line">    post_obj.save()                             <span class="comment"># obj.save(commit=True) 와 동일</span></div></pre></td></tr></table></figure>
-<p>그 후 Form.save() 라는 함수를 이용하여 DB에 바로 Insert 를 해줄 수 있다.</p>
-<p>인자로 commit 이란 것을 설정해줄 수 있는데, True 로 설정해놓았다면 그 즉시 Insert 작업을 시행하고</p>
-<p>False 라면 DB 에 넣을 준비가 되어있는 객체를 생성하여 받아올 수 있게된다.<br><br></p>
-<p>위의 예시의 경우 request 로 받지 않은 별도의 column 값을 입력하지 않아 Insert 에러가 발생하기 때문에</p>
-<p>따로 입력작업을 한번 더 거친 후,</p>
-<p>obj.save(commit=True) 함수를 통해 Insert 작업을 처리하는 모습이다.</p>
+        <p>Server와 Client 모두 django로 제작한다면 이 방식을 사용할 일이 없다시피 하겠지만</p>
+<p>Client측에서 Server쪽의 파일을 직접 접근해야할 필요가 생겨 해결법을 찾을 수 밖에 없었다.<br><br></p>
+<h3 id="settings-py"><a href="#settings-py" class="headerlink" title="settings.py"></a>settings.py</h3><figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">...</div><div class="line"></div><div class="line"><span class="comment"># Build paths inside the project like this: os.path.join(BASE_DIR, ...)</span></div><div class="line">BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))</div><div class="line"></div><div class="line">...</div></pre></td></tr></table></figure>
+<p>settings에 기본적으로 root역할을 할 base 디렉토리 경로가 설정이 되어있는데</p>
+<p>그것을 기준으로 바깥쪽의 경로에 접근할 수 있도록 설정할 수 있다.</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">...</div><div class="line"></div><div class="line"><span class="comment"># Build paths inside the project like this: os.path.join(BASE_DIR, ...)</span></div><div class="line">BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))</div><div class="line">FILES_DIR = os.path.abspath(os.path.join(BASE_DIR, <span class="string">'../../client/image/'</span>))</div><div class="line"></div><div class="line">...</div></pre></td></tr></table></figure>
+<p>위와 같이 한줄의 코드를 추가해주고 views.py에서 다음과 같이 접근할 수 있다.</p>
+<p><by><by></by></by></p>
+<h3 id="views-py"><a href="#views-py" class="headerlink" title="views.py"></a>views.py</h3><figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> django.conf <span class="keyword">import</span> settings</div><div class="line"><span class="keyword">import</span> os</div><div class="line"></div><div class="line">...</div><div class="line"></div><div class="line">file_path = os.path.join(settings.FILES_DIR, <span class="string">'test_image.png'</span>)</div><div class="line">image_data = open(file_path, <span class="string">"rb"</span>).read()</div></pre></td></tr></table></figure>
+<p>image파일뿐만 아니라 다른 형식의 파일도 접근 가능하다.<br><br><br></p>
+<h2 id="model을-통한-외부-upload"><a href="#model을-통한-외부-upload" class="headerlink" title="model을 통한 외부 upload"></a>model을 통한 외부 upload</h2><p>위의 방법은 읽기는 가능하지만 model을 통해 업로드를 시도했을 경우 참조한 경로가</p>
+<p>프로젝트의 외부에 존재한다는 오류와 함께 업로드에 실패하게 된다.</p>
+<p>따라서 성공적으로 업로드를 하기 위해서는 다음과 같은 방법을 사용할 수 있다.</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> django.conf <span class="keyword">import</span> settings</div><div class="line"><span class="keyword">import</span> os</div><div class="line"><span class="keyword">from</span> django.core.files.storage <span class="keyword">import</span> FileSystemStorage</div><div class="line"></div><div class="line">...</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Images</span><span class="params">(models.Model)</span>:</span></div><div class="line">    fs = FileSystemStorage(location=settings.FILES_DIR)</div><div class="line">    image = models.ImageField(upload_to=<span class="string">'%Y/%m/%d/orig'</span>, storage=fs)</div><div class="line"></div><div class="line">...</div></pre></td></tr></table></figure>
+<p>upload_to 에 입력할 경로에 settings.FILES_DIR + ‘ … ‘ 같은 방법으로</p>
+<p>입력하는 것이 아니라 FileSystemStroage 를 사용하여 위와같이 경로를 입력해주면</p>
+<p>settings.FILES_DIR 경로(settings.py에서 지정해준 외부 디렉토리 경로)의</p>
+<p>하위 경로에 upload_to의 경로대로 파일을 저장하게 된다.</p>
+<p><br><br><del>사족으로 smartfields의 database에서 레코드 제거시 연결된 파일을 추적하여 자동으로 삭제해주는 기능은 이 방식을 사용한경우 작동하지 않는 듯 하다…orz</del></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://aiirohituzi.github.io/2017/06/20/django-db-insert/" data-id="cj514zv7r00090kw5c2ncy7yn" class="article-share-link">Share</a>
+      <a data-url="http://aiirohituzi.github.io/2017/07/12/django-outside-access/" data-id="cj514zv80000f0kw59h4mjfo6" class="article-share-link">Share</a>
       
-        <a href="http://aiirohituzi.github.io/2017/06/20/django-db-insert/#disqus_thread" class="article-comment-link">Comments</a>
+        <a href="http://aiirohituzi.github.io/2017/07/12/django-outside-access/#disqus_thread" class="article-comment-link">Comments</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/django/">django</a></li></ul>
@@ -128,19 +127,10 @@
     
 <nav id="article-nav">
   
-    <a href="/2017/07/09/smartfields/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          smartfields
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/06/14/axios-useful/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2017/07/09/smartfields/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">axios 사용 관련 메모</div>
+      <div class="article-nav-title">smartfields</div>
     </a>
   
 </nav>
@@ -245,7 +235,7 @@
 <script>
   var disqus_shortname = 'aiirohituzi';
   
-  var disqus_url = 'http://aiirohituzi.github.io/2017/06/20/django-db-insert/';
+  var disqus_url = 'http://aiirohituzi.github.io/2017/07/12/django-outside-access/';
   
   (function(){
     var dsq = document.createElement('script');
