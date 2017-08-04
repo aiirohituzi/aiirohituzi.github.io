@@ -3,14 +3,39 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Archives | aiirohituzi</title>
+  <title>django csrf 관련 메모 | aiirohituzi</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="aiirohituzi">
-<meta property="og:url" content="http://aiirohituzi.github.io/archives/page/2/index.html">
+  <meta name="description" content="CSRF 공격 관련 상세 설명글 링크
+django 공식 문서의 CSRF 관련 항목
+
+그동안 그냥 ajax 요청이 잘 수행되도록 views의 함수앞에 넣었던 데코레이터인
+@csrf_exempt 는
+django의 미들웨어가 CSRF 공격으로부터 보호해주는 기능을 적용하지 않도록 하는 데코레이터라는듯 하다.
+
+django는 ajax로 post 요청이 날아왔을때">
+<meta property="og:type" content="article">
+<meta property="og:title" content="django csrf 관련 메모">
+<meta property="og:url" content="http://aiirohituzi.github.io/2017/08/04/csrf-memo/index.html">
 <meta property="og:site_name" content="aiirohituzi">
+<meta property="og:description" content="CSRF 공격 관련 상세 설명글 링크
+django 공식 문서의 CSRF 관련 항목
+
+그동안 그냥 ajax 요청이 잘 수행되도록 views의 함수앞에 넣었던 데코레이터인
+@csrf_exempt 는
+django의 미들웨어가 CSRF 공격으로부터 보호해주는 기능을 적용하지 않도록 하는 데코레이터라는듯 하다.
+
+django는 ajax로 post 요청이 날아왔을때">
+<meta property="og:updated_time" content="2017-08-04T14:13:40.565Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="aiirohituzi">
+<meta name="twitter:title" content="django csrf 관련 메모">
+<meta name="twitter:description" content="CSRF 공격 관련 상세 설명글 링크
+django 공식 문서의 CSRF 관련 항목
+
+그동안 그냥 ajax 요청이 잘 수행되도록 views의 함수앞에 넣었던 데코레이터인
+@csrf_exempt 는
+django의 미들웨어가 CSRF 공격으로부터 보호해주는 기능을 적용하지 않도록 하는 데코레이터라는듯 하다.
+
+django는 ajax로 post 요청이 날아왔을때">
   
     <link rel="alternate" href="/atom.xml" title="aiirohituzi" type="application/atom+xml">
   
@@ -59,139 +84,72 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2017/04/21/MAC-hotkey/" class="archive-article-date">
-  <time datetime="2017-04-21T12:07:27.000Z" itemprop="datePublished">Apr 21</time>
+        <section id="main"><article id="post-csrf-memo" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/08/04/csrf-memo/" class="article-date">
+  <time datetime="2017-08-04T13:54:33.000Z" itemprop="datePublished">2017-08-04</time>
 </a>
-      
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/04/21/MAC-hotkey/">macOS 헷갈리는 특수키들</a>
+    <h1 class="article-title" itemprop="name">
+      django csrf 관련 메모
     </h1>
   
 
-    </header>
-  </div>
-</article>
-  
+      </header>
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2017/04/13/HTML5-localStorage/" class="archive-article-date">
-  <time datetime="2017-04-13T11:53:45.000Z" itemprop="datePublished">Apr 13</time>
-</a>
+    <div class="article-entry" itemprop="articleBody">
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/04/13/HTML5-localStorage/">HTML5 - localStorage</a>
-    </h1>
-  
+        <p><a href="http://www.insilicogen.com/blog/55" target="_blank" rel="external">CSRF 공격 관련 상세 설명글 링크</a></p>
+<p><a href="https://docs.djangoproject.com/en/1.11/ref/csrf/" target="_blank" rel="external">django 공식 문서의 CSRF 관련 항목</a></p>
+<p><br></p>
+<p>그동안 그냥 ajax 요청이 잘 수행되도록 views의 함수앞에 넣었던 데코레이터인</p>
+<p><strong>@csrf_exempt</strong> 는</p>
+<p>django의 미들웨어가 CSRF 공격으로부터 보호해주는 기능을 적용하지 않도록 하는 데코레이터라는듯 하다.</p>
+<p><br></p>
+<p>django는 ajax로 post 요청이 날아왔을때 request.POST 내의 CSRF token이 CSRF cookie와 일치하는치 체크한다.</p>
+<p>내가 사용한 방법은 외부의 다른 서버로부터 요청을 보냈기 때문에 이를 확인하지 않도록 @csrf_exempt 데코레이터를 넣어</p>
+<p>일단 작업이 수행되도록 한 것.</p>
 
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2017/04/13/React-js-Component-Lifecycle-API/" class="archive-article-date">
-  <time datetime="2017-04-13T10:57:51.000Z" itemprop="datePublished">Apr 13</time>
-</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/04/13/React-js-Component-Lifecycle-API/">React.js Component Lifecycle API</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2017/04/10/python-virtualenv/" class="archive-article-date">
-  <time datetime="2017-04-10T14:08:23.000Z" itemprop="datePublished">Apr 10</time>
-</a>
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://aiirohituzi.github.io/2017/08/04/csrf-memo/" data-id="cj5xya3fb000bigtk7koa681t" class="article-share-link">Share</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/04/10/python-virtualenv/">Python 가상 환경 설치 (virtualenv)</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2017/03/19/markdown/" class="archive-article-date">
-  <time datetime="2017-03-19T13:41:41.000Z" itemprop="datePublished">Mar 19</time>
-</a>
+        <a href="http://aiirohituzi.github.io/2017/08/04/csrf-memo/#disqus_thread" class="article-comment-link">Comments</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/03/19/markdown/">마크다운 기본 사용법</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2017/03/18/posting-test/" class="archive-article-date">
-  <time datetime="2017-03-17T15:38:32.000Z" itemprop="datePublished">Mar 18</time>
-</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/03/18/posting-test/">포스팅 테스트</a>
-    </h1>
-  
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/django-csrf/">django, csrf</a></li></ul>
 
-    </header>
+    </footer>
   </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2017/07/19/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Hello World</div>
+    </a>
+  
+</nav>
+
+  
 </article>
-  
-  
-    </div></section>
-  
 
 
-  <nav id="page-nav">
-    <a class="extend prev" rel="prev" href="/archives/">&laquo; __('prev')</a><a class="page-number" href="/archives/">1</a><span class="page-number current">2</span>
-  </nav>
+<section id="comments">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
 </section>
         
           <aside id="sidebar">
@@ -283,11 +241,13 @@
 <script>
   var disqus_shortname = 'aiirohituzi';
   
+  var disqus_url = 'http://aiirohituzi.github.io/2017/08/04/csrf-memo/';
+  
   (function(){
     var dsq = document.createElement('script');
     dsq.type = 'text/javascript';
     dsq.async = true;
-    dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
   })();
 </script>
