@@ -61,6 +61,54 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-react-bootstrap-style" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/08/20/react-bootstrap-style/" class="article-date">
+  <time datetime="2017-08-20T13:19:07.000Z" itemprop="datePublished">2017-08-20</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/08/20/react-bootstrap-style/">react-bootstrap 사용 시 style 덮어쓰는 방법</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>react 환경에서 bootstrap을 사용하기 위해 npm으로 react-bootstrap을 설치하여 사용하는 도중 사이즈나 정렬방식, 간격 등을 원하는대로 재설정할 필요가 생겼다.</p>
+<p>기본적으로 bootstrap에 정의된 css를 따라가기에 style을 직접 덮어씌워야 변경이 가능한데</p>
+<p>stack overflow 를 통해 그 방법을 찾을 수 있었다.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&lt;InputGroup.Addon style=&#123;&#123;</div><div class="line">    <span class="attr">width</span>: <span class="string">'20%'</span>,</div><div class="line">    <span class="attr">paddingTop</span>: <span class="string">'0'</span>,</div><div class="line">    <span class="attr">paddingRight</span>: <span class="string">'0'</span>,</div><div class="line">    <span class="attr">paddingBottom</span>: <span class="string">'0'</span>,</div><div class="line">    <span class="attr">paddingLeft</span>: <span class="string">'0'</span>,</div><div class="line">&#125;&#125;&gt;</div><div class="line"></div><div class="line">&lt;FormControl componentClass="select" placeholder="select" style=&#123;&#123;width: '100%'&#125;&#125;&gt;</div><div class="line"></div><div class="line">&lt;p style=&#123;&#123;textAlign:"right"&#125;&#125;&gt;</div></pre></td></tr></table></figure>
+<p>위의 코드와 같이 <strong>{ {  } }</strong> 로 감싸서 style props에 값을 넘기는 느낌이다.</p>
+<p>각 항목의 명칭들이 언뜻 실제 css를 정의하는것과 비슷해보이지만 text-align 같은 속성들은</p>
+<p>가운데의 -를 지우고 단어를 대문자로 구분하여 textAlign으로 입력해주어야 한다.</p>
+<p>또한 각 값을 구분할때 세미콜론(<strong>;</strong>)이 아닌 반점(<strong>,</strong>)으로 구분해주어야 하며 문자열방식으로 입력해주어야 한다.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://aiirohituzi.github.io/2017/08/20/react-bootstrap-style/" data-id="cj6krtkao00005wtkqgjnfrtd" class="article-share-link">Share</a>
+      
+        <a href="http://aiirohituzi.github.io/2017/08/20/react-bootstrap-style/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/react-bootstrap/">react-bootstrap</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-csrf-memo" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2017/08/04/csrf-memo/" class="article-date">
@@ -97,7 +145,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://aiirohituzi.github.io/2017/08/04/csrf-memo/" data-id="cj5xya3fb000bigtk7koa681t" class="article-share-link">Share</a>
+      <a data-url="http://aiirohituzi.github.io/2017/08/04/csrf-memo/" data-id="cj6krodi10003ugtkbpwz36ic" class="article-share-link">Share</a>
       
         <a href="http://aiirohituzi.github.io/2017/08/04/csrf-memo/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -146,7 +194,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://aiirohituzi.github.io/2017/07/19/hello-world/" data-id="cj5xya3fe000figtk5emldtis" class="article-share-link">Share</a>
+      <a data-url="http://aiirohituzi.github.io/2017/07/19/hello-world/" data-id="cj6krodiu000dugtkxistwptn" class="article-share-link">Share</a>
       
         <a href="http://aiirohituzi.github.io/2017/07/19/hello-world/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -203,7 +251,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://aiirohituzi.github.io/2017/07/12/django-outside-access/" data-id="cj5xya3fi000jigtklxa0dots" class="article-share-link">Share</a>
+      <a data-url="http://aiirohituzi.github.io/2017/07/12/django-outside-access/" data-id="cj6krodiv000fugtkf7lftt64" class="article-share-link">Share</a>
       
         <a href="http://aiirohituzi.github.io/2017/07/12/django-outside-access/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -250,7 +298,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://aiirohituzi.github.io/2017/07/09/smartfields/" data-id="cj5xya3fr000pigtk1rxs9td7" class="article-share-link">Share</a>
+      <a data-url="http://aiirohituzi.github.io/2017/07/09/smartfields/" data-id="cj6krodkf0012ugtkneil39y4" class="article-share-link">Share</a>
       
         <a href="http://aiirohituzi.github.io/2017/07/09/smartfields/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -304,7 +352,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://aiirohituzi.github.io/2017/06/20/django-db-insert/" data-id="cj5xya3fd000digtk0fdy2cbb" class="article-share-link">Share</a>
+      <a data-url="http://aiirohituzi.github.io/2017/06/20/django-db-insert/" data-id="cj6krodj0000jugtk7vqydy2b" class="article-share-link">Share</a>
       
         <a href="http://aiirohituzi.github.io/2017/06/20/django-db-insert/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -358,7 +406,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://aiirohituzi.github.io/2017/06/14/axios-useful/" data-id="cj5xya3f60008igtkv0sfy3ax" class="article-share-link">Share</a>
+      <a data-url="http://aiirohituzi.github.io/2017/06/14/axios-useful/" data-id="cj6krodi20004ugtka8bu5vkx" class="article-share-link">Share</a>
       
         <a href="http://aiirohituzi.github.io/2017/06/14/axios-useful/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -407,7 +455,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://aiirohituzi.github.io/2017/05/17/django-request-body/" data-id="cj5xya3fg000higtk5r3i9p29" class="article-share-link">Share</a>
+      <a data-url="http://aiirohituzi.github.io/2017/05/17/django-request-body/" data-id="cj6krodix000hugtklm1bskzl" class="article-share-link">Share</a>
       
         <a href="http://aiirohituzi.github.io/2017/05/17/django-request-body/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -460,7 +508,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://aiirohituzi.github.io/2017/04/30/async-await-webpack/" data-id="cj5xya3f40005igtkibr0x1wi" class="article-share-link">Share</a>
+      <a data-url="http://aiirohituzi.github.io/2017/04/30/async-await-webpack/" data-id="cj6krodlc0019ugtkbele3d8r" class="article-share-link">Share</a>
       
         <a href="http://aiirohituzi.github.io/2017/04/30/async-await-webpack/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -509,80 +557,12 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://aiirohituzi.github.io/2017/04/29/CORS/" data-id="cj5xya3ep0000igtkwwguh9ac" class="article-share-link">Share</a>
+      <a data-url="http://aiirohituzi.github.io/2017/04/29/CORS/" data-id="cj6krodie0008ugtkpmuz8q6p" class="article-share-link">Share</a>
       
         <a href="http://aiirohituzi.github.io/2017/04/29/CORS/#disqus_thread" class="article-comment-link">Comments</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CORS-Cross-Origin-Resource-Sharing/">CORS, Cross Origin Resource Sharing</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-django-install" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/04/22/django-install/" class="article-date">
-  <time datetime="2017-04-22T13:35:30.000Z" itemprop="datePublished">2017-04-22</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/22/django-install/">django 설치방법</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>먼저 <strong><em>virtualenv</em></strong> 를 설치 후 가상환경으로 들어간다.<br>(<a href="https://aiirohituzi.github.io/2017/04/10/python-virtualenv/">가상환경 설치방법</a>)</p>
-<p>pip 를 따로 설치하지 않았어도 python 가상환경 내에 구성되어있기 때문에 pip를 이용하여 손쉽게 django를 설치할 수 있다.</p>
-<ul>
-<li><p>설치 명령어</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ pip install django</div><div class="line">    최신버젼으로 알아서 설치한다.</div><div class="line">$ pip install django==x.x</div><div class="line">    따로 원하는 버젼을 지정하여 설치할 수 도 있다.</div></pre></td></tr></table></figure>
-</li>
-<li><p>프로젝트 생성</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">$ django-admin startproject 프로젝트명</div><div class="line"></div><div class="line">프로젝트명/</div><div class="line">├── manage.py</div><div class="line">└── pystagram</div><div class="line">    ├── __init__.py</div><div class="line">    ├── settings.py</div><div class="line">    ├── urls.py</div><div class="line">    └── wsgi.py</div><div class="line"></div><div class="line">위와 같은 구조로 파일이 생성된다.</div></pre></td></tr></table></figure>
-</li>
-<li><p>앱 생성<br>django에서는 프로젝트 내부의 각각의 기능들을 앱별로 나누어서 관리한다.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ python manage.py startapp 앱명칭</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3 id="그-외-기본적인-django-관련-명령어"><a href="#그-외-기본적인-django-관련-명령어" class="headerlink" title="그 외 기본적인 django 관련 명령어"></a>그 외 기본적인 django 관련 명령어</h3><ul>
-<li>개발용 웹서버 실행<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ python manage.py runserver</div><div class="line">    전달인자가 없을 경우 호스트는 127.0.0.1, 포트는 8000을 사용</div><div class="line">$ python manage.py runserver 127.0.0.1:8080</div><div class="line">    바꾸고 싶다면 따로 지정하여 명령할 수 있다.</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>서버가 성공적으로 실행됐다면 브라우저의 url에 127.0.0.1:8000 혹은<br>localhost:8000 을 입력하여 접근할 수 있다.</p>
-<ul>
-<li><p>데이터베이스 동기화<br>django framework 에서 제공하는 도구가 사용하는 데이터베이스 관련작업을 자동으로 진행</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ python manage.py migrate</div></pre></td></tr></table></figure>
-</li>
-<li><p>최고 권한 이용자 생성</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">$ python manage.py createsuperuser</div><div class="line">Username (leave blank to use &apos;*****&apos;): admin</div><div class="line">Email address: </div><div class="line">Password:</div><div class="line">Password (again):</div><div class="line">Superuser created successfully.</div></pre></td></tr></table></figure>
-</li>
-<li><p>사용자의 비밀번호 변경</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ python manage.py changepassword admin</div></pre></td></tr></table></figure></li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://aiirohituzi.github.io/2017/04/22/django-install/" data-id="cj5xya3f80009igtkjcbn2o00" class="article-share-link">Share</a>
-      
-        <a href="http://aiirohituzi.github.io/2017/04/22/django-install/#disqus_thread" class="article-comment-link">Comments</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python-django/">python, django</a></li></ul>
 
     </footer>
   </div>
@@ -607,7 +587,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CORS-Cross-Origin-Resource-Sharing/">CORS, Cross Origin Resource Sharing</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML5-localStorage/">HTML5, localStorage</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React-js-Lifecycle/">React.js, Lifecycle</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/axios/">axios</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/django/">django</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/django-csrf/">django, csrf</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/django-request-serialize/">django, request, serialize</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/macOS/">macOS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/markdown/">markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python-django/">python, django</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python-virtualenv/">python, virtualenv</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/test-git-hexo/">test, git, hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webpack-babel-async-await/">webpack, babel, async, await</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CORS-Cross-Origin-Resource-Sharing/">CORS, Cross Origin Resource Sharing</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML5-localStorage/">HTML5, localStorage</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React-js-Lifecycle/">React.js, Lifecycle</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/axios/">axios</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/django/">django</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/django-csrf/">django, csrf</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/django-request-serialize/">django, request, serialize</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/macOS/">macOS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/markdown/">markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python-django/">python, django</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python-virtualenv/">python, virtualenv</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/react-bootstrap/">react-bootstrap</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/test-git-hexo/">test, git, hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webpack-babel-async-await/">webpack, babel, async, await</a></li></ul>
     </div>
   </div>
 
@@ -617,7 +597,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/CORS-Cross-Origin-Resource-Sharing/" style="font-size: 10px;">CORS, Cross Origin Resource Sharing</a> <a href="/tags/HTML5-localStorage/" style="font-size: 10px;">HTML5, localStorage</a> <a href="/tags/React-js-Lifecycle/" style="font-size: 10px;">React.js, Lifecycle</a> <a href="/tags/axios/" style="font-size: 10px;">axios</a> <a href="/tags/django/" style="font-size: 20px;">django</a> <a href="/tags/django-csrf/" style="font-size: 10px;">django, csrf</a> <a href="/tags/django-request-serialize/" style="font-size: 10px;">django, request, serialize</a> <a href="/tags/macOS/" style="font-size: 10px;">macOS</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/python-django/" style="font-size: 10px;">python, django</a> <a href="/tags/python-virtualenv/" style="font-size: 10px;">python, virtualenv</a> <a href="/tags/test-git-hexo/" style="font-size: 10px;">test, git, hexo</a> <a href="/tags/webpack-babel-async-await/" style="font-size: 10px;">webpack, babel, async, await</a>
+      <a href="/tags/CORS-Cross-Origin-Resource-Sharing/" style="font-size: 10px;">CORS, Cross Origin Resource Sharing</a> <a href="/tags/HTML5-localStorage/" style="font-size: 10px;">HTML5, localStorage</a> <a href="/tags/React-js-Lifecycle/" style="font-size: 10px;">React.js, Lifecycle</a> <a href="/tags/axios/" style="font-size: 10px;">axios</a> <a href="/tags/django/" style="font-size: 20px;">django</a> <a href="/tags/django-csrf/" style="font-size: 10px;">django, csrf</a> <a href="/tags/django-request-serialize/" style="font-size: 10px;">django, request, serialize</a> <a href="/tags/macOS/" style="font-size: 10px;">macOS</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/python-django/" style="font-size: 10px;">python, django</a> <a href="/tags/python-virtualenv/" style="font-size: 10px;">python, virtualenv</a> <a href="/tags/react-bootstrap/" style="font-size: 10px;">react-bootstrap</a> <a href="/tags/test-git-hexo/" style="font-size: 10px;">test, git, hexo</a> <a href="/tags/webpack-babel-async-await/" style="font-size: 10px;">webpack, babel, async, await</a>
     </div>
   </div>
 
@@ -639,6 +619,10 @@
       <ul>
         
           <li>
+            <a href="/2017/08/20/react-bootstrap-style/">react-bootstrap 사용 시 style 덮어쓰는 방법</a>
+          </li>
+        
+          <li>
             <a href="/2017/08/04/csrf-memo/">django csrf 관련 메모</a>
           </li>
         
@@ -652,10 +636,6 @@
         
           <li>
             <a href="/2017/07/09/smartfields/">smartfields</a>
-          </li>
-        
-          <li>
-            <a href="/2017/06/20/django-db-insert/">django에서 데이터베이스에 Insert하기</a>
           </li>
         
       </ul>

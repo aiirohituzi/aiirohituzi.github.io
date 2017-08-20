@@ -3,14 +3,27 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Archives | aiirohituzi</title>
+  <title>react-bootstrap 사용 시 style 덮어쓰는 방법 | aiirohituzi</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="aiirohituzi">
-<meta property="og:url" content="http://aiirohituzi.github.io/archives/page/2/index.html">
+  <meta name="description" content="react 환경에서 bootstrap을 사용하기 위해 npm으로 react-bootstrap을 설치하여 사용하는 도중 사이즈나 정렬방식, 간격 등을 원하는대로 재설정할 필요가 생겼다.
+기본적으로 bootstrap에 정의된 css를 따라가기에 style을 직접 덮어씌워야 변경이 가능한데
+stack overflow 를 통해 그 방법을 찾을 수 있었다.
+1234">
+<meta property="og:type" content="article">
+<meta property="og:title" content="react-bootstrap 사용 시 style 덮어쓰는 방법">
+<meta property="og:url" content="http://aiirohituzi.github.io/2017/08/20/react-bootstrap-style/index.html">
 <meta property="og:site_name" content="aiirohituzi">
+<meta property="og:description" content="react 환경에서 bootstrap을 사용하기 위해 npm으로 react-bootstrap을 설치하여 사용하는 도중 사이즈나 정렬방식, 간격 등을 원하는대로 재설정할 필요가 생겼다.
+기본적으로 bootstrap에 정의된 css를 따라가기에 style을 직접 덮어씌워야 변경이 가능한데
+stack overflow 를 통해 그 방법을 찾을 수 있었다.
+1234">
+<meta property="og:updated_time" content="2017-08-20T13:37:55.904Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="aiirohituzi">
+<meta name="twitter:title" content="react-bootstrap 사용 시 style 덮어쓰는 방법">
+<meta name="twitter:description" content="react 환경에서 bootstrap을 사용하기 위해 npm으로 react-bootstrap을 설치하여 사용하는 도중 사이즈나 정렬방식, 간격 등을 원하는대로 재설정할 필요가 생겼다.
+기본적으로 bootstrap에 정의된 css를 따라가기에 style을 직접 덮어씌워야 변경이 가능한데
+stack overflow 를 통해 그 방법을 찾을 수 있었다.
+1234">
   
     <link rel="alternate" href="/atom.xml" title="aiirohituzi" type="application/atom+xml">
   
@@ -59,158 +72,70 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2017/04/22/django-install/" class="archive-article-date">
-  <time datetime="2017-04-22T13:35:30.000Z" itemprop="datePublished">Apr 22</time>
+        <section id="main"><article id="post-react-bootstrap-style" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/08/20/react-bootstrap-style/" class="article-date">
+  <time datetime="2017-08-20T13:19:07.000Z" itemprop="datePublished">2017-08-20</time>
 </a>
-      
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/04/22/django-install/">django 설치방법</a>
+    <h1 class="article-title" itemprop="name">
+      react-bootstrap 사용 시 style 덮어쓰는 방법
     </h1>
   
 
-    </header>
-  </div>
-</article>
-  
+      </header>
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2017/04/21/MAC-hotkey/" class="archive-article-date">
-  <time datetime="2017-04-21T12:07:27.000Z" itemprop="datePublished">Apr 21</time>
-</a>
+    <div class="article-entry" itemprop="articleBody">
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/04/21/MAC-hotkey/">macOS 헷갈리는 특수키들</a>
-    </h1>
-  
+        <p>react 환경에서 bootstrap을 사용하기 위해 npm으로 react-bootstrap을 설치하여 사용하는 도중 사이즈나 정렬방식, 간격 등을 원하는대로 재설정할 필요가 생겼다.</p>
+<p>기본적으로 bootstrap에 정의된 css를 따라가기에 style을 직접 덮어씌워야 변경이 가능한데</p>
+<p>stack overflow 를 통해 그 방법을 찾을 수 있었다.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&lt;InputGroup.Addon style=&#123;&#123;</div><div class="line">    <span class="attr">width</span>: <span class="string">'20%'</span>,</div><div class="line">    <span class="attr">paddingTop</span>: <span class="string">'0'</span>,</div><div class="line">    <span class="attr">paddingRight</span>: <span class="string">'0'</span>,</div><div class="line">    <span class="attr">paddingBottom</span>: <span class="string">'0'</span>,</div><div class="line">    <span class="attr">paddingLeft</span>: <span class="string">'0'</span>,</div><div class="line">&#125;&#125;&gt;</div><div class="line"></div><div class="line">&lt;FormControl componentClass="select" placeholder="select" style=&#123;&#123;width: '100%'&#125;&#125;&gt;</div><div class="line"></div><div class="line">&lt;p style=&#123;&#123;textAlign:"right"&#125;&#125;&gt;</div></pre></td></tr></table></figure>
+<p>위의 코드와 같이 <strong>{ {  } }</strong> 로 감싸서 style props에 값을 넘기는 느낌이다.</p>
+<p>각 항목의 명칭들이 언뜻 실제 css를 정의하는것과 비슷해보이지만 text-align 같은 속성들은</p>
+<p>가운데의 -를 지우고 단어를 대문자로 구분하여 textAlign으로 입력해주어야 한다.</p>
+<p>또한 각 값을 구분할때 세미콜론(<strong>;</strong>)이 아닌 반점(<strong>,</strong>)으로 구분해주어야 하며 문자열방식으로 입력해주어야 한다.</p>
 
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2017/04/13/HTML5-localStorage/" class="archive-article-date">
-  <time datetime="2017-04-13T11:53:45.000Z" itemprop="datePublished">Apr 13</time>
-</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/04/13/HTML5-localStorage/">HTML5 - localStorage</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2017/04/13/React-js-Component-Lifecycle-API/" class="archive-article-date">
-  <time datetime="2017-04-13T10:57:51.000Z" itemprop="datePublished">Apr 13</time>
-</a>
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://aiirohituzi.github.io/2017/08/20/react-bootstrap-style/" data-id="cj6krtkao00005wtkqgjnfrtd" class="article-share-link">Share</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/04/13/React-js-Component-Lifecycle-API/">React.js Component Lifecycle API</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2017/04/10/python-virtualenv/" class="archive-article-date">
-  <time datetime="2017-04-10T14:08:23.000Z" itemprop="datePublished">Apr 10</time>
-</a>
+        <a href="http://aiirohituzi.github.io/2017/08/20/react-bootstrap-style/#disqus_thread" class="article-comment-link">Comments</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/04/10/python-virtualenv/">Python 가상 환경 설치 (virtualenv)</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2017/03/19/markdown/" class="archive-article-date">
-  <time datetime="2017-03-19T13:41:41.000Z" itemprop="datePublished">Mar 19</time>
-</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/03/19/markdown/">마크다운 기본 사용법</a>
-    </h1>
-  
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/react-bootstrap/">react-bootstrap</a></li></ul>
 
-    </header>
+    </footer>
   </div>
-</article>
   
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2017/03/18/posting-test/" class="archive-article-date">
-  <time datetime="2017-03-17T15:38:32.000Z" itemprop="datePublished">Mar 18</time>
-</a>
-      
+<nav id="article-nav">
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/03/18/posting-test/">포스팅 테스트</a>
-    </h1>
   
+    <a href="/2017/08/04/csrf-memo/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">django csrf 관련 메모</div>
+    </a>
+  
+</nav>
 
-    </header>
-  </div>
+  
 </article>
-  
-  
-    </div></section>
-  
 
 
-  <nav id="page-nav">
-    <a class="extend prev" rel="prev" href="/archives/">&laquo; __('prev')</a><a class="page-number" href="/archives/">1</a><span class="page-number current">2</span>
-  </nav>
+<section id="comments">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
 </section>
         
           <aside id="sidebar">
@@ -302,11 +227,13 @@
 <script>
   var disqus_shortname = 'aiirohituzi';
   
+  var disqus_url = 'http://aiirohituzi.github.io/2017/08/20/react-bootstrap-style/';
+  
   (function(){
     var dsq = document.createElement('script');
     dsq.type = 'text/javascript';
     dsq.async = true;
-    dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
   })();
 </script>
