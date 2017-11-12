@@ -61,6 +61,56 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-javascript-json-sort" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/11/12/javascript-json-sort/" class="article-date">
+  <time datetime="2017-11-12T12:38:42.000Z" itemprop="datePublished">2017-11-12</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/11/12/javascript-json-sort/">javascript로 json 오브젝트 sort</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Array.prototype.sort() 라는 함수를 사용하여 json 오브젝트를 정렬 가능</p>
+<p>기본 정렬 순서는 문자열 유니 코드 코드 포인트에 따른다.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">arr.sort()</div><div class="line">arr.sort(비교 함수)</div></pre></td></tr></table></figure>
+<p>사용시엔 위와 같은 방식으로 사용 (json은 javascript에서 배열처럼 취급하기 때문에 array의 내장 함수로 정렬)</p>
+<p><br><br></p>
+<p>예시 코드<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">this</span>.r_ratings.sort(<span class="function"><span class="keyword">function</span> (<span class="params">a,b</span>)</span>&#123;</div><div class="line">    <span class="keyword">return</span>(a.USER.toLowerCase() &lt; b.USER.toLowerCase()) ? <span class="number">-1</span> : (a.USER.toLowerCase() &gt; b.USER.toLowerCase()) ? <span class="number">1</span> : <span class="number">0</span></div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+<p>개발중에 사용했던 코드를 예시로 들면</p>
+<p>평가 함수에 사용되는 매개변수인 a, b는 각 현재 행, 다음 행을 뜻한다.</p>
+<p>return값에 따라 정렬을 위해 취할 동작이 결정 되는데 각 각<br><strong>0 : 아무 동작도 하지 않음<br>1 : 현재 행을 다음 행보다 아래로 정렬<br>-1 : 현재 행을 다음 행보다 위로 정렬</strong><br>와 같은 정렬 작업을 수행한다.</p>
+<p>에시 코드에선 각 행의 USER라는 값을 전부 소문자로 통일하여 오름차순으로 정렬되도록 비교식을 넣은 모습이다.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://aiirohituzi.github.io/2017/11/12/javascript-json-sort/" data-id="cj9wrgx2y000jv4vap4tw0n04" class="article-share-link">Share</a>
+      
+        <a href="http://aiirohituzi.github.io/2017/11/12/javascript-json-sort/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-react-bootstrap-style" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2017/08/20/react-bootstrap-style/" class="article-date">
@@ -95,7 +145,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://aiirohituzi.github.io/2017/08/20/react-bootstrap-style/" data-id="cj6krtkao00005wtkqgjnfrtd" class="article-share-link">Share</a>
+      <a data-url="http://aiirohituzi.github.io/2017/08/20/react-bootstrap-style/" data-id="cj9wrgx36000sv4va1pkk65mv" class="article-share-link">Share</a>
       
         <a href="http://aiirohituzi.github.io/2017/08/20/react-bootstrap-style/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -145,7 +195,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://aiirohituzi.github.io/2017/08/04/csrf-memo/" data-id="cj6krodi10003ugtkbpwz36ic" class="article-share-link">Share</a>
+      <a data-url="http://aiirohituzi.github.io/2017/08/04/csrf-memo/" data-id="cj9wrgx2l0008v4vaunyj08o7" class="article-share-link">Share</a>
       
         <a href="http://aiirohituzi.github.io/2017/08/04/csrf-memo/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -162,7 +212,7 @@
     <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2017/07/19/hello-world/" class="article-date">
-  <time datetime="2017-07-19T09:03:29.840Z" itemprop="datePublished">2017-07-19</time>
+  <time datetime="2017-07-19T09:03:29.841Z" itemprop="datePublished">2017-07-19</time>
 </a>
     
   </div>
@@ -194,7 +244,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://aiirohituzi.github.io/2017/07/19/hello-world/" data-id="cj6krodiu000dugtkxistwptn" class="article-share-link">Share</a>
+      <a data-url="http://aiirohituzi.github.io/2017/07/19/hello-world/" data-id="cj9wrgx2t000hv4va30m205w3" class="article-share-link">Share</a>
       
         <a href="http://aiirohituzi.github.io/2017/07/19/hello-world/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -251,7 +301,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://aiirohituzi.github.io/2017/07/12/django-outside-access/" data-id="cj6krodiv000fugtkf7lftt64" class="article-share-link">Share</a>
+      <a data-url="http://aiirohituzi.github.io/2017/07/12/django-outside-access/" data-id="cj9wrgx31000lv4va8hfsatop" class="article-share-link">Share</a>
       
         <a href="http://aiirohituzi.github.io/2017/07/12/django-outside-access/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -298,7 +348,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://aiirohituzi.github.io/2017/07/09/smartfields/" data-id="cj6krodkf0012ugtkneil39y4" class="article-share-link">Share</a>
+      <a data-url="http://aiirohituzi.github.io/2017/07/09/smartfields/" data-id="cj9wrgx37000uv4va7myzqj3l" class="article-share-link">Share</a>
       
         <a href="http://aiirohituzi.github.io/2017/07/09/smartfields/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -352,7 +402,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://aiirohituzi.github.io/2017/06/20/django-db-insert/" data-id="cj6krodj0000jugtk7vqydy2b" class="article-share-link">Share</a>
+      <a data-url="http://aiirohituzi.github.io/2017/06/20/django-db-insert/" data-id="cj9wrgx2p000bv4vafeyi35ra" class="article-share-link">Share</a>
       
         <a href="http://aiirohituzi.github.io/2017/06/20/django-db-insert/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -406,7 +456,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://aiirohituzi.github.io/2017/06/14/axios-useful/" data-id="cj6krodi20004ugtka8bu5vkx" class="article-share-link">Share</a>
+      <a data-url="http://aiirohituzi.github.io/2017/06/14/axios-useful/" data-id="cj9wrgx2i0005v4vad1f56p03" class="article-share-link">Share</a>
       
         <a href="http://aiirohituzi.github.io/2017/06/14/axios-useful/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -455,7 +505,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://aiirohituzi.github.io/2017/05/17/django-request-body/" data-id="cj6krodix000hugtklm1bskzl" class="article-share-link">Share</a>
+      <a data-url="http://aiirohituzi.github.io/2017/05/17/django-request-body/" data-id="cj9wrgx2s000fv4vackiq1sb3" class="article-share-link">Share</a>
       
         <a href="http://aiirohituzi.github.io/2017/05/17/django-request-body/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -508,61 +558,12 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://aiirohituzi.github.io/2017/04/30/async-await-webpack/" data-id="cj6krodlc0019ugtkbele3d8r" class="article-share-link">Share</a>
+      <a data-url="http://aiirohituzi.github.io/2017/04/30/async-await-webpack/" data-id="cj9wrgx2g0004v4va014crtwo" class="article-share-link">Share</a>
       
         <a href="http://aiirohituzi.github.io/2017/04/30/async-await-webpack/#disqus_thread" class="article-comment-link">Comments</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/webpack-babel-async-await/">webpack, babel, async, await</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-CORS" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/04/29/CORS/" class="article-date">
-  <time datetime="2017-04-29T13:30:43.000Z" itemprop="datePublished">2017-04-29</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/29/CORS/">CORS 관련 메모</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="CORS-란"><a href="#CORS-란" class="headerlink" title="CORS 란?"></a>CORS 란?</h2><p><strong>Cross Origin Resource Sharing</strong> 의 준말<br>서로 다른 도메인 간 리소스가 요청될 시 (cross-domain) 동일 출처 정책 (Same-Origin Policy) 에 관련하여 보안 문제로 간주하고 이를 브라우저에서 차단한다.<br>CORS를 활성화시키면 CORS는 웹 서버에게 보안 cross-domain 데이터 전송을 활성화하는 cross-domain 접근 제어권을 부여한다.</p>
-<h2 id="django-project-개발-서버에서의-CORS-설정"><a href="#django-project-개발-서버에서의-CORS-설정" class="headerlink" title="django project 개발 서버에서의 CORS 설정"></a>django project 개발 서버에서의 CORS 설정</h2><p>django-cors-header 모듈을 사용하면 간단하게 해결 가능</p>
-<ul>
-<li><p>pip를 사용하여 모듈을 설치</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ pip install django-cors-headers</div></pre></td></tr></table></figure>
-</li>
-<li><p>setting.py 에 모듈 추가 및 각종 설정</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">INSTALLED_APPS = (</div><div class="line">    ...</div><div class="line">    <span class="string">'corsheaders'</span>,</div><div class="line">)</div><div class="line"></div><div class="line">MIDDLEWARE_CLASSES = (</div><div class="line">    <span class="string">'corsheaders.middleware.CorsMiddleware'</span>,</div><div class="line">    <span class="string">'django.middleware.common.CommonMiddleware'</span>,</div><div class="line">    ...</div><div class="line">)</div><div class="line"><span class="comment"># CorsMiddleware가 django의 CommonMiddleware 위로 와야 한다.</span></div><div class="line"></div><div class="line"></div><div class="line">CORS_ORIGIN_ALLOW_ALL = <span class="keyword">False</span></div><div class="line"></div><div class="line">CORS_ORIGIN_WHITELIST = (</div><div class="line">    <span class="string">'&lt;YOUR_DOMAIN&gt;[:PORT]'</span>,</div><div class="line">)</div><div class="line"><span class="comment"># 위와 같이 설정하여 하나의 도메인만 서버와 통신할 수 있도록 허용할 수도 있다.</span></div><div class="line"><span class="comment"># 모두 허용하고 싶다면 whitelist를 작성하지 않고 CORS_ORIGIN_ALLOW_ALL의 값을 True로 설정</span></div></pre></td></tr></table></figure></li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://aiirohituzi.github.io/2017/04/29/CORS/" data-id="cj6krodie0008ugtkpmuz8q6p" class="article-share-link">Share</a>
-      
-        <a href="http://aiirohituzi.github.io/2017/04/29/CORS/#disqus_thread" class="article-comment-link">Comments</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CORS-Cross-Origin-Resource-Sharing/">CORS, Cross Origin Resource Sharing</a></li></ul>
 
     </footer>
   </div>
@@ -587,7 +588,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CORS-Cross-Origin-Resource-Sharing/">CORS, Cross Origin Resource Sharing</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML5-localStorage/">HTML5, localStorage</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React-js-Lifecycle/">React.js, Lifecycle</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/axios/">axios</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/django/">django</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/django-csrf/">django, csrf</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/django-request-serialize/">django, request, serialize</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/macOS/">macOS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/markdown/">markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python-django/">python, django</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python-virtualenv/">python, virtualenv</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/react-bootstrap/">react-bootstrap</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/test-git-hexo/">test, git, hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webpack-babel-async-await/">webpack, babel, async, await</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CORS-Cross-Origin-Resource-Sharing/">CORS, Cross Origin Resource Sharing</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML5-localStorage/">HTML5, localStorage</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React-js-Lifecycle/">React.js, Lifecycle</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/axios/">axios</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/django/">django</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/django-csrf/">django, csrf</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/django-request-serialize/">django, request, serialize</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/macOS/">macOS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/markdown/">markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python-django/">python, django</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python-virtualenv/">python, virtualenv</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/react-bootstrap/">react-bootstrap</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/test-git-hexo/">test, git, hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webpack-babel-async-await/">webpack, babel, async, await</a></li></ul>
     </div>
   </div>
 
@@ -597,7 +598,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/CORS-Cross-Origin-Resource-Sharing/" style="font-size: 10px;">CORS, Cross Origin Resource Sharing</a> <a href="/tags/HTML5-localStorage/" style="font-size: 10px;">HTML5, localStorage</a> <a href="/tags/React-js-Lifecycle/" style="font-size: 10px;">React.js, Lifecycle</a> <a href="/tags/axios/" style="font-size: 10px;">axios</a> <a href="/tags/django/" style="font-size: 20px;">django</a> <a href="/tags/django-csrf/" style="font-size: 10px;">django, csrf</a> <a href="/tags/django-request-serialize/" style="font-size: 10px;">django, request, serialize</a> <a href="/tags/macOS/" style="font-size: 10px;">macOS</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/python-django/" style="font-size: 10px;">python, django</a> <a href="/tags/python-virtualenv/" style="font-size: 10px;">python, virtualenv</a> <a href="/tags/react-bootstrap/" style="font-size: 10px;">react-bootstrap</a> <a href="/tags/test-git-hexo/" style="font-size: 10px;">test, git, hexo</a> <a href="/tags/webpack-babel-async-await/" style="font-size: 10px;">webpack, babel, async, await</a>
+      <a href="/tags/CORS-Cross-Origin-Resource-Sharing/" style="font-size: 10px;">CORS, Cross Origin Resource Sharing</a> <a href="/tags/HTML5-localStorage/" style="font-size: 10px;">HTML5, localStorage</a> <a href="/tags/React-js-Lifecycle/" style="font-size: 10px;">React.js, Lifecycle</a> <a href="/tags/axios/" style="font-size: 10px;">axios</a> <a href="/tags/django/" style="font-size: 20px;">django</a> <a href="/tags/django-csrf/" style="font-size: 10px;">django, csrf</a> <a href="/tags/django-request-serialize/" style="font-size: 10px;">django, request, serialize</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/macOS/" style="font-size: 10px;">macOS</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/python-django/" style="font-size: 10px;">python, django</a> <a href="/tags/python-virtualenv/" style="font-size: 10px;">python, virtualenv</a> <a href="/tags/react-bootstrap/" style="font-size: 10px;">react-bootstrap</a> <a href="/tags/test-git-hexo/" style="font-size: 10px;">test, git, hexo</a> <a href="/tags/webpack-babel-async-await/" style="font-size: 10px;">webpack, babel, async, await</a>
     </div>
   </div>
 
@@ -606,7 +607,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a></li></ul>
     </div>
   </div>
 
@@ -617,6 +618,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2017/11/12/javascript-json-sort/">javascript로 json 오브젝트 sort</a>
+          </li>
         
           <li>
             <a href="/2017/08/20/react-bootstrap-style/">react-bootstrap 사용 시 style 덮어쓰는 방법</a>
@@ -632,10 +637,6 @@
         
           <li>
             <a href="/2017/07/12/django-outside-access/">django 프로젝트 외부 디렉토리 접근방법</a>
-          </li>
-        
-          <li>
-            <a href="/2017/07/09/smartfields/">smartfields</a>
           </li>
         
       </ul>
