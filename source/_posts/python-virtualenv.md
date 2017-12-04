@@ -21,10 +21,10 @@ Python 설치 후 자체 내장 된 기능으로 손쉽게 생성 가능하다.
 
 * 활성화 및 비활성화 명령어
         Mac OS, Linux 계열
-        $ source env(가상환경이름)/bin/activate
+        $ source env_pystagram/bin/activate
 
         Windows
-        $ env(가상환경이름)\Scripts\activate.bat
+        $ env_pystagram\Scripts\activate.bat
 
         비활성화
         deactivate
