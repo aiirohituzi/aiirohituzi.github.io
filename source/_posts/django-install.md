@@ -23,7 +23,7 @@ $ django-admin startproject 프로젝트명
 
 프로젝트명/
 ├── manage.py
-└── pystagram
+└── 프로젝트명
     ├── __init__.py
     ├── settings.py
     ├── urls.py
