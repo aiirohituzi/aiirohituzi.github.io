@@ -3,14 +3,21 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Tag: javascript | aiirohituzi</title>
+  <title>xlsxwriter 기본 사용법 메모 | aiirohituzi</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="aiirohituzi">
-<meta property="og:url" content="http://aiirohituzi.github.io/tags/javascript/index.html">
+  <meta name="description" content="xlsxwriter : python에서 excel을 다룰 수 있게 하는 모듈 중의 하나(docs 링크)
+사용 예시1234567891011121314151617181920212223242526import xlsxwriterworkbook = xlsxwriter.Workbook(&apos;skill.xlsx&apos;)worksheet = workbook.add_workshee">
+<meta property="og:type" content="article">
+<meta property="og:title" content="xlsxwriter 기본 사용법 메모">
+<meta property="og:url" content="http://aiirohituzi.github.io/2018/04/01/xlsxwriter/index.html">
 <meta property="og:site_name" content="aiirohituzi">
+<meta property="og:description" content="xlsxwriter : python에서 excel을 다룰 수 있게 하는 모듈 중의 하나(docs 링크)
+사용 예시1234567891011121314151617181920212223242526import xlsxwriterworkbook = xlsxwriter.Workbook(&apos;skill.xlsx&apos;)worksheet = workbook.add_workshee">
+<meta property="og:updated_time" content="2018-04-01T12:57:29.662Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="aiirohituzi">
+<meta name="twitter:title" content="xlsxwriter 기본 사용법 메모">
+<meta name="twitter:description" content="xlsxwriter : python에서 excel을 다룰 수 있게 하는 모듈 중의 하나(docs 링크)
+사용 예시1234567891011121314151617181920212223242526import xlsxwriterworkbook = xlsxwriter.Workbook(&apos;skill.xlsx&apos;)worksheet = workbook.add_workshee">
   
     <link rel="alternate" href="/atom.xml" title="aiirohituzi" type="application/atom+xml">
   
@@ -59,40 +66,63 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2017/11/12/javascript-json-sort/" class="archive-article-date">
-  <time datetime="2017-11-12T12:38:42.000Z" itemprop="datePublished">Nov 12</time>
+        <section id="main"><article id="post-xlsxwriter" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/04/01/xlsxwriter/" class="article-date">
+  <time datetime="2018-04-01T12:47:27.000Z" itemprop="datePublished">2018-04-01</time>
 </a>
-      
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/11/12/javascript-json-sort/">javascript로 json 오브젝트 sort</a>
+    <h1 class="article-title" itemprop="name">
+      xlsxwriter 기본 사용법 메모
     </h1>
   
 
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>xlsxwriter : python에서 excel을 다룰 수 있게 하는 모듈 중의 하나<br><a href="http://xlsxwriter.readthedocs.io/" target="_blank" rel="external">(docs 링크)</a></p>
+<h3 id="사용-예시"><a href="#사용-예시" class="headerlink" title="사용 예시"></a>사용 예시</h3><figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> xlsxwriter</div><div class="line"></div><div class="line">workbook = xlsxwriter.Workbook(<span class="string">'skill.xlsx'</span>)</div><div class="line">worksheet = workbook.add_worksheet()</div><div class="line"></div><div class="line"><span class="comment"># 직접 셀 위치를 입력</span></div><div class="line">worksheet.write(<span class="string">'A1'</span>, <span class="string">'aaa'</span>)</div><div class="line">worksheet.write(<span class="string">'B1'</span>, <span class="string">'bbb'</span>)</div><div class="line">worksheet.write(<span class="string">'C1'</span>, <span class="string">'ccc'</span>)</div><div class="line">worksheet.write(<span class="string">'D1'</span>, <span class="string">'ddd'</span>)</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment"># 반복문을 통한 자동 입력</span></div><div class="line">row = <span class="number">1</span></div><div class="line">col = <span class="number">0</span></div><div class="line"></div><div class="line"><span class="keyword">for</span> a <span class="keyword">in</span> (data):</div><div class="line">    worksheet.write(row, col, a.get(<span class="string">'...'</span>))</div><div class="line">    worksheet.write(row, col + <span class="number">1</span>, a.get(<span class="string">'...'</span>))</div><div class="line">    worksheet.write(row, col + <span class="number">2</span>, a.get(<span class="string">'...'</span>))</div><div class="line">    worksheet.write(row, col + <span class="number">3</span>, a.get(<span class="string">'...'</span>))</div><div class="line">    ...</div><div class="line"></div><div class="line">    row += <span class="number">1</span></div><div class="line"></div><div class="line">workbook.close()</div></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://aiirohituzi.github.io/2018/04/01/xlsxwriter/" data-id="cjfgt8k57000q1cu3orfupn15" class="article-share-link">Share</a>
+      
+        <a href="http://aiirohituzi.github.io/2018/04/01/xlsxwriter/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/xlsxwriter/">xlsxwriter</a></li></ul>
 
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2017/11/30/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Hello World</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
 </section>
         
           <aside id="sidebar">
@@ -184,11 +214,13 @@
 <script>
   var disqus_shortname = 'aiirohituzi';
   
+  var disqus_url = 'http://aiirohituzi.github.io/2018/04/01/xlsxwriter/';
+  
   (function(){
     var dsq = document.createElement('script');
     dsq.type = 'text/javascript';
     dsq.async = true;
-    dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
   })();
 </script>

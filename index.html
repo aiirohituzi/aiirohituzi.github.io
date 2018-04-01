@@ -61,6 +61,47 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-xlsxwriter" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/04/01/xlsxwriter/" class="article-date">
+  <time datetime="2018-04-01T12:47:27.000Z" itemprop="datePublished">2018-04-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/04/01/xlsxwriter/">xlsxwriter 기본 사용법 메모</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>xlsxwriter : python에서 excel을 다룰 수 있게 하는 모듈 중의 하나<br><a href="http://xlsxwriter.readthedocs.io/" target="_blank" rel="external">(docs 링크)</a></p>
+<h3 id="사용-예시"><a href="#사용-예시" class="headerlink" title="사용 예시"></a>사용 예시</h3><figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> xlsxwriter</div><div class="line"></div><div class="line">workbook = xlsxwriter.Workbook(<span class="string">'skill.xlsx'</span>)</div><div class="line">worksheet = workbook.add_worksheet()</div><div class="line"></div><div class="line"><span class="comment"># 직접 셀 위치를 입력</span></div><div class="line">worksheet.write(<span class="string">'A1'</span>, <span class="string">'aaa'</span>)</div><div class="line">worksheet.write(<span class="string">'B1'</span>, <span class="string">'bbb'</span>)</div><div class="line">worksheet.write(<span class="string">'C1'</span>, <span class="string">'ccc'</span>)</div><div class="line">worksheet.write(<span class="string">'D1'</span>, <span class="string">'ddd'</span>)</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment"># 반복문을 통한 자동 입력</span></div><div class="line">row = <span class="number">1</span></div><div class="line">col = <span class="number">0</span></div><div class="line"></div><div class="line"><span class="keyword">for</span> a <span class="keyword">in</span> (data):</div><div class="line">    worksheet.write(row, col, a.get(<span class="string">'...'</span>))</div><div class="line">    worksheet.write(row, col + <span class="number">1</span>, a.get(<span class="string">'...'</span>))</div><div class="line">    worksheet.write(row, col + <span class="number">2</span>, a.get(<span class="string">'...'</span>))</div><div class="line">    worksheet.write(row, col + <span class="number">3</span>, a.get(<span class="string">'...'</span>))</div><div class="line">    ...</div><div class="line"></div><div class="line">    row += <span class="number">1</span></div><div class="line"></div><div class="line">workbook.close()</div></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://aiirohituzi.github.io/2018/04/01/xlsxwriter/" data-id="cjfgt8k57000q1cu3orfupn15" class="article-share-link">Share</a>
+      
+        <a href="http://aiirohituzi.github.io/2018/04/01/xlsxwriter/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/xlsxwriter/">xlsxwriter</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2017/11/30/hello-world/" class="article-date">
@@ -96,7 +137,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://aiirohituzi.github.io/2017/11/30/hello-world/" data-id="cjas41i5a000hjcvaf3c657bb" class="article-share-link">Share</a>
+      <a data-url="http://aiirohituzi.github.io/2017/11/30/hello-world/" data-id="cjfgt8k4y000d1cu3ajvyihav" class="article-share-link">Share</a>
       
         <a href="http://aiirohituzi.github.io/2017/11/30/hello-world/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -144,7 +185,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://aiirohituzi.github.io/2017/11/12/javascript-json-sort/" data-id="cjas41i5c000ljcvalh15651e" class="article-share-link">Share</a>
+      <a data-url="http://aiirohituzi.github.io/2017/11/12/javascript-json-sort/" data-id="cjfgt8k50000h1cu3vp9uytok" class="article-share-link">Share</a>
       
         <a href="http://aiirohituzi.github.io/2017/11/12/javascript-json-sort/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -192,7 +233,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://aiirohituzi.github.io/2017/08/20/react-bootstrap-style/" data-id="cjas41i5h000sjcvaw20sqm9g" class="article-share-link">Share</a>
+      <a data-url="http://aiirohituzi.github.io/2017/08/20/react-bootstrap-style/" data-id="cjfgt8k53000l1cu3mime1sig" class="article-share-link">Share</a>
       
         <a href="http://aiirohituzi.github.io/2017/08/20/react-bootstrap-style/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -242,7 +283,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://aiirohituzi.github.io/2017/08/04/csrf-memo/" data-id="cjas41i5b000jjcvaz9iq6o6p" class="article-share-link">Share</a>
+      <a data-url="http://aiirohituzi.github.io/2017/08/04/csrf-memo/" data-id="cjfgt8k4v00091cu3hbr7z55d" class="article-share-link">Share</a>
       
         <a href="http://aiirohituzi.github.io/2017/08/04/csrf-memo/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -301,7 +342,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://aiirohituzi.github.io/2017/07/12/django-outside-access/" data-id="cjas41i57000fjcvaen9oxj37" class="article-share-link">Share</a>
+      <a data-url="http://aiirohituzi.github.io/2017/07/12/django-outside-access/" data-id="cjfgt8k5t001a1cu3c6lpuqv0" class="article-share-link">Share</a>
       
         <a href="http://aiirohituzi.github.io/2017/07/12/django-outside-access/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -348,7 +389,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://aiirohituzi.github.io/2017/07/09/smartfields/" data-id="cjas41i5j000ujcvas21j75a7" class="article-share-link">Share</a>
+      <a data-url="http://aiirohituzi.github.io/2017/07/09/smartfields/" data-id="cjfgt8k55000p1cu39fhpyr4b" class="article-share-link">Share</a>
       
         <a href="http://aiirohituzi.github.io/2017/07/09/smartfields/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -402,7 +443,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://aiirohituzi.github.io/2017/06/20/django-db-insert/" data-id="cjas41i530009jcva9z9d0ap9" class="article-share-link">Share</a>
+      <a data-url="http://aiirohituzi.github.io/2017/06/20/django-db-insert/" data-id="cjfgt8k4w000b1cu3bww5tikg" class="article-share-link">Share</a>
       
         <a href="http://aiirohituzi.github.io/2017/06/20/django-db-insert/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -456,7 +497,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://aiirohituzi.github.io/2017/06/14/axios-useful/" data-id="cjas41i500005jcvahasw12h9" class="article-share-link">Share</a>
+      <a data-url="http://aiirohituzi.github.io/2017/06/14/axios-useful/" data-id="cjfgt8k4t00081cu3elb4zbbu" class="article-share-link">Share</a>
       
         <a href="http://aiirohituzi.github.io/2017/06/14/axios-useful/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -505,65 +546,12 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://aiirohituzi.github.io/2017/05/17/django-request-body/" data-id="cjas41i56000djcvatqww0wzo" class="article-share-link">Share</a>
+      <a data-url="http://aiirohituzi.github.io/2017/05/17/django-request-body/" data-id="cjfgt8k5v001b1cu3g99hs4x1" class="article-share-link">Share</a>
       
         <a href="http://aiirohituzi.github.io/2017/05/17/django-request-body/#disqus_thread" class="article-comment-link">Comments</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/django-request-serialize/">django, request, serialize</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-async-await-webpack" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/04/30/async-await-webpack/" class="article-date">
-  <time datetime="2017-04-29T17:25:12.000Z" itemprop="datePublished">2017-04-30</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/30/async-await-webpack/">Webpack 개발서버에서 async/await 사용하기</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>참고 자료 출처:<br><a href="https://webpack.js.org/guides/code-splitting-async/#usage-with-babel-and-async-await" target="_blank" rel="external">webpack</a><br><a href="https://velopert.com/2597" target="_blank" rel="external">VELOPERT.LOG</a></p>
-<p>Node.js에서 ES6를 완전히 지원하지 않는 문제로 webpack 개발서버를 실행하는 중 async 관련 syntax 오류로 컴파일하지 못하는 문제가 발생했다.</p>
-<p>열심히 자료들을 찾아본 결과 Babel을 이용하면 해결할 수 있다는 것을 알게 되었다.</p>
-<p>이미 babel-preset을 적용하여 사용하고 있지만</p>
-<p>추가로 아래의 4가지 plugin 설정을 필요로 하는 상황이라 오류가 발생하고 있었다.<br>transform-async-to-generator<br>transform-class-properties<br>transform-regenerator<br>transform-runtime</p>
-<p>다음과 같은 방법으로 plugin을 설치 및 webpack 설정을 함으로 문제를 해결했다.</p>
-<ul>
-<li><p>plugin 설치<br>기본적으로 이미 webpack과 babel-core, babel-loader, babel-preset-es2015 은 설정되어있다고 가정</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install --save-dev babel-plugin-transform-async-to-generator babel-plugin-transform-class-properties babel-plugin-transform-regenerator babel-plugin-transform-runtime</div></pre></td></tr></table></figure>
-</li>
-<li><p>webpack.config.js 수정</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">module</span>.exports = &#123;</div><div class="line">  ...</div><div class="line">  module: &#123;</div><div class="line">    <span class="attr">rules</span>: [&#123;</div><div class="line">      <span class="attr">test</span>: <span class="regexp">/\.js$/</span>,</div><div class="line">      <span class="attr">exclude</span>: <span class="regexp">/(node_modules)/</span>,</div><div class="line">      <span class="attr">use</span>: [&#123;</div><div class="line">        <span class="attr">loader</span>: <span class="string">'babel-loader'</span>,</div><div class="line">        <span class="attr">options</span>: &#123;</div><div class="line">          <span class="attr">presets</span>: [[<span class="string">'es2015'</span>, &#123;<span class="attr">modules</span>: <span class="literal">false</span>&#125;]],</div><div class="line">          <span class="attr">plugins</span>: [</div><div class="line">            <span class="string">'transform-async-to-generator'</span>,</div><div class="line">            <span class="string">'transform-class-properties'</span>,</div><div class="line">            <span class="string">'transform-regenerator'</span>,</div><div class="line">            <span class="string">'transform-runtime'</span></div><div class="line">          ]</div><div class="line">        &#125;</div><div class="line">      &#125;]</div><div class="line">    &#125;]</div><div class="line">  &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure></li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://aiirohituzi.github.io/2017/04/30/async-await-webpack/" data-id="cjas41i520008jcva1nzvfzwo" class="article-share-link">Share</a>
-      
-        <a href="http://aiirohituzi.github.io/2017/04/30/async-await-webpack/#disqus_thread" class="article-comment-link">Comments</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/webpack-babel-async-await/">webpack, babel, async, await</a></li></ul>
 
     </footer>
   </div>
@@ -588,7 +576,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CORS-Cross-Origin-Resource-Sharing/">CORS, Cross Origin Resource Sharing</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML5-localStorage/">HTML5, localStorage</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React-js-Lifecycle/">React.js, Lifecycle</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/axios/">axios</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/django/">django</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/django-csrf/">django, csrf</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/django-request-serialize/">django, request, serialize</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/macOS/">macOS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/markdown/">markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python-django/">python, django</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python-virtualenv/">python, virtualenv</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/react-bootstrap/">react-bootstrap</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/test-git-hexo/">test, git, hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webpack-babel-async-await/">webpack, babel, async, await</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CORS-Cross-Origin-Resource-Sharing/">CORS, Cross Origin Resource Sharing</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML5-localStorage/">HTML5, localStorage</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React-js-Lifecycle/">React.js, Lifecycle</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/axios/">axios</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/django/">django</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/django-csrf/">django, csrf</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/django-request-serialize/">django, request, serialize</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/macOS/">macOS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/markdown/">markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python-django/">python, django</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python-virtualenv/">python, virtualenv</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/react-bootstrap/">react-bootstrap</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/test-git-hexo/">test, git, hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webpack-babel-async-await/">webpack, babel, async, await</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/xlsxwriter/">xlsxwriter</a></li></ul>
     </div>
   </div>
 
@@ -598,7 +586,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/CORS-Cross-Origin-Resource-Sharing/" style="font-size: 10px;">CORS, Cross Origin Resource Sharing</a> <a href="/tags/HTML5-localStorage/" style="font-size: 10px;">HTML5, localStorage</a> <a href="/tags/React-js-Lifecycle/" style="font-size: 10px;">React.js, Lifecycle</a> <a href="/tags/axios/" style="font-size: 10px;">axios</a> <a href="/tags/django/" style="font-size: 20px;">django</a> <a href="/tags/django-csrf/" style="font-size: 10px;">django, csrf</a> <a href="/tags/django-request-serialize/" style="font-size: 10px;">django, request, serialize</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/macOS/" style="font-size: 10px;">macOS</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/python-django/" style="font-size: 10px;">python, django</a> <a href="/tags/python-virtualenv/" style="font-size: 10px;">python, virtualenv</a> <a href="/tags/react-bootstrap/" style="font-size: 10px;">react-bootstrap</a> <a href="/tags/test-git-hexo/" style="font-size: 10px;">test, git, hexo</a> <a href="/tags/webpack-babel-async-await/" style="font-size: 10px;">webpack, babel, async, await</a>
+      <a href="/tags/CORS-Cross-Origin-Resource-Sharing/" style="font-size: 10px;">CORS, Cross Origin Resource Sharing</a> <a href="/tags/HTML5-localStorage/" style="font-size: 10px;">HTML5, localStorage</a> <a href="/tags/React-js-Lifecycle/" style="font-size: 10px;">React.js, Lifecycle</a> <a href="/tags/axios/" style="font-size: 10px;">axios</a> <a href="/tags/django/" style="font-size: 20px;">django</a> <a href="/tags/django-csrf/" style="font-size: 10px;">django, csrf</a> <a href="/tags/django-request-serialize/" style="font-size: 10px;">django, request, serialize</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/macOS/" style="font-size: 10px;">macOS</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/python-django/" style="font-size: 10px;">python, django</a> <a href="/tags/python-virtualenv/" style="font-size: 10px;">python, virtualenv</a> <a href="/tags/react-bootstrap/" style="font-size: 10px;">react-bootstrap</a> <a href="/tags/test-git-hexo/" style="font-size: 10px;">test, git, hexo</a> <a href="/tags/webpack-babel-async-await/" style="font-size: 10px;">webpack, babel, async, await</a> <a href="/tags/xlsxwriter/" style="font-size: 10px;">xlsxwriter</a>
     </div>
   </div>
 
@@ -607,7 +595,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a></li></ul>
     </div>
   </div>
 
@@ -618,6 +606,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2018/04/01/xlsxwriter/">xlsxwriter 기본 사용법 메모</a>
+          </li>
         
           <li>
             <a href="/2017/11/30/hello-world/">Hello World</a>
@@ -635,10 +627,6 @@
             <a href="/2017/08/04/csrf-memo/">django csrf 관련 메모</a>
           </li>
         
-          <li>
-            <a href="/2017/07/12/django-outside-access/">django 프로젝트 외부 디렉토리 접근방법</a>
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -651,7 +639,7 @@
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2017 aiirohituzi<br>
+      &copy; 2018 aiirohituzi<br>
       Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
