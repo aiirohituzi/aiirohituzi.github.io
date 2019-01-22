@@ -61,6 +61,62 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-django-apache-on-windows" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/01/22/django-apache-on-windows/" class="article-date">
+  <time datetime="2019-01-22T13:10:39.000Z" itemprop="datePublished">2019-01-22</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/01/22/django-apache-on-windows/">윈도우에서 Apache로 django구동 관련 메모</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>[정보 출처]<br><a href="https://dgkim5360.tistory.com/entry/install-apache24-mod-wsgi-for-windows" target="_blank" rel="external">Windows에서 Apache2.4 + mod_wsgi 설치</a><br><a href="https://docs.djangoproject.com/en/2.1/howto/deployment/wsgi/modwsgi/" target="_blank" rel="external">django 공식 문서의 mod_wsgi 설정관련</a></p>
+<h2 id="mod-wsgi-설치"><a href="#mod-wsgi-설치" class="headerlink" title="mod_wsgi 설치"></a>mod_wsgi 설치</h2><p>Apache 서버에서 Python 기반의 웹 어플리케이션(django)를 가동하려면 <strong>mod_wsgi</strong>이라는 플러그인을 설치해야 한다.</p>
+<p>mod_wsgi 플러그인은 <strong>윈도우 32bit 버젼</strong>만을 지원한다.</p>
+<p>현재 기준으로 릴리즈 사이트의 코멘트를 확인해보면 윈도우에서 사용가능한 최신 버젼은 <strong>4.4.12 버젼</strong></p>
+<p>apache 서버 설치 후(원글 내용대로 따라한다면 2.4버젼) 내려받은 mod_wsgi 파일의 압축을 풀면 나오는 파일 중</p>
+<p>Apache24-win32-VC9 폴더 안에 있는 mod_wsgi-py27-VC9.so 파일을 Apache24/modules 폴더에 복사 후</p>
+<p>이름을 간단하게 mod_wsgi.so로 변경</p>
+<p>플러그인을 불러오도록 설정파일(httpd.conf)에<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">#httpd.conf</div><div class="line"></div><div class="line">LoadModule wsgi_module modules/mod_wsgi.so</div></pre></td></tr></table></figure></p>
+<p>라고 한 줄 추가하면 설치 완료<br><br><br></p>
+<h2 id="mod-wsgi-관련-설정"><a href="#mod-wsgi-관련-설정" class="headerlink" title="mod_wsgi 관련 설정"></a>mod_wsgi 관련 설정</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">#httpd.conf</div><div class="line"></div><div class="line">WSGIScriptAlias / /path/to/mysite.com/mysite/wsgi.py</div><div class="line">WSGIPythonHome /path/to/venv</div><div class="line">WSGIPythonPath /path/to/mysite.com</div><div class="line"></div><div class="line">&lt;Directory /path/to/mysite.com/mysite&gt;</div><div class="line">    &lt;Files wsgi.py&gt;</div><div class="line">        Require all granted</div><div class="line">    &lt;/Files&gt;</div><div class="line">&lt;/Directory&gt;</div></pre></td></tr></table></figure>
+<p>django 프로젝트 디렉토리를 살펴보면 settings.py 파일이 있는 디렉토리에 wsgi.py파일이 있는것을 확인할 수 있다.<br>WSGIScriptAlias / “이부분” 에 해당 파일의 경로를 파일명과 함께 입력하면 된다.</p>
+<p>WSGIPythonHome 에는 python 가상환경의 경로를 입력</p>
+<p>WSGIPythonPath 에는 django 프로젝트의 manage.py 파일이 위치해 있는 루트 디렉토리의 경로를 입력하면 된다.</p>
+<p><directory "wsgi.py파일이="" 위치한="" 경로"=""> 이곳에 입력해야할 경로는 말 그대로 wsgi.py파일이 위치해있는 경로</directory></p>
+<p>즉, WSGIScriptAlias 에 입력했던 경로에서 파일명인 wsgi.py만 빼면 된다.</p>
+<p>해당 설정을 마치고 아파치 서버를 재기동 시키면 아파치 서버를 통해 django 서버에 접속되는 모습을 확인할 수 있다.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://aiirohituzi.github.io/2019/01/22/django-apache-on-windows/" data-id="cjr7th19w00055cwr12q9nvv7" class="article-share-link">Share</a>
+      
+        <a href="http://aiirohituzi.github.io/2019/01/22/django-apache-on-windows/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/django-apache/">django, apache</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-xlsxwriter" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/04/01/xlsxwriter/" class="article-date">
@@ -88,7 +144,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://aiirohituzi.github.io/2018/04/01/xlsxwriter/" data-id="cjfgt8k57000q1cu3orfupn15" class="article-share-link">Share</a>
+      <a data-url="http://aiirohituzi.github.io/2018/04/01/xlsxwriter/" data-id="cjr7th1b200195cwry24h992v" class="article-share-link">Share</a>
       
         <a href="http://aiirohituzi.github.io/2018/04/01/xlsxwriter/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -137,7 +193,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://aiirohituzi.github.io/2017/11/30/hello-world/" data-id="cjfgt8k4y000d1cu3ajvyihav" class="article-share-link">Share</a>
+      <a data-url="http://aiirohituzi.github.io/2017/11/30/hello-world/" data-id="cjr7th1an000v5cwrkpn9e5g8" class="article-share-link">Share</a>
       
         <a href="http://aiirohituzi.github.io/2017/11/30/hello-world/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -185,7 +241,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://aiirohituzi.github.io/2017/11/12/javascript-json-sort/" data-id="cjfgt8k50000h1cu3vp9uytok" class="article-share-link">Share</a>
+      <a data-url="http://aiirohituzi.github.io/2017/11/12/javascript-json-sort/" data-id="cjr7th1ao000x5cwrwlm0fvs5" class="article-share-link">Share</a>
       
         <a href="http://aiirohituzi.github.io/2017/11/12/javascript-json-sort/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -233,7 +289,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://aiirohituzi.github.io/2017/08/20/react-bootstrap-style/" data-id="cjfgt8k53000l1cu3mime1sig" class="article-share-link">Share</a>
+      <a data-url="http://aiirohituzi.github.io/2017/08/20/react-bootstrap-style/" data-id="cjr7th1b100175cwrsxbjjv7t" class="article-share-link">Share</a>
       
         <a href="http://aiirohituzi.github.io/2017/08/20/react-bootstrap-style/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -283,7 +339,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://aiirohituzi.github.io/2017/08/04/csrf-memo/" data-id="cjfgt8k4v00091cu3hbr7z55d" class="article-share-link">Share</a>
+      <a data-url="http://aiirohituzi.github.io/2017/08/04/csrf-memo/" data-id="cjr7th1a1000b5cwr5kjt21zo" class="article-share-link">Share</a>
       
         <a href="http://aiirohituzi.github.io/2017/08/04/csrf-memo/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -342,7 +398,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://aiirohituzi.github.io/2017/07/12/django-outside-access/" data-id="cjfgt8k5t001a1cu3c6lpuqv0" class="article-share-link">Share</a>
+      <a data-url="http://aiirohituzi.github.io/2017/07/12/django-outside-access/" data-id="cjr7th1al000u5cwr0cioxtvj" class="article-share-link">Share</a>
       
         <a href="http://aiirohituzi.github.io/2017/07/12/django-outside-access/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -389,7 +445,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://aiirohituzi.github.io/2017/07/09/smartfields/" data-id="cjfgt8k55000p1cu39fhpyr4b" class="article-share-link">Share</a>
+      <a data-url="http://aiirohituzi.github.io/2017/07/09/smartfields/" data-id="cjr7th1aw00125cwryeef0n9x" class="article-share-link">Share</a>
       
         <a href="http://aiirohituzi.github.io/2017/07/09/smartfields/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -443,7 +499,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://aiirohituzi.github.io/2017/06/20/django-db-insert/" data-id="cjfgt8k4w000b1cu3bww5tikg" class="article-share-link">Share</a>
+      <a data-url="http://aiirohituzi.github.io/2017/06/20/django-db-insert/" data-id="cjr7th1a3000d5cwrb0uvlpp7" class="article-share-link">Share</a>
       
         <a href="http://aiirohituzi.github.io/2017/06/20/django-db-insert/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -497,61 +553,12 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://aiirohituzi.github.io/2017/06/14/axios-useful/" data-id="cjfgt8k4t00081cu3elb4zbbu" class="article-share-link">Share</a>
+      <a data-url="http://aiirohituzi.github.io/2017/06/14/axios-useful/" data-id="cjr7th19z00095cwr1hntckuz" class="article-share-link">Share</a>
       
         <a href="http://aiirohituzi.github.io/2017/06/14/axios-useful/#disqus_thread" class="article-comment-link">Comments</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/axios/">axios</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-django-request-body" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/05/17/django-request-body/" class="article-date">
-  <time datetime="2017-05-17T14:24:03.000Z" itemprop="datePublished">2017-05-17</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/05/17/django-request-body/">Django request.body 관련 메모</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="Django로-POST-request-관련으로-간단한-api를-짜던-도중-문제가-발생"><a href="#Django로-POST-request-관련으로-간단한-api를-짜던-도중-문제가-발생" class="headerlink" title="Django로 POST request 관련으로 간단한 api를 짜던 도중 문제가 발생"></a>Django로 POST request 관련으로 간단한 api를 짜던 도중 문제가 발생</h3><p>Postman이라는 프로그램으로 POST 요청을 하면 정상적으로 데이터가 받아지는데 반해</p>
-<p>직접 만든 클라이언트측에서 axios를 통해 POST를 요청하면 QueryDict에 아무런 데이터도 받아지지 않는 현상이 일어났다.</p>
-<p>한참을 헤맨 결과 request.POST가 아닌 request.body에 얻어지는 데이터를 직접 출력하여 원인을 발견했다.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">Postman : </div><div class="line">b&apos;----------------------------418318425319320142162885\r\nContent-Disposition: form-data;name=&quot;user&quot;\r\n\r\n○○○○○\r\n----------------------------418318425319320142162885\r\nContent-Disposition: form-data; name=&quot;password&quot;\r\n\r\n○○○○○○○○\r\n----------------------------418318425319320142162885--\r\n&apos;</div><div class="line"></div><div class="line">axios : </div><div class="line">b&apos;&#123;&quot;user&quot;:&quot;○○○○○&quot;,&quot;password&quot;:&quot;○○○○○○○○&quot;&#125;&apos;</div></pre></td></tr></table></figure>
-<p>Postman의 경우 기본적으로 여러가지 설정이 되어있어 바로 django에서 이를 해석하고</p>
-<p>request.POST를 통해 얻어올 수 있지만 axios를 통해 보낸 경우 아무런 설정을 집어넣지 않은 채로</p>
-<p>요청하였기 때문에 문제가 발생했다.</p>
-<p>문제의 원인을 찾기가 힘들었을뿐이지 찾고나니 다행히 stackoverflow에서 손쉽게 해답을 얻을 수 있었다.</p>
-<p>Django는 JSON 페이로드를 실제로 비 직렬화하지 않으니 직접 body 데이터를 비 직렬화해서 얻어야 한다.<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> json</div><div class="line">...</div><div class="line"></div><div class="line">json.loads(request.body)</div></pre></td></tr></table></figure></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://aiirohituzi.github.io/2017/05/17/django-request-body/" data-id="cjfgt8k5v001b1cu3g99hs4x1" class="article-share-link">Share</a>
-      
-        <a href="http://aiirohituzi.github.io/2017/05/17/django-request-body/#disqus_thread" class="article-comment-link">Comments</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/django-request-serialize/">django, request, serialize</a></li></ul>
 
     </footer>
   </div>
@@ -576,7 +583,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CORS-Cross-Origin-Resource-Sharing/">CORS, Cross Origin Resource Sharing</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML5-localStorage/">HTML5, localStorage</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React-js-Lifecycle/">React.js, Lifecycle</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/axios/">axios</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/django/">django</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/django-csrf/">django, csrf</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/django-request-serialize/">django, request, serialize</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/macOS/">macOS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/markdown/">markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python-django/">python, django</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python-virtualenv/">python, virtualenv</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/react-bootstrap/">react-bootstrap</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/test-git-hexo/">test, git, hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webpack-babel-async-await/">webpack, babel, async, await</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/xlsxwriter/">xlsxwriter</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CORS-Cross-Origin-Resource-Sharing/">CORS, Cross Origin Resource Sharing</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML5-localStorage/">HTML5, localStorage</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React-js-Lifecycle/">React.js, Lifecycle</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/axios/">axios</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/django/">django</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/django-apache/">django, apache</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/django-csrf/">django, csrf</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/django-request-serialize/">django, request, serialize</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/macOS/">macOS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/markdown/">markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python-django/">python, django</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python-virtualenv/">python, virtualenv</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/react-bootstrap/">react-bootstrap</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/test-git-hexo/">test, git, hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webpack-babel-async-await/">webpack, babel, async, await</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/xlsxwriter/">xlsxwriter</a></li></ul>
     </div>
   </div>
 
@@ -586,7 +593,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/CORS-Cross-Origin-Resource-Sharing/" style="font-size: 10px;">CORS, Cross Origin Resource Sharing</a> <a href="/tags/HTML5-localStorage/" style="font-size: 10px;">HTML5, localStorage</a> <a href="/tags/React-js-Lifecycle/" style="font-size: 10px;">React.js, Lifecycle</a> <a href="/tags/axios/" style="font-size: 10px;">axios</a> <a href="/tags/django/" style="font-size: 20px;">django</a> <a href="/tags/django-csrf/" style="font-size: 10px;">django, csrf</a> <a href="/tags/django-request-serialize/" style="font-size: 10px;">django, request, serialize</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/macOS/" style="font-size: 10px;">macOS</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/python-django/" style="font-size: 10px;">python, django</a> <a href="/tags/python-virtualenv/" style="font-size: 10px;">python, virtualenv</a> <a href="/tags/react-bootstrap/" style="font-size: 10px;">react-bootstrap</a> <a href="/tags/test-git-hexo/" style="font-size: 10px;">test, git, hexo</a> <a href="/tags/webpack-babel-async-await/" style="font-size: 10px;">webpack, babel, async, await</a> <a href="/tags/xlsxwriter/" style="font-size: 10px;">xlsxwriter</a>
+      <a href="/tags/CORS-Cross-Origin-Resource-Sharing/" style="font-size: 10px;">CORS, Cross Origin Resource Sharing</a> <a href="/tags/HTML5-localStorage/" style="font-size: 10px;">HTML5, localStorage</a> <a href="/tags/React-js-Lifecycle/" style="font-size: 10px;">React.js, Lifecycle</a> <a href="/tags/axios/" style="font-size: 10px;">axios</a> <a href="/tags/django/" style="font-size: 20px;">django</a> <a href="/tags/django-apache/" style="font-size: 10px;">django, apache</a> <a href="/tags/django-csrf/" style="font-size: 10px;">django, csrf</a> <a href="/tags/django-request-serialize/" style="font-size: 10px;">django, request, serialize</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/macOS/" style="font-size: 10px;">macOS</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/python-django/" style="font-size: 10px;">python, django</a> <a href="/tags/python-virtualenv/" style="font-size: 10px;">python, virtualenv</a> <a href="/tags/react-bootstrap/" style="font-size: 10px;">react-bootstrap</a> <a href="/tags/test-git-hexo/" style="font-size: 10px;">test, git, hexo</a> <a href="/tags/webpack-babel-async-await/" style="font-size: 10px;">webpack, babel, async, await</a> <a href="/tags/xlsxwriter/" style="font-size: 10px;">xlsxwriter</a>
     </div>
   </div>
 
@@ -595,7 +602,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a></li></ul>
     </div>
   </div>
 
@@ -606,6 +613,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2019/01/22/django-apache-on-windows/">윈도우에서 Apache로 django구동 관련 메모</a>
+          </li>
         
           <li>
             <a href="/2018/04/01/xlsxwriter/">xlsxwriter 기본 사용법 메모</a>
@@ -623,10 +634,6 @@
             <a href="/2017/08/20/react-bootstrap-style/">react-bootstrap 사용 시 style 덮어쓰는 방법</a>
           </li>
         
-          <li>
-            <a href="/2017/08/04/csrf-memo/">django csrf 관련 메모</a>
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -639,7 +646,7 @@
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2018 aiirohituzi<br>
+      &copy; 2019 aiirohituzi<br>
       Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
