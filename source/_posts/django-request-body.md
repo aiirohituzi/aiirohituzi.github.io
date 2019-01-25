@@ -1,7 +1,7 @@
 ---
 title: Django request.body 관련 메모
 date: 2017-05-17 23:24:03
-tags: django, request, serialize
+tags: django
 ---
 
 ### Django로 POST request 관련으로 간단한 api를 짜던 도중 문제가 발생

@@ -82,4 +82,12 @@ settings.FILES_DIR 경로(settings.py에서 지정해준 외부 디렉토리 경
 하위 경로에 upload_to의 경로대로 파일을 저장하게 된다.
 
 <br/>
-~~사족으로 smartfields의 database에서 레코드 제거시 연결된 파일을 추적하여 자동으로 삭제해주는 기능은 이 방식을 사용한경우 작동하지 않는 듯 하다...orz~~
+~~사족으로 smartfields의 database에서 레코드 제거시 연결된 파일을 추적하여 자동으로 삭제해주는 기능은 이 방식을 사용한경우 작동하지 않는 듯 하다...~~
+
+
+
+
+
+* 2019-01-25 추가
+django 내에서만 업로드된 이미지 파일을 다루는 방법
+[django media 파일](https://aiirohituzi.github.io/2019/01/25/django-outside-access-2/)

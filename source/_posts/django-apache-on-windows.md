@@ -1,7 +1,7 @@
 ---
 title: 윈도우에서 Apache로 django구동 관련 메모
 date: 2019-01-22 22:10:39
-tags: django, apache
+tags: django
 ---
 
 [정보 출처]

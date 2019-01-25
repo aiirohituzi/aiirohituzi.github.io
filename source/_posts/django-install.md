@@ -1,7 +1,7 @@
 ---
 title: django 설치방법
 date: 2017-04-22 22:35:30
-tags: python, django
+tags: django
 ---
 
 먼저 __*virtualenv*__ 를 설치 후 가상환경으로 들어간다.
