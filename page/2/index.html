@@ -61,6 +61,60 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-axios-useful" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/06/14/axios-useful/" class="article-date">
+  <time datetime="2017-06-14T09:26:49.000Z" itemprop="datePublished">2017-06-14</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/06/14/axios-useful/">axios 사용 관련 메모</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>참고 자료 출처 : <a href="https://www.npmjs.com/package/axios#example" target="_blank" rel="external">npm axios</a></p>
+<p>공식 문서를 보면 가장 기본적인 사용 예시로 다음과 같은 방법이 소개되어있다.<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Make a request for a user with a given ID </span></div><div class="line">axios.get(<span class="string">'/user?ID=12345'</span>)</div><div class="line">.then(<span class="function"><span class="keyword">function</span> (<span class="params">response</span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(response);</div><div class="line">&#125;)</div><div class="line">.catch(<span class="function"><span class="keyword">function</span> (<span class="params">error</span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(error);</div><div class="line">&#125;);</div><div class="line"> </div><div class="line"></div><div class="line"><span class="comment">// Optionally the request above could also be done as </span></div><div class="line">axios.get(<span class="string">'/user'</span>, &#123;</div><div class="line">    <span class="attr">params</span>: &#123;</div><div class="line">        <span class="attr">ID</span>: <span class="number">12345</span></div><div class="line">    &#125;</div><div class="line">&#125;)</div><div class="line">.then(<span class="function"><span class="keyword">function</span> (<span class="params">response</span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(response);</div><div class="line">&#125;)</div><div class="line">.catch(<span class="function"><span class="keyword">function</span> (<span class="params">error</span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(error);</div><div class="line">&#125;);</div><div class="line"></div><div class="line"></div><div class="line">axios.post(<span class="string">'/user'</span>, &#123;</div><div class="line">    <span class="attr">firstName</span>: <span class="string">'Fred'</span>,</div><div class="line">    <span class="attr">lastName</span>: <span class="string">'Flintstone'</span></div><div class="line">&#125;)</div><div class="line">.then(<span class="function"><span class="keyword">function</span> (<span class="params">response</span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(response);</div><div class="line">&#125;)</div><div class="line">.catch(<span class="function"><span class="keyword">function</span> (<span class="params">error</span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(error);</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<p>아무것도 모른 상태로 처음 시도해볼 때는 이정도의 사용법으로도 문제가 없었으나</p>
+<p>좀더 깊이 들어갈수록 당연스럽게 여러가지 문제에 부딪히게 되었다.</p>
+<p>아무런 설정도 없이 파라메터와 메소드 방식만 담아서 요청을 하니 요청을 받는 프로그램 측에서</p>
+<p>당연히 이를 제대로 해석하지 못해 문제가 된 것.<br><br></p>
+<p>임시방편으로 해결책을 찾아 급한 불은 껐지만 나중에 보니 서버측에서 말그대로 데이터만 받고</p>
+<p>양식을 다시 짜올리는 비효율적인 방법을 사용하고있었다.<br><br></p>
+<p>아이러니하게도 이미지파일 정보를 전송하는 방법을 찾던 도중 보다 확실한 방법을 찾게되었다.</p>
+<p>덕분에 코드를 관리하기에도 좀더 용이해졌는데 파라메터가 담긴 폼객체와 설정정보가 담긴 객체를 따로</p>
+<p>미리 만들어 axios 요청 메소드에 통째로 포함시키는 방법이 있었다.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> data = <span class="keyword">new</span> FormData();      <span class="comment">//  먼저 FormData 객체를 생성</span></div><div class="line"></div><div class="line">...</div><div class="line"></div><div class="line">data.append(<span class="string">'user'</span>, loginId);</div><div class="line">data.append(<span class="string">'password'</span>, loginPw);</div><div class="line">data.append(<span class="string">'title'</span>, title);</div><div class="line">data.append(<span class="string">'content'</span>, content);</div><div class="line">data.append(<span class="string">'image'</span>, image);        <span class="comment">// 순서와 관계없이 원하는 파라메터를 집어넣는다.</span></div><div class="line"></div><div class="line"><span class="comment">// 관련 설정 값을 묶어서 변수로 전달</span></div><div class="line"><span class="keyword">const</span> config = &#123;</div><div class="line">    <span class="attr">headers</span>: &#123; <span class="string">'content-type'</span>: <span class="string">'multipart/form-data'</span> &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// axios 요청 메소드에 파라메터로 전달</span></div><div class="line">axios.post(<span class="string">'url'</span>, data, config)</div><div class="line">.then(<span class="function"><span class="keyword">function</span> (<span class="params">response</span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(response);</div><div class="line">&#125;)</div><div class="line">.catch(<span class="function"><span class="keyword">function</span> (<span class="params">error</span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(error);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>위와 같은 방식을 취함으로써 가독성도 향상되었을뿐더러 코드 관리도 편해졌고</p>
+<p>요청 데이터가 확실한 양식을 갖추어 서버측에서 이를 받았을 시 처리하기도 용이해지는 효과를 얻을 수 있었다.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://aiirohituzi.github.io/2017/06/14/axios-useful/" data-id="cjrc0s0a40008zswrtplxrzpp" class="article-share-link">Share</a>
+      
+        <a href="http://aiirohituzi.github.io/2017/06/14/axios-useful/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/axios/">axios</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-django-request-body" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2017/05/17/django-request-body/" class="article-date">
@@ -96,12 +150,12 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://aiirohituzi.github.io/2017/05/17/django-request-body/" data-id="cjr7th1as000y5cwrs2tk0alh" class="article-share-link">Share</a>
+      <a data-url="http://aiirohituzi.github.io/2017/05/17/django-request-body/" data-id="cjrc0s0ah000lzswr7g6cqred" class="article-share-link">Share</a>
       
         <a href="http://aiirohituzi.github.io/2017/05/17/django-request-body/#disqus_thread" class="article-comment-link">Comments</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/django-request-serialize/">django, request, serialize</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/django/">django</a></li></ul>
 
     </footer>
   </div>
@@ -149,7 +203,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://aiirohituzi.github.io/2017/04/30/async-await-webpack/" data-id="cjr7th19v00045cwr2ovk57po" class="article-share-link">Share</a>
+      <a data-url="http://aiirohituzi.github.io/2017/04/30/async-await-webpack/" data-id="cjrc0s0a20005zswrrgje7ay1" class="article-share-link">Share</a>
       
         <a href="http://aiirohituzi.github.io/2017/04/30/async-await-webpack/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -198,7 +252,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://aiirohituzi.github.io/2017/04/29/CORS/" data-id="cjr7th19k00005cwr3q4p7pmc" class="article-share-link">Share</a>
+      <a data-url="http://aiirohituzi.github.io/2017/04/29/CORS/" data-id="cjrc0s09r0000zswrcz75ffdv" class="article-share-link">Share</a>
       
         <a href="http://aiirohituzi.github.io/2017/04/29/CORS/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -266,12 +320,12 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://aiirohituzi.github.io/2017/04/22/django-install/" data-id="cjr7th1a5000f5cwrkh4tfnl2" class="article-share-link">Share</a>
+      <a data-url="http://aiirohituzi.github.io/2017/04/22/django-install/" data-id="cjrc0s0ac000fzswryfocxiay" class="article-share-link">Share</a>
       
         <a href="http://aiirohituzi.github.io/2017/04/22/django-install/#disqus_thread" class="article-comment-link">Comments</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python-django/">python, django</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/django/">django</a></li></ul>
 
     </footer>
   </div>
@@ -314,7 +368,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://aiirohituzi.github.io/2017/04/21/MAC-hotkey/" data-id="cjr7th19o00015cwrwzcden7u" class="article-share-link">Share</a>
+      <a data-url="http://aiirohituzi.github.io/2017/04/21/MAC-hotkey/" data-id="cjrc0s09z0003zswrrbx1lq1x" class="article-share-link">Share</a>
       
         <a href="http://aiirohituzi.github.io/2017/04/21/MAC-hotkey/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -371,7 +425,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://aiirohituzi.github.io/2017/04/13/HTML5-localStorage/" data-id="cjr7th19u00035cwr6tsp6ha6" class="article-share-link">Share</a>
+      <a data-url="http://aiirohituzi.github.io/2017/04/13/HTML5-localStorage/" data-id="cjrc0s09v0001zswr8j7b31ka" class="article-share-link">Share</a>
       
         <a href="http://aiirohituzi.github.io/2017/04/13/HTML5-localStorage/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -429,7 +483,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://aiirohituzi.github.io/2017/04/13/React-js-Component-Lifecycle-API/" data-id="cjr7th19y00085cwrnerknpgw" class="article-share-link">Share</a>
+      <a data-url="http://aiirohituzi.github.io/2017/04/13/React-js-Component-Lifecycle-API/" data-id="cjrc0s0a10004zswreatprvar" class="article-share-link">Share</a>
       
         <a href="http://aiirohituzi.github.io/2017/04/13/React-js-Component-Lifecycle-API/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -491,7 +545,7 @@ deactivate
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://aiirohituzi.github.io/2017/04/10/python-virtualenv/" data-id="cjr7th1ay00155cwreqs1chb8" class="article-share-link">Share</a>
+      <a data-url="http://aiirohituzi.github.io/2017/04/10/python-virtualenv/" data-id="cjrc0s0aq000uzswriunntase" class="article-share-link">Share</a>
       
         <a href="http://aiirohituzi.github.io/2017/04/10/python-virtualenv/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -557,7 +611,7 @@ deactivate
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://aiirohituzi.github.io/2017/03/19/markdown/" data-id="cjr7th1av00115cwrrmhsg81d" class="article-share-link">Share</a>
+      <a data-url="http://aiirohituzi.github.io/2017/03/19/markdown/" data-id="cjrc0s0am000qzswrd3tz8ucd" class="article-share-link">Share</a>
       
         <a href="http://aiirohituzi.github.io/2017/03/19/markdown/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -571,50 +625,10 @@ deactivate
 
 
   
-    <article id="post-posting-test" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/03/18/posting-test/" class="article-date">
-  <time datetime="2017-03-17T15:38:32.000Z" itemprop="datePublished">2017-03-18</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/18/posting-test/">포스팅 테스트</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="Hello"><a href="#Hello" class="headerlink" title="Hello"></a>Hello</h1><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">main</span><span class="params">()</span></span>&#123;</div><div class="line">    <span class="built_in">printf</span>(<span class="string">"Hello, World!"</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://aiirohituzi.github.io/2017/03/18/posting-test/" data-id="cjr7th1au00105cwr8kr78gbo" class="article-share-link">Share</a>
-      
-        <a href="http://aiirohituzi.github.io/2017/03/18/posting-test/#disqus_thread" class="article-comment-link">Comments</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/test-git-hexo/">test, git, hexo</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
 
 
   <nav id="page-nav">
-    <a class="extend prev" rel="prev" href="/">&laquo; __('prev')</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+    <a class="extend prev" rel="prev" href="/">&laquo; __('prev')</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">__('next') &raquo;</a>
   </nav>
 </section>
         
@@ -627,7 +641,7 @@ deactivate
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CORS-Cross-Origin-Resource-Sharing/">CORS, Cross Origin Resource Sharing</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML5-localStorage/">HTML5, localStorage</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React-js-Lifecycle/">React.js, Lifecycle</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/axios/">axios</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/django/">django</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/django-apache/">django, apache</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/django-csrf/">django, csrf</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/django-request-serialize/">django, request, serialize</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/macOS/">macOS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/markdown/">markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python-django/">python, django</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python-virtualenv/">python, virtualenv</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/react-bootstrap/">react-bootstrap</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/test-git-hexo/">test, git, hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webpack-babel-async-await/">webpack, babel, async, await</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/xlsxwriter/">xlsxwriter</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CORS-Cross-Origin-Resource-Sharing/">CORS, Cross Origin Resource Sharing</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML5-localStorage/">HTML5, localStorage</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React-js-Lifecycle/">React.js, Lifecycle</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/axios/">axios</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/django/">django</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/django-csrf/">django, csrf</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/macOS/">macOS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/markdown/">markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python-virtualenv/">python, virtualenv</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/react-bootstrap/">react-bootstrap</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/test-git-hexo/">test, git, hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webpack-babel-async-await/">webpack, babel, async, await</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/xlsxwriter/">xlsxwriter</a></li></ul>
     </div>
   </div>
 
@@ -637,7 +651,7 @@ deactivate
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/CORS-Cross-Origin-Resource-Sharing/" style="font-size: 10px;">CORS, Cross Origin Resource Sharing</a> <a href="/tags/HTML5-localStorage/" style="font-size: 10px;">HTML5, localStorage</a> <a href="/tags/React-js-Lifecycle/" style="font-size: 10px;">React.js, Lifecycle</a> <a href="/tags/axios/" style="font-size: 10px;">axios</a> <a href="/tags/django/" style="font-size: 20px;">django</a> <a href="/tags/django-apache/" style="font-size: 10px;">django, apache</a> <a href="/tags/django-csrf/" style="font-size: 10px;">django, csrf</a> <a href="/tags/django-request-serialize/" style="font-size: 10px;">django, request, serialize</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/macOS/" style="font-size: 10px;">macOS</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/python-django/" style="font-size: 10px;">python, django</a> <a href="/tags/python-virtualenv/" style="font-size: 10px;">python, virtualenv</a> <a href="/tags/react-bootstrap/" style="font-size: 10px;">react-bootstrap</a> <a href="/tags/test-git-hexo/" style="font-size: 10px;">test, git, hexo</a> <a href="/tags/webpack-babel-async-await/" style="font-size: 10px;">webpack, babel, async, await</a> <a href="/tags/xlsxwriter/" style="font-size: 10px;">xlsxwriter</a>
+      <a href="/tags/CORS-Cross-Origin-Resource-Sharing/" style="font-size: 10px;">CORS, Cross Origin Resource Sharing</a> <a href="/tags/HTML5-localStorage/" style="font-size: 10px;">HTML5, localStorage</a> <a href="/tags/React-js-Lifecycle/" style="font-size: 10px;">React.js, Lifecycle</a> <a href="/tags/axios/" style="font-size: 10px;">axios</a> <a href="/tags/django/" style="font-size: 20px;">django</a> <a href="/tags/django-csrf/" style="font-size: 10px;">django, csrf</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/macOS/" style="font-size: 10px;">macOS</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/python-virtualenv/" style="font-size: 10px;">python, virtualenv</a> <a href="/tags/react-bootstrap/" style="font-size: 10px;">react-bootstrap</a> <a href="/tags/test-git-hexo/" style="font-size: 10px;">test, git, hexo</a> <a href="/tags/webpack-babel-async-await/" style="font-size: 10px;">webpack, babel, async, await</a> <a href="/tags/xlsxwriter/" style="font-size: 10px;">xlsxwriter</a>
     </div>
   </div>
 
@@ -659,6 +673,10 @@ deactivate
       <ul>
         
           <li>
+            <a href="/2019/01/25/django-outside-access-2/">django media 디렉토리</a>
+          </li>
+        
+          <li>
             <a href="/2019/01/22/django-apache-on-windows/">윈도우에서 Apache로 django구동 관련 메모</a>
           </li>
         
@@ -672,10 +690,6 @@ deactivate
         
           <li>
             <a href="/2017/11/12/javascript-json-sort/">javascript로 json 오브젝트 sort</a>
-          </li>
-        
-          <li>
-            <a href="/2017/08/20/react-bootstrap-style/">react-bootstrap 사용 시 style 덮어쓰는 방법</a>
           </li>
         
       </ul>

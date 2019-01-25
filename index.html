@@ -61,6 +61,69 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-django-outside-access-2" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/01/25/django-outside-access-2/" class="article-date">
+  <time datetime="2019-01-25T12:00:10.000Z" itemprop="datePublished">2019-01-25</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/01/25/django-outside-access-2/">django media 디렉토리</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ul>
+<li><p>이전 관련 글<br><a href="https://aiirohituzi.github.io/2017/07/12/django-outside-access/">django 프로젝트 외부 디렉토리 접근방법</a></p>
+</li>
+<li><p>참고 자료 출처<br><a href="https://overiq.com/django-1-10/handling-media-files-in-django/" target="_blank" rel="external">Handling Media Files in Django</a><br><a href="https://blog.hannal.com/2015/04/start_with_django_webframework_06/" target="_blank" rel="external">Django 정적 파일 기능 이해하기</a></p>
+</li>
+</ul>
+<p>이전에 클라이언트로부터 업로드된 이미지에 접근할 수 있는 방법을 찾지 못해 정말 단순무식하게 클라이언트서버측 폴더에</p>
+<p>파일을 업로드 시켜서 해결했었던 적이 있다.</p>
+<p>개발 서버에서 작업할 때는 위와 같이 해결해도 전혀 문제가 되지 않았지만 실질적으로 외부접속을 테스트하려고</p>
+<p>막상 웹서버에 올리려고 하니 당연하게도 문제가 발생할 수 밖에 없었다.</p>
+<p>상대경로를 이용하여 클라이언트측 디렉토리에 접근하여 업로드하는 방식이니 서로 다른 서버에 올라가있는 상태로는</p>
+<p>정상적으로 동작할 수가 없는게 당연하기 때문<br><br></p>
+<p>결국 다시 방법을 찾은결과 django 에서 이를 위한 media 파일을 지원하고 있다는걸 알 수 있었다.</p>
+<p>static 파일처럼 media 파일도 정적 파일이긴 하지만 media 파일은 웹에서 업로드된 파일로</p>
+<p>언제 어떤 파일이 정적 파일로 제공되고 준비되는지 예측할 수 없다는 점이 다르다.<br><br></p>
+<p>이 방식을 사용함으로 인해 처음 원하던대로 django 서버에서 db와 image파일들을 관리하고 프론트엔드 서버에서</p>
+<p>접근하는 구조를 이제서야 완성할 수 있었다.<br><br></p>
+<h2 id="설정-방법"><a href="#설정-방법" class="headerlink" title="설정 방법"></a>설정 방법</h2><p>settings.py 파일에 다음과 같이 media 파일들이 들어갈 실제 경로와 URL을 설정해준다.<br><figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">MEDIA_ROOT = os.path.join(BASE_DIR, <span class="string">'media'</span>)</div><div class="line">MEDIA_URL = <span class="string">'/media/'</span></div></pre></td></tr></table></figure></p>
+<p>그리고 urls.py 파일에 url 패턴을 추가해줘야 한다.<br><figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> django.conf <span class="keyword">import</span> settings</div><div class="line"><span class="keyword">from</span> django.conf.urls.static <span class="keyword">import</span> static</div><div class="line"></div><div class="line">urlpatterns = [</div><div class="line">    url(<span class="string">r'^admin/'</span>, admin.site.urls),</div><div class="line">    ...</div><div class="line">    ...</div><div class="line">    ...</div><div class="line">] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)</div></pre></td></tr></table></figure></p>
+<p>이제 지정한 media 디렉토리 내에 아무거나 이미지파일을 넣어보고</p>
+<p><code>http://서버주소/media/이미지파일명</code> 경로를 입력하여 들어가면 해당 이미지를 확인할 수 있을것이다.</p>
+<p><br><br><br><br><br>여기서 이전에 사용했던 파일 업로드 코드에서 업로드 될 경로만 media 디렉토리로 지정해주어</p>
+<p>원하던 백엔드서버로써의 기능을 수행하는 django 서버의 모습을 만들어주었다.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://aiirohituzi.github.io/2019/01/25/django-outside-access-2/" data-id="cjrc0s0ae000hzswrahvdh85b" class="article-share-link">Share</a>
+      
+        <a href="http://aiirohituzi.github.io/2019/01/25/django-outside-access-2/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/django/">django</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-django-apache-on-windows" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2019/01/22/django-apache-on-windows/" class="article-date">
@@ -103,12 +166,12 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://aiirohituzi.github.io/2019/01/22/django-apache-on-windows/" data-id="cjr7th19w00055cwr12q9nvv7" class="article-share-link">Share</a>
+      <a data-url="http://aiirohituzi.github.io/2019/01/22/django-apache-on-windows/" data-id="cjrc0s0a9000bzswr18g6ytok" class="article-share-link">Share</a>
       
         <a href="http://aiirohituzi.github.io/2019/01/22/django-apache-on-windows/#disqus_thread" class="article-comment-link">Comments</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/django-apache/">django, apache</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/django/">django</a></li></ul>
 
     </footer>
   </div>
@@ -144,7 +207,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://aiirohituzi.github.io/2018/04/01/xlsxwriter/" data-id="cjr7th1b200195cwry24h992v" class="article-share-link">Share</a>
+      <a data-url="http://aiirohituzi.github.io/2018/04/01/xlsxwriter/" data-id="cjrc0s0av0010zswra7591fpz" class="article-share-link">Share</a>
       
         <a href="http://aiirohituzi.github.io/2018/04/01/xlsxwriter/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -193,7 +256,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://aiirohituzi.github.io/2017/11/30/hello-world/" data-id="cjr7th1an000v5cwrkpn9e5g8" class="article-share-link">Share</a>
+      <a data-url="http://aiirohituzi.github.io/2017/11/30/hello-world/" data-id="cjrc0s0ai000mzswrs0m36hef" class="article-share-link">Share</a>
       
         <a href="http://aiirohituzi.github.io/2017/11/30/hello-world/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -241,7 +304,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://aiirohituzi.github.io/2017/11/12/javascript-json-sort/" data-id="cjr7th1ao000x5cwrwlm0fvs5" class="article-share-link">Share</a>
+      <a data-url="http://aiirohituzi.github.io/2017/11/12/javascript-json-sort/" data-id="cjrc0s0al000pzswrspmoh6wk" class="article-share-link">Share</a>
       
         <a href="http://aiirohituzi.github.io/2017/11/12/javascript-json-sort/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -289,7 +352,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://aiirohituzi.github.io/2017/08/20/react-bootstrap-style/" data-id="cjr7th1b100175cwrsxbjjv7t" class="article-share-link">Share</a>
+      <a data-url="http://aiirohituzi.github.io/2017/08/20/react-bootstrap-style/" data-id="cjrc0s0as000wzswrfpr90x9i" class="article-share-link">Share</a>
       
         <a href="http://aiirohituzi.github.io/2017/08/20/react-bootstrap-style/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -339,7 +402,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://aiirohituzi.github.io/2017/08/04/csrf-memo/" data-id="cjr7th1a1000b5cwr5kjt21zo" class="article-share-link">Share</a>
+      <a data-url="http://aiirohituzi.github.io/2017/08/04/csrf-memo/" data-id="cjrc0s0a80009zswr47qmv11p" class="article-share-link">Share</a>
       
         <a href="http://aiirohituzi.github.io/2017/08/04/csrf-memo/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -398,7 +461,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://aiirohituzi.github.io/2017/07/12/django-outside-access/" data-id="cjr7th1al000u5cwr0cioxtvj" class="article-share-link">Share</a>
+      <a data-url="http://aiirohituzi.github.io/2017/07/12/django-outside-access/" data-id="cjrc0s0af000jzswr7r3f7lvs" class="article-share-link">Share</a>
       
         <a href="http://aiirohituzi.github.io/2017/07/12/django-outside-access/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -445,7 +508,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://aiirohituzi.github.io/2017/07/09/smartfields/" data-id="cjr7th1aw00125cwryeef0n9x" class="article-share-link">Share</a>
+      <a data-url="http://aiirohituzi.github.io/2017/07/09/smartfields/" data-id="cjrc0s0at000yzswrsj8j4tf8" class="article-share-link">Share</a>
       
         <a href="http://aiirohituzi.github.io/2017/07/09/smartfields/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -499,7 +562,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://aiirohituzi.github.io/2017/06/20/django-db-insert/" data-id="cjr7th1a3000d5cwrb0uvlpp7" class="article-share-link">Share</a>
+      <a data-url="http://aiirohituzi.github.io/2017/06/20/django-db-insert/" data-id="cjrc0s0ac000dzswrdgnb9dte" class="article-share-link">Share</a>
       
         <a href="http://aiirohituzi.github.io/2017/06/20/django-db-insert/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -513,64 +576,10 @@
 
 
   
-    <article id="post-axios-useful" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/06/14/axios-useful/" class="article-date">
-  <time datetime="2017-06-14T09:26:49.000Z" itemprop="datePublished">2017-06-14</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/06/14/axios-useful/">axios 사용 관련 메모</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>참고 자료 출처 : <a href="https://www.npmjs.com/package/axios#example" target="_blank" rel="external">npm axios</a></p>
-<p>공식 문서를 보면 가장 기본적인 사용 예시로 다음과 같은 방법이 소개되어있다.<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Make a request for a user with a given ID </span></div><div class="line">axios.get(<span class="string">'/user?ID=12345'</span>)</div><div class="line">.then(<span class="function"><span class="keyword">function</span> (<span class="params">response</span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(response);</div><div class="line">&#125;)</div><div class="line">.catch(<span class="function"><span class="keyword">function</span> (<span class="params">error</span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(error);</div><div class="line">&#125;);</div><div class="line"> </div><div class="line"></div><div class="line"><span class="comment">// Optionally the request above could also be done as </span></div><div class="line">axios.get(<span class="string">'/user'</span>, &#123;</div><div class="line">    <span class="attr">params</span>: &#123;</div><div class="line">        <span class="attr">ID</span>: <span class="number">12345</span></div><div class="line">    &#125;</div><div class="line">&#125;)</div><div class="line">.then(<span class="function"><span class="keyword">function</span> (<span class="params">response</span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(response);</div><div class="line">&#125;)</div><div class="line">.catch(<span class="function"><span class="keyword">function</span> (<span class="params">error</span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(error);</div><div class="line">&#125;);</div><div class="line"></div><div class="line"></div><div class="line">axios.post(<span class="string">'/user'</span>, &#123;</div><div class="line">    <span class="attr">firstName</span>: <span class="string">'Fred'</span>,</div><div class="line">    <span class="attr">lastName</span>: <span class="string">'Flintstone'</span></div><div class="line">&#125;)</div><div class="line">.then(<span class="function"><span class="keyword">function</span> (<span class="params">response</span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(response);</div><div class="line">&#125;)</div><div class="line">.catch(<span class="function"><span class="keyword">function</span> (<span class="params">error</span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(error);</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
-<p>아무것도 모른 상태로 처음 시도해볼 때는 이정도의 사용법으로도 문제가 없었으나</p>
-<p>좀더 깊이 들어갈수록 당연스럽게 여러가지 문제에 부딪히게 되었다.</p>
-<p>아무런 설정도 없이 파라메터와 메소드 방식만 담아서 요청을 하니 요청을 받는 프로그램 측에서</p>
-<p>당연히 이를 제대로 해석하지 못해 문제가 된 것.<br><br></p>
-<p>임시방편으로 해결책을 찾아 급한 불은 껐지만 나중에 보니 서버측에서 말그대로 데이터만 받고</p>
-<p>양식을 다시 짜올리는 비효율적인 방법을 사용하고있었다.<br><br></p>
-<p>아이러니하게도 이미지파일 정보를 전송하는 방법을 찾던 도중 보다 확실한 방법을 찾게되었다.</p>
-<p>덕분에 코드를 관리하기에도 좀더 용이해졌는데 파라메터가 담긴 폼객체와 설정정보가 담긴 객체를 따로</p>
-<p>미리 만들어 axios 요청 메소드에 통째로 포함시키는 방법이 있었다.</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> data = <span class="keyword">new</span> FormData();      <span class="comment">//  먼저 FormData 객체를 생성</span></div><div class="line"></div><div class="line">...</div><div class="line"></div><div class="line">data.append(<span class="string">'user'</span>, loginId);</div><div class="line">data.append(<span class="string">'password'</span>, loginPw);</div><div class="line">data.append(<span class="string">'title'</span>, title);</div><div class="line">data.append(<span class="string">'content'</span>, content);</div><div class="line">data.append(<span class="string">'image'</span>, image);        <span class="comment">// 순서와 관계없이 원하는 파라메터를 집어넣는다.</span></div><div class="line"></div><div class="line"><span class="comment">// 관련 설정 값을 묶어서 변수로 전달</span></div><div class="line"><span class="keyword">const</span> config = &#123;</div><div class="line">    <span class="attr">headers</span>: &#123; <span class="string">'content-type'</span>: <span class="string">'multipart/form-data'</span> &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// axios 요청 메소드에 파라메터로 전달</span></div><div class="line">axios.post(<span class="string">'url'</span>, data, config)</div><div class="line">.then(<span class="function"><span class="keyword">function</span> (<span class="params">response</span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(response);</div><div class="line">&#125;)</div><div class="line">.catch(<span class="function"><span class="keyword">function</span> (<span class="params">error</span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(error);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<p>위와 같은 방식을 취함으로써 가독성도 향상되었을뿐더러 코드 관리도 편해졌고</p>
-<p>요청 데이터가 확실한 양식을 갖추어 서버측에서 이를 받았을 시 처리하기도 용이해지는 효과를 얻을 수 있었다.</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://aiirohituzi.github.io/2017/06/14/axios-useful/" data-id="cjr7th19z00095cwr1hntckuz" class="article-share-link">Share</a>
-      
-        <a href="http://aiirohituzi.github.io/2017/06/14/axios-useful/#disqus_thread" class="article-comment-link">Comments</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/axios/">axios</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
 
 
   <nav id="page-nav">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">__('next') &raquo;</a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">__('next') &raquo;</a>
   </nav>
 </section>
         
@@ -583,7 +592,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CORS-Cross-Origin-Resource-Sharing/">CORS, Cross Origin Resource Sharing</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML5-localStorage/">HTML5, localStorage</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React-js-Lifecycle/">React.js, Lifecycle</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/axios/">axios</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/django/">django</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/django-apache/">django, apache</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/django-csrf/">django, csrf</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/django-request-serialize/">django, request, serialize</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/macOS/">macOS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/markdown/">markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python-django/">python, django</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python-virtualenv/">python, virtualenv</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/react-bootstrap/">react-bootstrap</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/test-git-hexo/">test, git, hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webpack-babel-async-await/">webpack, babel, async, await</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/xlsxwriter/">xlsxwriter</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CORS-Cross-Origin-Resource-Sharing/">CORS, Cross Origin Resource Sharing</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML5-localStorage/">HTML5, localStorage</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React-js-Lifecycle/">React.js, Lifecycle</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/axios/">axios</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/django/">django</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/django-csrf/">django, csrf</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/macOS/">macOS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/markdown/">markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python-virtualenv/">python, virtualenv</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/react-bootstrap/">react-bootstrap</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/test-git-hexo/">test, git, hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webpack-babel-async-await/">webpack, babel, async, await</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/xlsxwriter/">xlsxwriter</a></li></ul>
     </div>
   </div>
 
@@ -593,7 +602,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/CORS-Cross-Origin-Resource-Sharing/" style="font-size: 10px;">CORS, Cross Origin Resource Sharing</a> <a href="/tags/HTML5-localStorage/" style="font-size: 10px;">HTML5, localStorage</a> <a href="/tags/React-js-Lifecycle/" style="font-size: 10px;">React.js, Lifecycle</a> <a href="/tags/axios/" style="font-size: 10px;">axios</a> <a href="/tags/django/" style="font-size: 20px;">django</a> <a href="/tags/django-apache/" style="font-size: 10px;">django, apache</a> <a href="/tags/django-csrf/" style="font-size: 10px;">django, csrf</a> <a href="/tags/django-request-serialize/" style="font-size: 10px;">django, request, serialize</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/macOS/" style="font-size: 10px;">macOS</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/python-django/" style="font-size: 10px;">python, django</a> <a href="/tags/python-virtualenv/" style="font-size: 10px;">python, virtualenv</a> <a href="/tags/react-bootstrap/" style="font-size: 10px;">react-bootstrap</a> <a href="/tags/test-git-hexo/" style="font-size: 10px;">test, git, hexo</a> <a href="/tags/webpack-babel-async-await/" style="font-size: 10px;">webpack, babel, async, await</a> <a href="/tags/xlsxwriter/" style="font-size: 10px;">xlsxwriter</a>
+      <a href="/tags/CORS-Cross-Origin-Resource-Sharing/" style="font-size: 10px;">CORS, Cross Origin Resource Sharing</a> <a href="/tags/HTML5-localStorage/" style="font-size: 10px;">HTML5, localStorage</a> <a href="/tags/React-js-Lifecycle/" style="font-size: 10px;">React.js, Lifecycle</a> <a href="/tags/axios/" style="font-size: 10px;">axios</a> <a href="/tags/django/" style="font-size: 20px;">django</a> <a href="/tags/django-csrf/" style="font-size: 10px;">django, csrf</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/macOS/" style="font-size: 10px;">macOS</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/python-virtualenv/" style="font-size: 10px;">python, virtualenv</a> <a href="/tags/react-bootstrap/" style="font-size: 10px;">react-bootstrap</a> <a href="/tags/test-git-hexo/" style="font-size: 10px;">test, git, hexo</a> <a href="/tags/webpack-babel-async-await/" style="font-size: 10px;">webpack, babel, async, await</a> <a href="/tags/xlsxwriter/" style="font-size: 10px;">xlsxwriter</a>
     </div>
   </div>
 
@@ -615,6 +624,10 @@
       <ul>
         
           <li>
+            <a href="/2019/01/25/django-outside-access-2/">django media 디렉토리</a>
+          </li>
+        
+          <li>
             <a href="/2019/01/22/django-apache-on-windows/">윈도우에서 Apache로 django구동 관련 메모</a>
           </li>
         
@@ -628,10 +641,6 @@
         
           <li>
             <a href="/2017/11/12/javascript-json-sort/">javascript로 json 오브젝트 sort</a>
-          </li>
-        
-          <li>
-            <a href="/2017/08/20/react-bootstrap-style/">react-bootstrap 사용 시 style 덮어쓰는 방법</a>
           </li>
         
       </ul>
