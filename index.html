@@ -61,6 +61,55 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-react-hooks-useState-spread" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/12/18/react-hooks-useState-spread/" class="article-date">
+  <time datetime="2019-12-18T12:46:34.000Z" itemprop="datePublished">2019-12-18</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/12/18/react-hooks-useState-spread/">React hooks의 useState에서 Spread 응용 메모</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>useState 를 통해 state 를 다룰 때 단순한 단일의 값이 아닌 배열이나 오브젝트의 형태로 처리하고 싶을 때가 있다.</p>
+<p>값을 여럿 늘여써도 결과는 같아도 코드의 가독성이나 관리의 편의성을 생각했을 때 오브젝트로 처리해야 하는 경우가 생긴다.</p>
+<p>이 때 ES6에서 추가된 Spread 연산자를 사용한다면 좀더 직관적이고 간편하게 이를 처리할 수 있다.</p>
+<p>기본적인 형태는 다음과 같다.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> [state, setState] = useState(&#123;</div><div class="line">    <span class="attr">key1</span>: value1,</div><div class="line">    <span class="attr">key2</span>: value2</div><div class="line">&#125;);</div><div class="line"></div><div class="line">setState(&#123; ...state, <span class="attr">key</span>: value &#125;);</div></pre></td></tr></table></figure>
+<p>위와 같은 문법으로 useState 를 사용할 경우 원하는 값을 해당 state object의 내부에 추가하거나 혹은 수정할 수 있다.<br>Spread 연산자를 이용하여 기존의 state값을 전부 복사한 뒤 직접 명시한 값을 추가(혹은 수정)하는 원리이다. Spread 연산자 없이도 물론 구현이 가능하겠지만 Spread 연산자를 사용하면 코드가 한결 간결해지니 사용하지 않을 이유가 없다.</p>
+<p>여기서 추가로 응용을 하고자 한다면</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> [state1, setState1] = useState(&#123;&#125;);</div><div class="line"><span class="keyword">const</span> [state2, setState2] = useState(&#123;&#125;);</div><div class="line"><span class="keyword">const</span> [state3, setState3] = useState(&#123;&#125;);</div><div class="line"></div><div class="line"><span class="keyword">const</span> [states] = [state1, state2, state3];</div><div class="line"></div><div class="line"><span class="keyword">const</span> [setStates] = [setState1, setState2, setState3];</div><div class="line"></div><div class="line">states[<span class="number">0</span>]; <span class="comment">// state1</span></div><div class="line"><span class="comment">// setState3</span></div><div class="line">setStates[<span class="number">2</span>](&#123;</div><div class="line">    ...states[<span class="number">2</span>],</div><div class="line">    <span class="attr">key</span>: value</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>위와 같이 여러개의 오브젝트형 state들을 한 곳에 묶어서 관리할 수도 있다.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://aiirohituzi.github.io/2019/12/18/react-hooks-useState-spread/" data-id="ck4bd67y30016jsvmcds1tg7e" class="article-share-link">Share</a>
+      
+        <a href="http://aiirohituzi.github.io/2019/12/18/react-hooks-useState-spread/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React-js/">React.js</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-django-outside-access-2" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2019/01/25/django-outside-access-2/" class="article-date">
@@ -110,7 +159,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://aiirohituzi.github.io/2019/01/25/django-outside-access-2/" data-id="cjrc10tbr000hjgwr0mjvtm28" class="article-share-link">Share</a>
+      <a data-url="http://aiirohituzi.github.io/2019/01/25/django-outside-access-2/" data-id="ck4bd67yd001jjsvmmy9v83kl" class="article-share-link">Share</a>
       
         <a href="http://aiirohituzi.github.io/2019/01/25/django-outside-access-2/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -166,7 +215,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://aiirohituzi.github.io/2019/01/22/django-apache-on-windows/" data-id="cjrc10tbn000bjgwrljtsceja" class="article-share-link">Share</a>
+      <a data-url="http://aiirohituzi.github.io/2019/01/22/django-apache-on-windows/" data-id="ck4bd67xr000pjsvmng3bhwl1" class="article-share-link">Share</a>
       
         <a href="http://aiirohituzi.github.io/2019/01/22/django-apache-on-windows/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -207,7 +256,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://aiirohituzi.github.io/2018/04/01/xlsxwriter/" data-id="cjrc10tc80010jgwrdywr5hvr" class="article-share-link">Share</a>
+      <a data-url="http://aiirohituzi.github.io/2018/04/01/xlsxwriter/" data-id="ck4bd67yc001hjsvmqcf9itrk" class="article-share-link">Share</a>
       
         <a href="http://aiirohituzi.github.io/2018/04/01/xlsxwriter/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -256,7 +305,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://aiirohituzi.github.io/2017/11/30/hello-world/" data-id="cjrc10tbv000mjgwr862hw2jm" class="article-share-link">Share</a>
+      <a data-url="http://aiirohituzi.github.io/2017/11/30/hello-world/" data-id="ck4bd67xp000mjsvmgy1fu3vj" class="article-share-link">Share</a>
       
         <a href="http://aiirohituzi.github.io/2017/11/30/hello-world/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -304,7 +353,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://aiirohituzi.github.io/2017/11/12/javascript-json-sort/" data-id="cjrc10tbx000pjgwrg8igv2xh" class="article-share-link">Share</a>
+      <a data-url="http://aiirohituzi.github.io/2017/11/12/javascript-json-sort/" data-id="ck4bd67xt000qjsvmryr5efwi" class="article-share-link">Share</a>
       
         <a href="http://aiirohituzi.github.io/2017/11/12/javascript-json-sort/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -352,7 +401,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://aiirohituzi.github.io/2017/08/20/react-bootstrap-style/" data-id="cjrc10tc5000wjgwr39tfg6he" class="article-share-link">Share</a>
+      <a data-url="http://aiirohituzi.github.io/2017/08/20/react-bootstrap-style/" data-id="ck4bd67xw000vjsvmtvzxqqx8" class="article-share-link">Share</a>
       
         <a href="http://aiirohituzi.github.io/2017/08/20/react-bootstrap-style/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -402,7 +451,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://aiirohituzi.github.io/2017/08/04/csrf-memo/" data-id="cjrc10tbk0009jgwr5f5v0p43" class="article-share-link">Share</a>
+      <a data-url="http://aiirohituzi.github.io/2017/08/04/csrf-memo/" data-id="ck4bd67xc0009jsvmpvisqivw" class="article-share-link">Share</a>
       
         <a href="http://aiirohituzi.github.io/2017/08/04/csrf-memo/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -464,7 +513,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://aiirohituzi.github.io/2017/07/12/django-outside-access/" data-id="cjrc10tbs000jjgwrnnan2vu7" class="article-share-link">Share</a>
+      <a data-url="http://aiirohituzi.github.io/2017/07/12/django-outside-access/" data-id="ck4bd67yc001gjsvm9ycskgmb" class="article-share-link">Share</a>
       
         <a href="http://aiirohituzi.github.io/2017/07/12/django-outside-access/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -511,63 +560,9 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://aiirohituzi.github.io/2017/07/09/smartfields/" data-id="cjrc10tc6000yjgwre0jabxrc" class="article-share-link">Share</a>
+      <a data-url="http://aiirohituzi.github.io/2017/07/09/smartfields/" data-id="ck4bd67y20014jsvm98hanjkw" class="article-share-link">Share</a>
       
         <a href="http://aiirohituzi.github.io/2017/07/09/smartfields/#disqus_thread" class="article-comment-link">Comments</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/django/">django</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-django-db-insert" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/06/20/django-db-insert/" class="article-date">
-  <time datetime="2017-06-20T13:38:08.000Z" itemprop="datePublished">2017-06-20</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/06/20/django-db-insert/">django에서 데이터베이스에 Insert하기</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>클라이언트로부터 파라메터를 입력받아 request 가 날아오면</p>
-<p>그 데이터들을 이용하여 따로 query 를 짤 필요 없이 django 내장 함수들을 통해 처리할 수 있는</p>
-<p>방법이 있다. (이 방법이 더 쉬운지에 대해서는 개인차에 따라 다르니 본인이 좋다고 생각하는 방법을 사용하면 될듯)<br><br></p>
-<p>간단한 예시를 들어 설명하자면</p>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">postForm = PostForm(request.POST)</div></pre></td></tr></table></figure>
-<p>request 를 받을 함수 내에서 request 데이터를 받아 해당 model 의 Form 객체를 생성한다.</p>
-<p>이 때 request 로 넘어오는 파라메터 값의 명칭이 Form에 정의해놓은 명칭과 일치해야 자동으로 값을 입력한다.<br><br></p>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> postForm.is_valid():</div><div class="line">    post_obj = postForm.save(commit=<span class="keyword">False</span>)      <span class="comment"># true일 경우 바로 데이터베이스에 적용, 현재 유저정보가 담기지 않았기에 not null 제약조건에 걸려 작업이 실패하므로 false</span></div><div class="line">    post_obj.owner_id = user_row.id</div><div class="line">    post_obj.save()                             <span class="comment"># obj.save(commit=True) 와 동일</span></div></pre></td></tr></table></figure>
-<p>그 후 Form.save() 라는 함수를 이용하여 DB에 바로 Insert 를 해줄 수 있다.</p>
-<p>인자로 commit 이란 것을 설정해줄 수 있는데, True 로 설정해놓았다면 그 즉시 Insert 작업을 시행하고</p>
-<p>False 라면 DB 에 넣을 준비가 되어있는 객체를 생성하여 받아올 수 있게된다.<br><br></p>
-<p>위의 예시의 경우 request 로 받지 않은 별도의 column 값을 입력하지 않아 Insert 에러가 발생하기 때문에</p>
-<p>따로 입력작업을 한번 더 거친 후,</p>
-<p>obj.save(commit=True) 함수를 통해 Insert 작업을 처리하는 모습이다.</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://aiirohituzi.github.io/2017/06/20/django-db-insert/" data-id="cjrc10tbo000djgwrvnm6h3x3" class="article-share-link">Share</a>
-      
-        <a href="http://aiirohituzi.github.io/2017/06/20/django-db-insert/#disqus_thread" class="article-comment-link">Comments</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/django/">django</a></li></ul>
@@ -595,7 +590,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CORS-Cross-Origin-Resource-Sharing/">CORS, Cross Origin Resource Sharing</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML5-localStorage/">HTML5, localStorage</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React-js-Lifecycle/">React.js, Lifecycle</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/axios/">axios</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/django/">django</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/django-csrf/">django, csrf</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/macOS/">macOS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/markdown/">markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python-virtualenv/">python, virtualenv</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/react-bootstrap/">react-bootstrap</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/test-git-hexo/">test, git, hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webpack-babel-async-await/">webpack, babel, async, await</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/xlsxwriter/">xlsxwriter</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CORS-Cross-Origin-Resource-Sharing/">CORS, Cross Origin Resource Sharing</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML5-localStorage/">HTML5, localStorage</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React-js/">React.js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React-js-Lifecycle/">React.js, Lifecycle</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/axios/">axios</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/django/">django</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/django-csrf/">django, csrf</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/macOS/">macOS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/markdown/">markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python-virtualenv/">python, virtualenv</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/react-bootstrap/">react-bootstrap</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/test-git-hexo/">test, git, hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webpack-babel-async-await/">webpack, babel, async, await</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/xlsxwriter/">xlsxwriter</a></li></ul>
     </div>
   </div>
 
@@ -605,7 +600,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/CORS-Cross-Origin-Resource-Sharing/" style="font-size: 10px;">CORS, Cross Origin Resource Sharing</a> <a href="/tags/HTML5-localStorage/" style="font-size: 10px;">HTML5, localStorage</a> <a href="/tags/React-js-Lifecycle/" style="font-size: 10px;">React.js, Lifecycle</a> <a href="/tags/axios/" style="font-size: 10px;">axios</a> <a href="/tags/django/" style="font-size: 20px;">django</a> <a href="/tags/django-csrf/" style="font-size: 10px;">django, csrf</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/macOS/" style="font-size: 10px;">macOS</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/python-virtualenv/" style="font-size: 10px;">python, virtualenv</a> <a href="/tags/react-bootstrap/" style="font-size: 10px;">react-bootstrap</a> <a href="/tags/test-git-hexo/" style="font-size: 10px;">test, git, hexo</a> <a href="/tags/webpack-babel-async-await/" style="font-size: 10px;">webpack, babel, async, await</a> <a href="/tags/xlsxwriter/" style="font-size: 10px;">xlsxwriter</a>
+      <a href="/tags/CORS-Cross-Origin-Resource-Sharing/" style="font-size: 10px;">CORS, Cross Origin Resource Sharing</a> <a href="/tags/HTML5-localStorage/" style="font-size: 10px;">HTML5, localStorage</a> <a href="/tags/React-js/" style="font-size: 10px;">React.js</a> <a href="/tags/React-js-Lifecycle/" style="font-size: 10px;">React.js, Lifecycle</a> <a href="/tags/axios/" style="font-size: 10px;">axios</a> <a href="/tags/django/" style="font-size: 20px;">django</a> <a href="/tags/django-csrf/" style="font-size: 10px;">django, csrf</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/macOS/" style="font-size: 10px;">macOS</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/python-virtualenv/" style="font-size: 10px;">python, virtualenv</a> <a href="/tags/react-bootstrap/" style="font-size: 10px;">react-bootstrap</a> <a href="/tags/test-git-hexo/" style="font-size: 10px;">test, git, hexo</a> <a href="/tags/webpack-babel-async-await/" style="font-size: 10px;">webpack, babel, async, await</a> <a href="/tags/xlsxwriter/" style="font-size: 10px;">xlsxwriter</a>
     </div>
   </div>
 
@@ -614,7 +609,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a></li></ul>
     </div>
   </div>
 
@@ -625,6 +620,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2019/12/18/react-hooks-useState-spread/">React hooks의 useState에서 Spread 응용 메모</a>
+          </li>
         
           <li>
             <a href="/2019/01/25/django-outside-access-2/">django media 파일</a>
@@ -640,10 +639,6 @@
         
           <li>
             <a href="/2017/11/30/hello-world/">Hello World</a>
-          </li>
-        
-          <li>
-            <a href="/2017/11/12/javascript-json-sort/">javascript로 json 오브젝트 sort</a>
           </li>
         
       </ul>

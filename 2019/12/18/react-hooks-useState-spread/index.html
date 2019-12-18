@@ -3,57 +3,27 @@
 <head>
   <meta charset="utf-8">
   
-  <title>마크다운 기본 사용법 | aiirohituzi</title>
+  <title>React hooks의 useState에서 Spread 응용 메모 | aiirohituzi</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="헤더
-큰 제목
-12큰 제목=========
-
-중간 제목
-12중간 제목-----------
-
-H1~H6
-123456# H1## H2### H3#### H4##### H5###### H6
-
-
-블럭 인용123&amp;gt; 문단&amp;gt;&amp;gt; 문단&amp;gt;&amp;gt;&amp;gt; 문단
-코드4개의 공백 또는 하나의 탭으로 들여쓰기를 만난 후 부터 들여쓰지 않은 행을 만날때까지
-(본">
+  <meta name="description" content="useState 를 통해 state 를 다룰 때 단순한 단일의 값이 아닌 배열이나 오브젝트의 형태로 처리하고 싶을 때가 있다.
+값을 여럿 늘여써도 결과는 같아도 코드의 가독성이나 관리의 편의성을 생각했을 때 오브젝트로 처리해야 하는 경우가 생긴다.
+이 때 ES6에서 추가된 Spread 연산자를 사용한다면 좀더 직관적이고 간편하게 이를 처리할 수 있다.
+기본">
 <meta property="og:type" content="article">
-<meta property="og:title" content="마크다운 기본 사용법">
-<meta property="og:url" content="http://aiirohituzi.github.io/2017/03/19/markdown/index.html">
+<meta property="og:title" content="React hooks의 useState에서 Spread 응용 메모">
+<meta property="og:url" content="http://aiirohituzi.github.io/2019/12/18/react-hooks-useState-spread/index.html">
 <meta property="og:site_name" content="aiirohituzi">
-<meta property="og:description" content="헤더
-큰 제목
-12큰 제목=========
-
-중간 제목
-12중간 제목-----------
-
-H1~H6
-123456# H1## H2### H3#### H4##### H5###### H6
-
-
-블럭 인용123&amp;gt; 문단&amp;gt;&amp;gt; 문단&amp;gt;&amp;gt;&amp;gt; 문단
-코드4개의 공백 또는 하나의 탭으로 들여쓰기를 만난 후 부터 들여쓰지 않은 행을 만날때까지
-(본">
-<meta property="og:updated_time" content="2017-03-19T14:17:04.009Z">
+<meta property="og:description" content="useState 를 통해 state 를 다룰 때 단순한 단일의 값이 아닌 배열이나 오브젝트의 형태로 처리하고 싶을 때가 있다.
+값을 여럿 늘여써도 결과는 같아도 코드의 가독성이나 관리의 편의성을 생각했을 때 오브젝트로 처리해야 하는 경우가 생긴다.
+이 때 ES6에서 추가된 Spread 연산자를 사용한다면 좀더 직관적이고 간편하게 이를 처리할 수 있다.
+기본">
+<meta property="og:updated_time" content="2019-12-18T14:00:49.703Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="마크다운 기본 사용법">
-<meta name="twitter:description" content="헤더
-큰 제목
-12큰 제목=========
-
-중간 제목
-12중간 제목-----------
-
-H1~H6
-123456# H1## H2### H3#### H4##### H5###### H6
-
-
-블럭 인용123&amp;gt; 문단&amp;gt;&amp;gt; 문단&amp;gt;&amp;gt;&amp;gt; 문단
-코드4개의 공백 또는 하나의 탭으로 들여쓰기를 만난 후 부터 들여쓰지 않은 행을 만날때까지
-(본">
+<meta name="twitter:title" content="React hooks의 useState에서 Spread 응용 메모">
+<meta name="twitter:description" content="useState 를 통해 state 를 다룰 때 단순한 단일의 값이 아닌 배열이나 오브젝트의 형태로 처리하고 싶을 때가 있다.
+값을 여럿 늘여써도 결과는 같아도 코드의 가독성이나 관리의 편의성을 생각했을 때 오브젝트로 처리해야 하는 경우가 생긴다.
+이 때 ES6에서 추가된 Spread 연산자를 사용한다면 좀더 직관적이고 간편하게 이를 처리할 수 있다.
+기본">
   
     <link rel="alternate" href="/atom.xml" title="aiirohituzi" type="application/atom+xml">
   
@@ -102,10 +72,10 @@ H1~H6
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-markdown" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-react-hooks-useState-spread" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2017/03/19/markdown/" class="article-date">
-  <time datetime="2017-03-19T13:41:41.000Z" itemprop="datePublished">2017-03-19</time>
+    <a href="/2019/12/18/react-hooks-useState-spread/" class="article-date">
+  <time datetime="2019-12-18T12:46:34.000Z" itemprop="datePublished">2019-12-18</time>
 </a>
     
   </div>
@@ -116,7 +86,7 @@ H1~H6
         
   
     <h1 class="article-title" itemprop="name">
-      마크다운 기본 사용법
+      React hooks의 useState에서 Spread 응용 메모
     </h1>
   
 
@@ -124,42 +94,25 @@ H1~H6
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="헤더"><a href="#헤더" class="headerlink" title="헤더"></a>헤더</h2><ul>
-<li><p>큰 제목</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">큰 제목</div><div class="line">=========</div></pre></td></tr></table></figure>
-</li>
-<li><p>중간 제목</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">중간 제목</div><div class="line">-----------</div></pre></td></tr></table></figure>
-</li>
-<li><p>H1~H6</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"># H1</div><div class="line">## H2</div><div class="line">### H3</div><div class="line">#### H4</div><div class="line">##### H5</div><div class="line">###### H6</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<h2 id="블럭-인용"><a href="#블럭-인용" class="headerlink" title="블럭 인용"></a>블럭 인용</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&gt; 문단</div><div class="line">&gt;&gt; 문단</div><div class="line">&gt;&gt;&gt; 문단</div></pre></td></tr></table></figure>
-<h2 id="코드"><a href="#코드" class="headerlink" title="코드"></a>코드</h2><pre><code>4개의 공백 또는 하나의 탭으로 들여쓰기를 만난 후 부터 들여쓰지 않은 행을 만날때까지
-(본문과 같이 표현됨)
-</code></pre><h2 id="목록"><a href="#목록" class="headerlink" title="목록"></a>목록</h2><ul>
-<li><p>순서있는 목록</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">1. first</div><div class="line">2. second</div><div class="line">3. third</div></pre></td></tr></table></figure>
-</li>
-<li><p>순서없는 목록</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">*, +, -</div><div class="line">* 목록1</div><div class="line">* 목록2</div><div class="line">+ 목록1</div><div class="line">+ 목록2</div><div class="line">- 목록1</div><div class="line">- 목록2</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<h2 id="수평선"><a href="#수평선" class="headerlink" title="수평선"></a>수평선</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">* * *</div><div class="line">***</div><div class="line">*****</div><div class="line">- - -</div><div class="line">----------------------------</div></pre></td></tr></table></figure>
-<h2 id="강조"><a href="#강조" class="headerlink" title="강조"></a>강조</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">*이택릭체*, _이탤릭체_</div><div class="line">**볼드체**, __볼드체__</div><div class="line">~~취소선~~</div></pre></td></tr></table></figure>
-<h2 id="하이퍼링크"><a href="#하이퍼링크" class="headerlink" title="하이퍼링크"></a>하이퍼링크</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[링크명](URL), [링크명](URL &quot;설명&quot;)</div></pre></td></tr></table></figure>
-<p><a href="https://www.google.co.kr/" title="구글 링크" target="_blank" rel="external">링크 예시</a></p>
+        <p>useState 를 통해 state 를 다룰 때 단순한 단일의 값이 아닌 배열이나 오브젝트의 형태로 처리하고 싶을 때가 있다.</p>
+<p>값을 여럿 늘여써도 결과는 같아도 코드의 가독성이나 관리의 편의성을 생각했을 때 오브젝트로 처리해야 하는 경우가 생긴다.</p>
+<p>이 때 ES6에서 추가된 Spread 연산자를 사용한다면 좀더 직관적이고 간편하게 이를 처리할 수 있다.</p>
+<p>기본적인 형태는 다음과 같다.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> [state, setState] = useState(&#123;</div><div class="line">    <span class="attr">key1</span>: value1,</div><div class="line">    <span class="attr">key2</span>: value2</div><div class="line">&#125;);</div><div class="line"></div><div class="line">setState(&#123; ...state, <span class="attr">key</span>: value &#125;);</div></pre></td></tr></table></figure>
+<p>위와 같은 문법으로 useState 를 사용할 경우 원하는 값을 해당 state object의 내부에 추가하거나 혹은 수정할 수 있다.<br>Spread 연산자를 이용하여 기존의 state값을 전부 복사한 뒤 직접 명시한 값을 추가(혹은 수정)하는 원리이다. Spread 연산자 없이도 물론 구현이 가능하겠지만 Spread 연산자를 사용하면 코드가 한결 간결해지니 사용하지 않을 이유가 없다.</p>
+<p>여기서 추가로 응용을 하고자 한다면</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> [state1, setState1] = useState(&#123;&#125;);</div><div class="line"><span class="keyword">const</span> [state2, setState2] = useState(&#123;&#125;);</div><div class="line"><span class="keyword">const</span> [state3, setState3] = useState(&#123;&#125;);</div><div class="line"></div><div class="line"><span class="keyword">const</span> [states] = [state1, state2, state3];</div><div class="line"></div><div class="line"><span class="keyword">const</span> [setStates] = [setState1, setState2, setState3];</div><div class="line"></div><div class="line">states[<span class="number">0</span>]; <span class="comment">// state1</span></div><div class="line"><span class="comment">// setState3</span></div><div class="line">setStates[<span class="number">2</span>](&#123;</div><div class="line">    ...states[<span class="number">2</span>],</div><div class="line">    <span class="attr">key</span>: value</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>위와 같이 여러개의 오브젝트형 state들을 한 곳에 묶어서 관리할 수도 있다.</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://aiirohituzi.github.io/2017/03/19/markdown/" data-id="ck4bd67xy000yjsvmqpd4a89a" class="article-share-link">Share</a>
+      <a data-url="http://aiirohituzi.github.io/2019/12/18/react-hooks-useState-spread/" data-id="ck4bd67y30016jsvmcds1tg7e" class="article-share-link">Share</a>
       
-        <a href="http://aiirohituzi.github.io/2017/03/19/markdown/#disqus_thread" class="article-comment-link">Comments</a>
+        <a href="http://aiirohituzi.github.io/2019/12/18/react-hooks-useState-spread/#disqus_thread" class="article-comment-link">Comments</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/markdown/">markdown</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React-js/">React.js</a></li></ul>
 
     </footer>
   </div>
@@ -167,19 +120,10 @@ H1~H6
     
 <nav id="article-nav">
   
-    <a href="/2017/04/10/python-virtualenv/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          Python 가상 환경 설치 (virtualenv)
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/03/18/posting-test/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2019/01/25/django-outside-access-2/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">포스팅 테스트</div>
+      <div class="article-nav-title">django media 파일</div>
     </a>
   
 </nav>
@@ -284,7 +228,7 @@ H1~H6
 <script>
   var disqus_shortname = 'aiirohituzi';
   
-  var disqus_url = 'http://aiirohituzi.github.io/2017/03/19/markdown/';
+  var disqus_url = 'http://aiirohituzi.github.io/2019/12/18/react-hooks-useState-spread/';
   
   (function(){
     var dsq = document.createElement('script');
